@@ -1,5 +1,5 @@
 ---
-title: "Einfache Ausdrücke und Datentypen"
+title: "Einfache Ausdrücke, Datentypen und Variablen"
 teaching: 0
 exercises: 0
 questions:
