@@ -1,18 +1,19 @@
 ---
-title: "Einfache Anweisungen und Datentypen"
+title: "Einfache Ausdrücke und Datentypen"
 teaching: 0
 exercises: 0
 questions:
-- "Wie kann man einfache Anweisungen in Python ausführen?"
+- "Wie kann man einfache Ausdrücke in Python ausführen?"
 - "Was sind Datentypen?"
 objectives:
 - "Umgang mit der Python-Konsole"
 - "Datentypen verstehen"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Durch interaktive Eingabe in der Python-Konsole"
+- "Datentypen sind FIXME"
 ---
 
-# Python starten
+## Python starten
 
 Zum Kennenlernen arbeiten wir zunächst nur auf der interaktiven Kommandozeile (Konsole) des Python-Interpreters. Diese wird gestartet, indem wir ein Terminal (kann unter Ubuntu z.B. mit dem Shortcut  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> gestartet werden) öffnen und folgendes eintippen:
 
@@ -33,7 +34,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Die Versionen von Python und GCC werden wahrscheinlich nicht überall identisch sein. Wichtig: Python muss in Version 3.6.x vorliegen.
 
 
-# Kommentare und Dokumentation
+## Kommentare und Dokumentation
 
 Kommentieren Sie ihren eigenen Code und dokumentieren Sie somit dessen Funktionsweise. Das erleichtert anderen und auch Ihnen, den Code später noch zu verstehen. Außerdem können auf diese Weise Voraussetzungen Ihres Programms an die Eingabe und eine Darlegung der Form des Outputs dargelegt werden. Kommentare im Code beginnen Sie mit einer `#`.
 
@@ -53,7 +54,12 @@ Ein Beispiel:
 > Ihre Kommilitonen, Ihre Dozentin und Ihr Tutor Sie/sie verstehen :)
 {: .callout}
 
-# Ganze Zahlen und Kommazahlen
+## Ganze Zahlen und Kommazahlen
+
+In Programmen muss man immer wieder Dinge berechnen, zum Beispiel Häufigkeiten 
+von Vorkommen von Wörtern.
+Python kann mit zwei Arten von Zahlen umgehen: ganzen Zahlen (*Integer*) und 
+Kommazahlen (*Float* von „Gleitkommazahl“).
 
 Zunächst wollen wir testen, wie die Python-Konsole auf Dateneingaben reagiert. Dafür tippen wir eine x-beliebige Zahl ein und drücken die Eingabetaste <kbd>Return</kbd>:
 
@@ -82,6 +88,142 @@ Die Python-Konsole gibt uns das Ergebnis der Operation „+“ zurück, angewend
 {: .output}
 
 Zum Verständnis: Wir haben der Python-Konsole das Input `6+6` gegeben und als Output `12` erhalten. Gleichzeitig haben wir der Operation `+` das Input `(6,6)` gegeben und als Output `12` erhalten.
+
+## Rechenoperationen
+
+Es gibt folgende relevante Rechenoperationen in Python, die Operatoren sind in Klammern mit angebeben.
+
+1. Addition (`+`) und Subtraktion (`-`)
+2. Multiplikation (`*`), Division (`/`)
+3. ganzzahlige Division (`//`), Modulo (`%`)
+
+`+` und `-` werden zusätzlich als Vorzeichenoperatoren verwendet, wobei wir `+` in diesem Sinne nicht benutzen werden.
+
+~~~python
+-12
+~~~
+
+Wie in der Mathematik, haben auch in Python `*` und `/` Vorrang vor `+` und `-`. 
+
+> ## Operatorrangfolge
+> Was ist die Ausgabe vom Ausdruck und warum?
+> ~~~python
+> -4*2+10
+>~~~
+>> ## Lösung
+>>~~~
+>> 2
+>>~~~
+>> {: .output}
+>> Zuerst wird `-4*2` ausgewertet, was `-8` ergibt. 
+>> Danach wird mit `+10` addiert und das Ergebnis `2` angezeigt.
+>{: .solution}
+{: .challenge}
+
+Klammern können genutzt werden, um die Reihenfolge der Operatoren explizit anzugeben.
+~~~python
+-4*(2+10)
+~~~
+~~~
+-48
+~~~
+{: .output}
+
+Wenn wir dividieren, erhalten wir als Rückgabewert keinen Integer, sondern einen Float:
+~~~python
+3/4
+~~~
+~~~
+0.75
+~~~
+{: .output}
+
+Das gilt auch, wenn der Dividend durch den Divisor teilbar ist 
+und eigentlich eine ganze Zahl anstatt einer Kommazahl zurückgegeben werden
+könnte. 
+~~~python
+-10/5
+~~~
+~~~
+-2.0
+~~~
+{: .output}
+Der Operator erzeugt also immer einen Float als Rückggabewert.
+
+
+> ## Was berechnen die Operatoren `//` und `%` ?
+> Finden Sie es für die folgenden Ausdrücke heraus!
+> ~~~python
+> 5//2
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 2
+>> ~~~
+>> {: .output}
+> {: .solution}
+>
+> ~~~python
+> 6//4
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 1
+>> ~~~
+>> {: .output}
+> {: .solution}
+>
+> ~~~python
+> 9//3
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 3
+>> ~~~
+>> {: .output}
+> {: .solution}
+>
+> ~~~python
+> 7%4
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 3
+>> ~~~
+>> {: .output}
+> {: .solution}
+>
+> ~~~python
+> 15%13
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 2
+>> ~~~
+>> {: .output}
+> {: .solution}
+>
+> ~~~python
+> 4%2
+> ~~~
+>> ## Lösung
+>> ~~~
+>> 0
+>> ~~~
+>> {: .output}
+> {: .solution}
+{: .challenge}
+
+
+Nicht auf die Lösung gekommen? Kein Problem:
+
+Ganzzahlige Division (`//`) gibt uns das Ergebnis der Division ohne Nachkommastellen als Integer (nicht: Float) zurück.
+
+Modulo-Rechnung (`%`) hingegen gibt uns den Rest der ganzzahligen Division zurück. 
+Das heißt immer dann, wenn `a` durch `b` teilbar ist, ist `a%b` gleich 0.
+
+Diese zwei Operationen können in verschiedenen Anwendungsfällen sehr nützlich sein.
+
 
 {% include links.md %}
 
