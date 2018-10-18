@@ -4,7 +4,7 @@
 
 {% include base_path.html %}
 
-<h2>Key Points</h2>
+<h2>{{ site.t[page.lang].key_points}}</h2>
 <table class="table table-striped">
 {% for episode in site.episodes %}
   {% unless episode.break %}

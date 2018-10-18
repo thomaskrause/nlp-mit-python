@@ -2,16 +2,16 @@
     Display an episode's timings and learning objectives.
 {% endcomment %}
 <blockquote class="objectives">
-  <h2>Overview</h2>
+  <h2>{{ site.t[page.lang].overview }}</h2>
 
   <div class="row">
     <div class="col-md-3">
-      <strong>Teaching:</strong> {{ page.teaching }} min
+      <strong>{{ site.t[page.lang].teaching}}</strong> {{ page.teaching }} min
       <br/>
-      <strong>Exercises:</strong> {{ page.exercises }} min
+      <strong>{{ site.t[page.lang].exercises}}</strong> {{ page.exercises }} min
     </div>
     <div class="col-md-9">
-      <strong>Questions</strong>
+      <strong>{{ site.t[page.lang].questions}}</strong>
       <ul>
 	{% for question in page.questions %}
 	<li>{{ question|markdownify }}</li>
@@ -24,7 +24,7 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-9">
-      <strong>Objectives</strong>
+      <strong>{{ site.t[page.lang].objectives}}</strong>
       <ul>
 	{% for objective in page.objectives %}
 	<li>{{ objective|markdownify }}</li>

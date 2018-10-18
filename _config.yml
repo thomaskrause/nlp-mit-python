@@ -7,7 +7,10 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-carpentry: "swc"
+carpentry: "korpling"
+
+# Language of the template
+default_language: &default_language "de"
 
 # Overall title for pages.
 title: "Einführung in die maschinelle Sprachverarbeitung mit Python"
@@ -77,19 +80,21 @@ collections:
 defaults:
   - values:
       root: .
-      layout: page
+      lang: *default_language
   - scope:
       path: ""
       type: episodes
     values:
       root: ..
       layout: episode
+      lang: *default_language
   - scope:
       path: ""
       type: extras
     values:
       root: ..
       layout: page
+      lang: *default_language
 
 # Files and directories that are not to be copied.
 exclude:
@@ -99,3 +104,27 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
+
+# Translations of the template itself (not the content)
+t:
+  en:
+    overview: "Overview"
+    teaching: "Teaching:"
+    exercises: "Exercises:"
+    questions: "Questions"
+    objectives: "Objectives"
+    key_points: "Key Points"
+    finish: "Finish"
+    schedule: "Schedule"
+    schedule_disclaimer: "The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor."
+  de:
+    overview: "Übersicht"
+    teaching: "Unterricht:"
+    exercises: "Übungen:"
+    questions: "Fragen"
+    objectives: "Ziele"
+    key_points: "Kernpunkte"
+    finish: "Ende"
+    schedule: "Zeitplan"
+    schedule_disclaimer: "Der tatsächliche Zeitplan kann je nach den vom Kursleiter gewählten Themen und Übungen leicht variieren."
+
