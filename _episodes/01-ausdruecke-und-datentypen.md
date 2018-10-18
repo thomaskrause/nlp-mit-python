@@ -4,12 +4,12 @@ teaching: 0
 exercises: 0
 questions:
 - "Wie kann man einfache Ausdrücke in Python ausführen?"
-- "Was sind Datentypen?"
+- "Was sind Datentypen und Variablen?"
 objectives:
 - "Umgang mit der Python-Konsole"
 - "Datentypen verstehen"
 keypoints:
-- "Durch interaktive Eingabe in der Python-Konsole"
+- "Einfache Ausdrücke können durch die interaktive Eingabe in der Python-Konsole ausgeführt werden."
 - "Datentypen sind FIXME"
 ---
 
@@ -51,7 +51,7 @@ Ein Beispiel:
 > in Englisch zu halten, da sie so für ein
 > breiteres Publikum verständlich sind. Im Rahmen dieses Kurses können
 > Sie das aber ignorieren. Sie sollten lediglich sicherstellen, dass 
-> Ihre Kommilitonen, Ihre Dozentin und Ihr Tutor Sie/sie verstehen :)
+> Ihre Kommilitonen, Ihre Dozentin und Ihr Tutor Sie verstehen.
 {: .callout}
 
 ## Ganze Zahlen und Kommazahlen
@@ -72,7 +72,7 @@ Der Python-Interpreter gibt nun folgende Ausgabe als Antwort:
 ~~~
 {: .output}
 
-Die Python-Konsole berechnet für uns 12. Das klingt nur so merkwürdig, weil es an 12 nichts mehr zu berechnen gibt, weshalb Ein- und Ausgabe identisch sind. 
+Die Python-Konsole berechnet für uns den Wert 12. Das klingt nur so merkwürdig, weil es an ursprünglichen Wert 12 nichts mehr zu berechnen gibt, weshalb Ein- und Ausgabe identisch sind. 
 
 Trotzdem haben wir einen vollständigen *Ausdruck* (in Englisch „Expression“) an Python übergeben, den wir mit der Eingabetaste abgeschlossen haben.
 
@@ -224,6 +224,65 @@ Das heißt immer dann, wenn `a` durch `b` teilbar ist, ist `a%b` gleich 0.
 
 Diese zwei Operationen können in verschiedenen Anwendungsfällen sehr nützlich sein.
 
+## Variablen
+
+Wir programmieren (u. a.), um Probleme zu lösen und uns eigene Rechenarbeit zu ersparen. Für komplexe Berechnungen nützt uns die simple Berechnung allein wenig, wir müssen ihr Ergebnis auch zwischenspeichern, um es weiter verwenden zu können. Hierfür gibt es Variablen.
+
+- Variablen sind Namen für Werte.
+- In Python wird das `=` Symbol benutzt um eine Wert auf der rechten Seite einer
+  Variable auf der linken Seite zuzuweisen.
+- Variablen werden erstellt, wenn ihnen ein Wert zugewiesen wird.
+
+~~~python
+zahl1 = 5
+zahl2 = 7
+~~~
+
+Wir haben 5 in der Variable mit dem Namen zahl1 gespeichert, 7 in zahl2. Die Zuweisung eines Wertes zu einer Variable wird auch *assignment* genannt.
+
+Was passiert, wenn wir anschließend folgenden Befehl ausführen?
+~~~python
+zahl1+zahl2
+~~~
+Python evaluiert die Werte von zahl1 und zahl2 und addiert diese. 
+~~~
+12
+~~~
+{: .output}
+Und auch dieses Ergebnis können wir wieder in einer Variable speichern:
+~~~python
+ergebnis = zahl1+zahl2
+~~~
+
+> ## Ausgabe und Namen von Variablen
+> Wie können wir nun das Ergebnis der Addition ansehen? 
+> Versuchen Sie es auf der Python-Konsole.
+>> ## Lösung
+>> ~~~python
+>> ergebnis
+>> ~~~
+> {: .solution}
+>
+> Außerdem: Was passiert, wenn wir die folgende Zeilen nacheinander ausführen?
+> ~~~python
+> zahl1
+> Zahl2
+> ~~~
+>> ## Lösung
+>> ~~~
+>> >>> zahl1
+>> 5
+>> >>> Zahl2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Zahl2' is not defined
+>> ~~~
+>> {: .error}
+> {: .solution}
+> Was hat das zu bedeuten? 
+> Wie können wir das „reparieren“? 
+> Was erfahren wir über Variablennamen?
+{: .challenge}
 
 {% include links.md %}
 
