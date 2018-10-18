@@ -53,5 +53,35 @@ Ein Beispiel:
 > Ihre Kommilitonen, Ihre Dozentin und Ihr Tutor Sie/sie verstehen :)
 {: .callout}
 
+# Ganze Zahlen und Kommazahlen
+
+Zunächst wollen wir testen, wie die Python-Konsole auf Dateneingaben reagiert. Dafür tippen wir eine x-beliebige Zahl ein und drücken die Eingabetaste <kbd>Return</kbd>:
+
+~~~python
+12
+~~~
+Der Python-Interpreter gibt nun folgende Ausgabe als Antwort:
+~~~
+12
+~~~
+{: .output}
+
+Die Python-Konsole berechnet für uns 12. Das klingt nur so merkwürdig, weil es an 12 nichts mehr zu berechnen gibt, weshalb Ein- und Ausgabe identisch sind. 
+
+Trotzdem haben wir einen vollständigen *Ausdruck* (in Englisch „Expression“) an Python übergeben, den wir mit der Eingabetaste abgeschlossen haben.
+
+12 lässt sich aber noch anders ausdrücken bzw. berechnen, z. B. durch
+~~~python
+6+6
+~~~
+
+Die Python-Konsole gibt uns das Ergebnis der Operation „+“ zurück, angewendet auf 6 und 6.
+~~~
+12
+~~~
+{: .output}
+
+Zum Verständnis: Wir haben der Python-Konsole das Input `6+6` gegeben und als Output `12` erhalten. Gleichzeitig haben wir der Operation `+` das Input `(6,6)` gegeben und als Output `12` erhalten.
+
 {% include links.md %}
 
