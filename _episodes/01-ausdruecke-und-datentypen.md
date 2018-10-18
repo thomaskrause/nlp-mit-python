@@ -7,10 +7,15 @@ questions:
 - "Was sind Datentypen und Variablen?"
 objectives:
 - "Umgang mit der Python-Konsole"
-- "Datentypen verstehen"
+- "Datentypen, Werte und Variablen verstehen"
 keypoints:
 - "Einfache Ausdrücke können durch die interaktive Eingabe in der Python-Konsole ausgeführt werden."
-- "Datentypen sind FIXME"
+- "Datentypen sind Kategorien von Werten"
+- "Unterschiedliche Ausdrücke können Werte mit unterschiedliche Datentypen erzeugen"
+- "Variablen speichern Werte"
+- "Variablen muss ein Wert zugewiesen werden bevor sie genutzt werden können"
+- "Variablen können in Ausdrücken benutzt werden."
+- "Variablen haben Namen und diese Namen unterscheiden Groß- und Kleinschreibung" 
 ---
 
 ## Python starten
