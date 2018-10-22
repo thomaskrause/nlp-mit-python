@@ -8,6 +8,8 @@ questions:
 objectives:
 - Verstehen des Datentyps `str` Typs von Python
 keypoints:
+- Strings sind Sequenzen von Zeichen auf die über einen Index zugegriffen werden kann.
+- Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
 ---
 
 ## Zeichenketten als Wert definieren
@@ -280,7 +282,7 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 {: .output}
 
 > ## Frage(n)
-> - Warum kann replace einfach mehrmals hintereinander aufgerufen werden?
+> - Warum kann `replace` einfach mehrmals hintereinander aufgerufen werden?
 > - Was passiert, wenn ein String eine zu ersetzende Zeichensequenz nicht enthält?
 {: .discussion}
 
