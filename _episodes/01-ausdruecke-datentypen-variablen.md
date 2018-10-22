@@ -110,7 +110,7 @@ Es gibt folgende relevante Rechenoperationen in Python, die Operatoren sind in K
 
 Wie in der Mathematik, haben auch in Python `*` und `/` Vorrang vor `+` und `-`. 
 
-> ## Operatorrangfolge
+> ## Übung
 > Was ist die Ausgabe vom Ausdruck und warum?
 > ~~~python
 > -4*2+10
@@ -156,78 +156,35 @@ könnte.
 Der Operator erzeugt also immer einen Float als Rückggabewert.
 
 
-> ## Was berechnen die Operatoren `//` und `%` ?
+> ## Übung
+> Was berechnen die Operatoren `//` und `%` ?
 > Finden Sie es für die folgenden Ausdrücke heraus!
 > ~~~python
 > 5//2
-> ~~~
->> ## Lösung
->> ~~~
->> 2
->> ~~~
->> {: .output}
-> {: .solution}
->
-> ~~~python
 > 6//4
-> ~~~
->> ## Lösung
->> ~~~
->> 1
->> ~~~
->> {: .output}
-> {: .solution}
->
-> ~~~python
 > 9//3
 > ~~~
->> ## Lösung
->> ~~~
->> 3
->> ~~~
->> {: .output}
-> {: .solution}
->
 > ~~~python
 > 7%4
-> ~~~
->> ## Lösung
->> ~~~
->> 3
->> ~~~
->> {: .output}
-> {: .solution}
->
-> ~~~python
 > 15%13
-> ~~~
->> ## Lösung
->> ~~~
->> 2
->> ~~~
->> {: .output}
-> {: .solution}
->
-> ~~~python
 > 4%2
 > ~~~
 >> ## Lösung
->> ~~~
->> 0
->> ~~~
->> {: .output}
-> {: .solution}
+>> - `5//2` = `2` 
+>> - `6//4` = `1`
+>> - `9//3` = `3`
+>> - `7%4` = `3`
+>> - `15%13` = `2`
+>> - `4%2` = `0`
+>>
+>> Ganzzahlige Division (`//`) gibt uns das Ergebnis der Division ohne Nachkommastellen als Integer (nicht: Float) zurück.
+>> Modulo-Rechnung (`%`) hingegen gibt uns den Rest der ganzzahligen Division zurück. 
+>> Das heißt immer dann, wenn `a` durch `b` teilbar ist, ist `a%b` gleich 0.
+>> Diese zwei Operationen können in verschiedenen Anwendungsfällen sehr nützlich sein.
+>{: .solution}
 {: .challenge}
 
 
-Nicht auf die Lösung gekommen? Kein Problem:
-
-Ganzzahlige Division (`//`) gibt uns das Ergebnis der Division ohne Nachkommastellen als Integer (nicht: Float) zurück.
-
-Modulo-Rechnung (`%`) hingegen gibt uns den Rest der ganzzahligen Division zurück. 
-Das heißt immer dann, wenn `a` durch `b` teilbar ist, ist `a%b` gleich 0.
-
-Diese zwei Operationen können in verschiedenen Anwendungsfällen sehr nützlich sein.
 
 ## Variablen
 
@@ -259,16 +216,19 @@ Und auch dieses Ergebnis können wir wieder in einer Variable speichern:
 ergebnis = zahl1+zahl2
 ~~~
 
-> ## Ausgabe und Namen von Variablen
+> ## Übung
 > Wie können wir nun das Ergebnis der Addition ansehen? 
 > Versuchen Sie es auf der Python-Konsole.
 >> ## Lösung
+>> Sie müssen den Variablennamen als Ausdruck in die Konsole eingeben:
 >> ~~~python
 >> ergebnis
 >> ~~~
 > {: .solution}
->
-> Außerdem: Was passiert, wenn wir die folgende Zeilen nacheinander ausführen?
+{: .challenge}
+
+> ## Frage
+> Was passiert, wenn wir die folgende Zeilen nacheinander ausführen?
 > ~~~python
 > zahl1
 > Zahl2
@@ -287,7 +247,7 @@ NameError: name 'Zahl2' is not defined
 > Was hat das zu bedeuten? 
 > Wie können wir das „reparieren“? 
 > Was erfahren wir über Variablennamen?
-{: .challenge}
+{: .discussion}
 
 ## Einfache eingebaute Funktionen
 

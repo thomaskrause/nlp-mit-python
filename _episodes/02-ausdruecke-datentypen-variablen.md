@@ -10,6 +10,8 @@ objectives:
 keypoints:
 ---
 
+## Zeichenketten als Wert definieren
+
 Zeichenketten oder *Strings* sind Sequenzen von Zeichen. 
 Sie werden in Python gekennzeichnet mit umschließenden `'` oder `"`. Folgende Befehle sind also äquivalent:
 
@@ -17,6 +19,15 @@ Sie werden in Python gekennzeichnet mit umschließenden `'` oder `"`. Folgende B
 text = 'Ein Brötchen kostet 25 Cent'
 text = "Ein Brötchen kostet 25 Cent"
 ~~~
+
+Variablen mit einem Textwert haben den Typ `str`:
+~~~python
+type(text)
+~~~
+~~~
+<class 'str'>
+~~~
+{: .output}
 
 Man kann allerdings nicht einen String mit `'` beginnen und dann mit `"` schließen, oder umgekehrt
 ~~~
@@ -27,6 +38,10 @@ text = 'Ein Brötchen kostet 25 Cent"
 SyntaxError: EOL while scanning string literal
 ~~~
 {: .error}
+
+
+
+## Zugriff auf Teile von Strings
 
 Jedem Zeichen in einem String ist ein Index zugewiesen, der seiner Position in der Zeichenkette entspricht. Gezählt wird ab 0 und Leerzeichen werden nicht übersprungen:
 
@@ -50,7 +65,7 @@ text[6]
 >Wir erkennen, dass Python keine Probleme mit Umlauten hat. Das liegt daran, dass in Python 3 (im Gegensatz zu Python 2) Strings standardmäßig in Unicode kodiert sind.
 {: .callout}
 
-> ## Negativer Index
+> ## Frage
 > Indexierung funktioniert auch mit negativen Zahlen:
 > ~~~python
 > text[-3]
@@ -64,9 +79,9 @@ text[6]
 >>{: .output}
 >> Python gibt nicht das 3. Zeichen von vorne, sondern das 3. Zeichen vom Ende des Textes aus.
 > {: .solution}
-{: .challenge}
+{: .discussion}
 
-> ## Index größer als Text
+> ## Frage
 > Was passiert in folgendem Fall? Bevor sie es ausführen, was erwarten Sie?
 > ~~~python
 > text[30]
@@ -80,7 +95,194 @@ IndexError: string index out of range
 >> ~~~
 >> {: .error}
 > {: .solution}
+{: .discussion}
+
+Einen Abschnitt eines Strings (*Substring*) erhalten wir über einen Index `[a:b]` wobei `a` der Index des ersten Zeichens ist und `b` das Ende des Abschnitts beschreibt. `a` ist inklusiv, der `a`-te Buchstabe ist also selbst im Substring enthalten, `b` ist dagegen exklusiv, der `b`-te Buchstabe ist also nicht enthalten, nur der Buchstabe (mit Index `b-1`) davor.
+~~~python
+text[0:3]
+~~~
+~~~
+'Ein'
+~~~
+{: .output}
+
+> ## Fragen
+> Probieren Sie anhand eines Beispielstrings mit der Länge L folgende Dinge aus:
+> - Was passiert, wenn Sie a, b oder beide Grenzen weglassen?
+> - Was passiert, wenn b > L
+> - Was passiert, wenn a > L
+> - Was passiert, wenn a > b? Was wenn a == b?
+> - Was passiert, wenn a > 0 und b < 0?
+> - Was passiert, wenn a < 0 und b > 0?
+{: .discussion}
+
+> ## Übung
+> Beschäftigen wir uns weiter mit dem oben erwähnten String, den wir in text gespeichert haben. Nehmen Sie an, 
+> Sie wollen die für Sie wesentliche
+> Information aus Werbetexten wie „Ein Brötchen kostet 25 Cent“ extrahieren. 
+> Sie interessieren sich nur für das Produkt („Brötchen“) und den Preis („25 Cent“). 
+>
+> Vervollständigen Sie das folgende Codefragment so, dass diese Daten in den beiden Variablen `what` und `howmuch` gespeichert werden.
+> ~~~python
+> what = text
+> howmuch = text
+> ~~~
+>> ## Lösung
+>> ~~~python
+>> what = text[4:12]
+>> howmuch = text[20:len(text)]
+>>~~~
+>{: .solution}
 {: .challenge}
+
+## `print`-Funktion
+
+In der interaktiven Konsole kann man den Namen einer Variable als Befehl eingeben und bekommt deren Wert angezeigt.
+Sobald wir nicht mehr interaktiv in der Konsole, sondern mit Python-Skripte arbeiten, wird uns das nicht mehr weiterhelfen. 
+Wir benötigen eine Funktion, mit der wir Variablen explizit ausgeben können.
+
+Die Funktion `print` nimmt als Eingabe Daten vom Typ String und gibt diese auf der Konsole aus. Das einzige Argument der Funktion wird dabei in Klammern angegeben. Versuchen Sie es selbst:
+~~~python
+print(what)
+~~~
+
+Sie können `print` auch mehrere Strings übergeben. 
+Diese werden durch ein Zeichen (Standard: Leerzeichen) getrennt ausgegeben. Das Trennzeichen kann über den Parameter `sep` manipuliert werden.
+`sep` ist ein benannter Parameter, das heißt man gibt in den Klammern nicht nur den Wert an, sondern schreibt `sep=` davor.
+~~~python
+print(what,howmuch)
+~~~
+~~~
+Brötchen 25 Cent
+~~~
+~~~python
+print(what,howmuch,sep=";")
+~~~
+~~~
+Brötchen;25 Cent
+~~~
+{: .output}
+
+## Strings verketten
+
+Wenn wir zwei Strings miteinander zu einem neuen String verbinden wollen (*konkatenieren*), 
+so nutzen wir den „+“-Operator, den wir schon von den Zahlenoperationen kennen.
+
+~~~python
+stem_1 = 'Haus'
+stem_2 = 'boot'
+comp = stem_1 + stem_2
+print(comp)
+~~~
+~~~
+Hausboot
+~~~
+{: .output}
+
+Wollen wir eine Zeichenkette n mal vervielfachen, so können wir sie einfach mit n multiplizieren:
+~~~python
+result = 'Nomen'*10
+print(result)
+~~~
+~~~
+NomenNomenNomenNomenNomenNomenNomenNomenNomenNomen
+~~~
+{: .output}
+
+## String-Methoden
+
+Wir wollen uns einen Überblick über die wichtigsten Methoden für String-Variablen ansehen. 
+Aber was sind denn nun wieder *Methoden*? 
+In dieser Episode nur so viel: Methoden sind Funktionen, die wir an einer Variable (genauer: einem Objekt) mit Hilfe eines `.` direkt aufrufen. 
+Hier ein Beispiel:
+
+~~~python
+var = "Huch"
+print(var) # Funktion
+var.strip() # Methode
+~~~
+
+### `strip()`
+
+Diese Methode ist z. B. wichtig bei der Bereinigung unserer Eingabe. 
+Sie entfernt Leerzeichen, Zeilenumbrüche (\n in Linux), Tab-Einrückungszeichen (\t) und andere White-Space-Zeichen am Anfang und Ende des Strings. 
+Sie verändert nicht die Variable, an der sie aufgerufen wird, sondern gibt einen neuen String zurück.
+
+~~~python
+txt = "\tWas macht strip()? "
+txt_no_whitespaces = txt.strip()
+print("|" + txt + "|")
+~~~
+~~~
+|       Was macht strip()? |
+~~~
+{: .output}
+
+~~~python
+print("|" + txt_no_whitespaces + "|")
+~~~
+~~~
+|Was macht strip()?|
+~~~
+{: .output}
+
+### `find(seq)` und `rfind(seq)`
+
+Wenn wir eine Sequenz von 1 und mehr Zeichen in einem String suchen wollen, geben uns diese Methoden die Stelle (als Integer) im String zurück, 
+an der die Sequenz beginnt. 
+`find(seq)` gibt uns den ersten Treffer von links, `rfind(seq)` entsprechend von rechts.
+Ausgegeben wird die Stelle des ersten Zeichens der gesuchten Sequenz.
+
+~~~python
+haystack = 'Heu Nadel Heu Heu Nadel Heu'
+l = haystack.find('Nadel')
+r = haystack.rfind('Nadel')
+print(l,r)
+~~~
+~~~
+4 18
+~~~
+{: .output}
+
+> ## Übung
+> Bearbeiten Sie den folgenden Abschnitt so, dass aus `info` nur der Text zwischen „Achtung“ und „egal“ ausgegeben (über die `print` Funktion) wird.
+> ~~~python
+> info = "bla bla bla Achtung Wichtig egal bla bla bla"
+> # Ihr Code:
+> ~~~
+>> ## Lösung
+>> ~~~python
+>> wichtig_l = info.find("Achtung") + len("Achtung")
+>> wichtig_r = info.rfind("egal")
+>> print(info[wichtig_l:wichtig_r].strip())
+>> ~~~
+>>~~~
+>>Wichtig
+>>~~~
+>>{: .output}
+> {: .solution}
+{: .challenge}
+
+### `replace(is, willbe)`
+
+Mit dieser Methode wird eine Zeichensequenz in einem String an jeder Stelle ihres Vorkommens durch eine andere ersetzt. 
+Das Ergebnis wird als neuer String zurückgegeben.
+
+In folgendem Beispiel sollen aus dem Input-String „ß“ und Umlaute entfernt und durch Alternativen ersetzt werden:
+~~~python
+messy_input = "Sie wohnen in der Hauptstraße. Das ist ungewöhnlich."
+clean_input = messy_input.replace("ß","ss").replace("ö","oe").replace("ä","ae").replace("ü","ue")
+print(clean_input)
+~~~
+~~~
+Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
+~~~
+{: .output}
+
+> ## Fragen
+> - Warum kann replace einfach mehrmals hintereinander aufgerufen werden?
+> - Was passiert, wenn ein String eine zu ersetzende Zeichensequenz nicht enthält?
+{: .discussion}
 
 {% include links.md %}
 
