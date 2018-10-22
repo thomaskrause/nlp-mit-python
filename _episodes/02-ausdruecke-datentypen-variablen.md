@@ -65,7 +65,7 @@ text[6]
 >Wir erkennen, dass Python keine Probleme mit Umlauten hat. Das liegt daran, dass in Python 3 (im Gegensatz zu Python 2) Strings standardmäßig in Unicode kodiert sind.
 {: .callout}
 
-> ## Frage
+> ## Frage(n)
 > Indexierung funktioniert auch mit negativen Zahlen:
 > ~~~python
 > text[-3]
@@ -81,7 +81,7 @@ text[6]
 > {: .solution}
 {: .discussion}
 
-> ## Frage
+> ## Frage(n)
 > Was passiert in folgendem Fall? Bevor sie es ausführen, was erwarten Sie?
 > ~~~python
 > text[30]
@@ -106,7 +106,7 @@ text[0:3]
 ~~~
 {: .output}
 
-> ## Fragen
+> ## Frage(n)
 > Probieren Sie anhand eines Beispielstrings mit der Länge L folgende Dinge aus:
 > - Was passiert, wenn Sie a, b oder beide Grenzen weglassen?
 > - Was passiert, wenn b > L
@@ -279,10 +279,20 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 ~~~
 {: .output}
 
-> ## Fragen
+> ## Frage(n)
 > - Warum kann replace einfach mehrmals hintereinander aufgerufen werden?
 > - Was passiert, wenn ein String eine zu ersetzende Zeichensequenz nicht enthält?
 {: .discussion}
+
+> ## Übung
+> Schreiben Sie einen Übersetzer, der den String german ins Englische übersetzt.
+> ~~~python
+> german = "Die Katze ist schwarz"
+> # Ihr Code
+> engl = 
+> ~~~
+> Diskutieren Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
+{: .challenge}
 
 {% include links.md %}
 

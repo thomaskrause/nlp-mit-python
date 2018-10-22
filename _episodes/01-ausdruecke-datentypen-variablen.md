@@ -227,7 +227,7 @@ ergebnis = zahl1+zahl2
 > {: .solution}
 {: .challenge}
 
-> ## Frage
+> ## Frage(n)
 > Was passiert, wenn wir die folgende Zeilen nacheinander ausführen?
 > ~~~python
 > zahl1
