@@ -56,7 +56,7 @@ Ein Beispiel:
 > in Englisch zu halten, da sie so für ein
 > breiteres Publikum verständlich sind. Im Rahmen dieses Kurses können
 > Sie das aber ignorieren. Sie sollten lediglich sicherstellen, dass 
-> Ihre Kommilitonen, Ihre Dozentin und Ihr Tutor Sie verstehen.
+> Ihre Mit-Studierenden und Ihr Dozent Sie verstehen.
 {: .callout}
 
 ## Ganze Zahlen und Kommazahlen
