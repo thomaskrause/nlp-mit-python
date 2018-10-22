@@ -1,15 +1,17 @@
 ---
-title: "Zeichenketten"
+title: "Zeichenketten und einfache Skripte"
 teaching: 0
 exercises: 0
 questions:
 - Wie kann ich Zeichenketten in Python eingeben und darstellen?
 - Wie kann ich auf diese oder Teile davon zugreifen?
+- Wie können Programmanweisungen gespeichert und wieder ausgeführt werden?
 objectives:
 - Verstehen des Datentyps `str` Typs von Python
 keypoints:
 - Strings sind Sequenzen von Zeichen auf die über einen Index zugegriffen werden kann.
 - Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
+- Python-Skripte können als Textdateien mit der Dateiendung `.py` gespeichert und dann mit dem `python3` Interpreter ausgeführt werden.
 ---
 
 ## Zeichenketten als Wert definieren
@@ -164,6 +166,34 @@ print(what,howmuch,sep=";")
 Brötchen;25 Cent
 ~~~
 {: .output}
+
+## Ausführen mehrerer Anweisungen in einem Skript
+
+Anstatt Anweisungen für ein Programm interaktiv in der Konsole auszuführen, können sie auch in eine Textdatei mit der Endung 
+`.py` geschrieben werden.
+Der Befehl `python3 dateiname.py` auf der Konsole führt diese Anweisungen dann hintereinander aus.
+Wird das Programm beendet, werden auch alle Variablen vergessen.
+
+> ## Übung
+> Nutzen Sie einen Texteditor um ein Programm zu schreiben, dass folgende Anweisungen hintereinander ausführt und führen sie dies aus.
+> - Berechne die Summe von 100 und 123
+> - Gebe die Zeichenkette "100+123=???" wobei „???“ für das Ergebnis steht.
+> 
+>> ## Lösung
+>> ~~~python
+>> # Dieser Text steht in der Datei summe.py
+>> summe = 100+123
+>> print("100+123",summe,sep="=")
+>> ~~~
+>> ~~~bash
+>> python3 summe.py
+>> ~~~
+>> ~~~
+>> 100+123=223
+>> ~~~
+>> {: .output}
+> {: .solution}
+{: .challenge}
 
 ## Strings verketten
 
