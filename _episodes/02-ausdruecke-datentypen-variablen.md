@@ -43,8 +43,6 @@ SyntaxError: EOL while scanning string literal
 ~~~
 {: .error}
 
-
-
 ## Zugriff auf Teile von Strings
 
 Jedem Zeichen in einem String ist ein Index zugewiesen, der seiner Position in der Zeichenkette entspricht. Gezählt wird ab 0 und Leerzeichen werden nicht übersprungen:
@@ -174,6 +172,8 @@ Anstatt Anweisungen für ein Programm interaktiv in der Konsole auszuführen, k�
 Der Befehl `python3 dateiname.py` auf der Konsole führt diese Anweisungen dann hintereinander aus.
 Wird das Programm beendet, werden auch alle Variablen vergessen.
 
+Bei der Entwicklung testet man oft kurze Code-Stücke in der interaktiven Konsole, die man dann in ein Skript überträgt.
+
 > ## Übung
 > Nutzen Sie einen Texteditor um ein Programm zu schreiben, dass folgende Anweisungen hintereinander ausführt und führen sie dies aus.
 > - Berechne die Summe von 100 und 123
@@ -218,6 +218,20 @@ print(result)
 ~~~
 ~~~
 NomenNomenNomenNomenNomenNomenNomenNomenNomenNomen
+~~~
+{: .output}
+
+
+Strings können aus anderen Datentypen über die Konvertierungsfunktion `str(val)` erzeugt werden.
+Damit kann man z.B. auch einen String mit einer Zahl verketten
+
+~~~python
+zahl = 13+13
+result = "Die Zahl ist " + str(zahl)
+print(result)
+~~~
+~~~
+Die Zahl ist 26
 ~~~
 {: .output}
 
@@ -317,7 +331,7 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 {: .discussion}
 
 > ## Übung
-> Schreiben Sie einen Übersetzer, der den String german ins Englische übersetzt.
+> Schreiben Sie einen „Übersetzer“, der den String german ins Englische übersetzt.
 > ~~~python
 > german = "Die Katze ist schwarz"
 > # Ihr Code

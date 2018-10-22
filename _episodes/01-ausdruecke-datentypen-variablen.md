@@ -274,8 +274,39 @@ type(3.141)
 {: .output}
 einen Rückgabe wert für eine Kommazahl (Float) zurück.
 
-Es gibt eine Vielzahl von bereits eingebauten Funktionen in Python.
+Python ist eine dynamisch tpyisierte Programmiersprache.
+Das heißt, die gleiche Variable kann unterschiedliche Typen wie Float oder Integer zugewiesen bekommen.
+Mit `type` kann man den Typ herausfinden, aber es gibt auch Funktionen um explizit eine Variable zu einem anderen Typ zu überführen
+(„casten“).
+- `int(val)` überführt eine Variable in eine Ganzzahl
+- `float(val)` überführt eine Variable in eine Gleitkommazahl
+
+~~~python
+pi = int(3.141)
+type(pi)
+~~~
+~~~
+<class 'int'>
+~~~
+{: .output}
+~~~
+pi
+~~~
+~~~
+3
+~~~
+{: .output}
+~~~python
+float(pi)
+~~~
+~~~
+3.0
+~~~
+{: .output}
+
+Es noch gibt eine Vielzahl weiterer, bereits eingebauter Funktionen in Python.
 Einige davon benötigen keine Eingabeargumente, trotzdem müssen in diesem Fall die Klammern mit angegeben werden.
+
 
 {% include links.md %}
 
