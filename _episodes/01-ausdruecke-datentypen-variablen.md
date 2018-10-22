@@ -289,5 +289,33 @@ NameError: name 'Zahl2' is not defined
 > Was erfahren wir über Variablennamen?
 {: .challenge}
 
+## Einfache eingebaute Funktionen
+
+Sogenannte *Funktionen* haben einen Namen, es können ein odere mehrere Argumente in Klammern angegeben werden und sie liefern einen Wert zurück (mehrere Argumente werden durch Komma getrennt).
+
+Zum Beispiel liefert die eingebaute Funktion mit dem Namen `type` eine Information über den Typ eines Werts oder Variable.
+
+~~~python
+type(zahl1)
+~~~
+~~~
+<class 'int'>
+~~~
+{: .output}
+Der Rückgabewert zeigt an, dass es sich um eine Ganze Zahl (Integer) handelt.
+
+Im Gegensatz dazu, liefert
+~~~python
+type(3.141)
+~~~
+~~~
+<class 'float'>
+~~~
+{: .output}
+einen Rückgabe wert für eine Kommazahl (Float) zurück.
+
+Es gibt eine Vielzahl von bereits eingebauten Funktionen in Python.
+Einige davon benötigen keine Eingabeargumente, trotzdem müssen in diesem Fall die Klammern mit angegeben werden.
+
 {% include links.md %}
 
