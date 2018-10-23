@@ -194,6 +194,7 @@ Wir programmieren (u. a.), um Probleme zu lösen und uns eigene Rechenarbeit zu 
 - In Python wird das `=` Symbol benutzt um eine Wert auf der rechten Seite einer
   Variable auf der linken Seite zuzuweisen.
 - Variablen werden erstellt, wenn ihnen ein Wert zugewiesen wird.
+- Variablennamen können aus den Buchstaben a-z, A-Z (Groß- und Kleinschreibung wird unterschieden), Unterstrichen und Ziffern bestehen. Ziffern sind nicht als erstes Zeichen erlaubt. Variablen sollten mit Kleinbuchstaben anfangen.
 
 ~~~python
 zahl1 = 5

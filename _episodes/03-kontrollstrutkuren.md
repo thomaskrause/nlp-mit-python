@@ -81,6 +81,16 @@ print(l)
 
 Es gibt auch weitere nützliche Methoden auf Listen.
 
+Zählen der Anzahl der Elemente mit gegebenen Wert in einer Liste mit `count`:
+~~~python
+a = [1,4,7,3,4,4]
+a.count(4)
+~~~
+~~~
+3
+~~~
+{: .output}
+
 Umgekehrte Reihenfolge mit `reverse`:
 ~~~python
 a = [1,7,3,4]
@@ -208,8 +218,133 @@ Summe ist: 500000500000
 > Um große Zahlen übersichtlicher eingeben zu können, ist seit Python 3.6 im Python-Code `_` als Tausendertrennzeichen erlaubt.
 {: .callout}
 
-## Logische Bedingungen
+Der Name der Schleifenvariable kann frei gewählt werden.
+Für Indexe hat sich oft `i` eingebürgert, aber sollte möglichst sprechende Namen für Variablen verwenden.
+~~~python
+for hier_kann_wirklich_alles_stehen in range(0,11):
+  print(hier_kann_wirklich_alles_stehen)
+~~~
+~~~
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+~~~
+{: .output}
 
-## If-else
+## Ausführen von Code-Blöcken abhängig von logischen Bedingungen
 
-## While-Schleifen
+### Einfache logische Bedingungen und der Datentyp `bool`
+
+Neben Strings und Zahlen hat Python auch einen Datentyp für Wahrheitswerte.
+Eine Variable mit Wahrheitswerten kann entweder den Wert `True` oder `False` haben.
+
+~~~python
+stimmt = False
+type(stimmt)
+~~~
+~~~
+<class 'bool'>
+~~~
+{: .output}
+
+~~~python
+stimmt = True
+print(stimmt)
+~~~
+~~~
+True
+~~~
+{: .output}
+
+Man kann Wahrheitswerte durch den Vergleich von anderen Werte über bestimmte Operatoren erhalten.
+Z.B. kann man zwei Zeichenketten mit dem `==` Operator vergleichen, ob sie identisch sind:
+
+~~~python
+"Haus" == "Haus"
+~~~
+~~~
+True
+~~~
+{: .output}
+
+Das Ergebnis eines Vergleichs kann auch wieder in einer Variablen gespeichert werden:
+~~~python
+gleiches_haus = "Haus" == "Haus"
+print(gleiches_haus)
+~~~
+~~~
+True
+~~~
+{: .output}
+
+
+> ## `==` ist nicht gleich `=`
+> Der Vergleichsoperator `==` ist nicht mit dem Zuweisungsoperator `=` zu verwechseln. 
+> Letzerer weist einer Variable einen Wert zu und lieft nicht einen logischen Wert zurück.
+> Z.B. ist folgender Ausdruck ein Fehler:
+> ~~~python
+> "Haus" = "Haus"
+> ~~~
+> ~~~
+>  File "<stdin>", line 1
+> SyntaxError: can't assign to literal
+> ~~~
+> {: .error}
+{: .callout}
+
+Bei einem Vergleich ist der Wert der Variablen oder des Ausdrucks entscheidend, nicht die Form.
+Z.B. liefern auch alle folgenden Vergleiche `True` zurück.
+
+~~~python
+"Haus" == 'Haus'
+~~~
+~~~python
+var = 'Haus'
+"Haus" == var
+~~~
+~~~python
+0.0000 == 0.0
+~~~
+
+Wertevergleiche sind exakt, dass heißt z.B. das bei Groß- und Kleinschreibung von Zeichenketten oder bei Whitespace (Leerzeichen, Tabs, Zeilenumbrüche etc.) unterschieden wird.
+
+~~~python
+"Haus" == "haus"
+~~~
+~~~
+False
+~~~
+{: .output}
+
+~~~python
+"Haus" == "Haus "
+~~~
+~~~
+False
+~~~
+{: .output}
+
+> ## Übung
+> Wie können die beiden Zeichenketten `"Haus"` und `"Haus "` mit `True` als Ergebnis verglichen werden?
+>> ## Lösung
+>> ~~~python
+>> "Haus" == "Haus ".strip()
+>> ~~~
+>{: .solution}
+{: .challenge}
+
+
+### If-Bedingungen
+
+
+### While-Schleifen
+
+### Komplexere logische Ausdrücke
