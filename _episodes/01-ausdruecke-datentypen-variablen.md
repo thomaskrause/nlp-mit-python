@@ -20,7 +20,7 @@ keypoints:
 
 ## Python starten
 
-Zum Kennenlernen arbeiten wir zunächst nur auf der interaktiven Kommandozeile (Konsole) des Python-Interpreters. Diese wird gestartet, indem wir ein Terminal (kann unter Ubuntu z.B. mit dem Shortcut  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> gestartet werden) öffnen und folgendes eintippen:
+Zum Kennenlernen arbeiten wir zunächst nur auf der interaktiven Kommandozeile (Konsole) des Python-Interpreters. Diese wird gestartet, indem wir ein Terminal (kann unter Ubuntu z.B. mit dem Shortcut  <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> gestartet werden) öffnen und folgendes eintippen:
 
 ~~~bash
 python3

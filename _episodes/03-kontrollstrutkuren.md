@@ -11,7 +11,9 @@ objectives:
 - Verstehen von Kontrollstrukturen wie Schleifen und Bedingungen
 - Ausdrücken von logischen Bedingungen
 keypoints:
-
+- Sequenzen von beliebigen Werten können in Listen gespeichert und abgerufen werden.
+- Logische Ausdrücke haben in Python den Datentyp `bool` und können unter anderem durch Vergleichsoperatoren erzeugt werden.
+- Mit Schleifen (`for`, `while`) und bedingt ausgeführten Code-Blöcken (`if`-`elif`-`else`) kann der Programmablauf flexibel auf die Eingabe reagieren und komplexere Berechnungen durchführen.
 ---
 
 ## Listen
@@ -341,10 +343,177 @@ False
 >{: .solution}
 {: .challenge}
 
+Analog zum `==` Operator gibt es den `!=` Operator, der immer dann wahr ist wenn zwei Werte unterschiedlich sind.
+~~~python
+4 != 1
+~~~
+~~~
+True
+~~~
+{: .output}
 
-### If-Bedingungen
 
+
+### If-Ausdrücke
+
+Wir haben nur einfache logische Bedingungen mit dem `==` Operator kennengelernt.
+Logische Bedingungen können genutzt werden, um Code-Blöcke basierend auf dem Wahrheitswert auszuführen, oder aber nicht.
+
+~~~python
+x = 5
+if x == 4:
+  print("x ist vier!")
+~~~
+Dieses Programm erzeugt keine Ausgabe, weil die Bedingung nicht wahr ist.
+Wenn die Bedinung wahr ist, wird der Code-Block ausgeführt.
+~~~python
+if x == 5:
+  print("x ist fünf!")
+~~~
+~~~
+x ist fünf!
+~~~
+{: .output}
+
+Die Ein Code-Block kann aus mehr als einer Anweisung bestehen und nach dem eingerückten `if`-Block wird der orginale Code-Block weiter ausgeführt, 
+egal ob die Bedingung wahr oder falsch war.
+~~~python
+x = 5
+if x == 4:
+  x = x + 2
+  print("x wahr vier, neuer Wert ist", x)
+x = x - 1
+print("x ist", x)
+~~~
+~~~
+x ist 5
+~~~
+{: .output}
+
+~~~python
+x = 5
+if x == 5:
+  x = x + 2
+  print("x wahr fünf, neuer Wert ist", x)
+x = x - 1
+print("x ist", x)
+~~~
+~~~
+x wahr fünf, neuer Wert ist 7
+x ist 6
+~~~
+{: .output}
+
+### If-Else Ausdrücke
+
+Diese Konstruktion erlaubt die Überprüfung einer Bedingung.
+Falls die Bedingung wahr ist, wird der Code-Block hinter der `if`-Anweisung ausgeführt, ansonsten der Block hinter
+der `else:` Anweisung:
+
+~~~python
+x = 5
+if x == 4:
+  print("x ist vier")
+else:
+  print("x ist ein anderer Wert")
+~~~
+~~~
+x ist ein anderer Wert
+~~~
+{: .output}
+
+### If-Elif(-Else)
+
+Man kann beliebig viele Ausdrücke überprüfen, in dem man zusätzliche `elif` Bedingungen hinzufügt:
+
+~~~python
+x = 3
+if x == 1:
+  print("x ist eins")
+elif x == 2:
+  print("x ist zwei")
+elif x == 3:
+  print("x ist drei")
+elif x == 4:
+  print("x ist vier")
+~~~
+~~~
+x ist drei
+~~~
+{: .output}
+
+Auch an diese Ausdrücke kann ein `else` angehängt werden:
+~~~python
+x = 100
+if x == 1:
+  print("x ist eins")
+elif x == 2:
+  print("x ist zwei")
+elif x == 3:
+  print("x ist drei")
+elif x == 4:
+  print("x ist vier")
+else:
+  print("x ist ein anderer Wert")
+~~~
+~~~
+x ist ein anderer Wert
+~~~
+{: .output}
+
+Es wird immer der erste Ausdruck ausgewertet der wahr ist, die anderen werden ignoriert.
+~~~python
+if 2==1:
+  print("Mathematik kaputt")
+elif 1==1:
+  print("Mathematik geht")
+elif 2==2:
+  print("Mathematik geht immer noch")
+else:
+  print("Zustand von Mathematik unbekannt")
+~~~
+~~~
+Mathematik geht
+~~~
+{: .output}
 
 ### While-Schleifen
 
-### Komplexere logische Ausdrücke
+Man kann logische Bedingungen auch in While-Schleifen verwenden, um einen Block zu wiederholen, solange eine Bedingung erfüllt ist.
+
+~~~python
+x = 0
+while x != 10:
+  print(x)
+  x = x + 1 
+~~~
+~~~
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+~~~
+{: .output}
+
+> ## Frage(n)
+> Was passiert wenn die Bedingung immer wahr ist, z.B. in: 
+> ~~~python
+> while 1 == 1:
+>   print("Mathematik in Ordnung")
+> ~~~ 
+{: .discussion}
+
+> ## Programm im Terminal beenden
+> Falls Sie ein Programm im Terminal beenden wollen, können Sie
+> <kbd>Strg</kbd>+<kbd>C</kbd> drücken.
+{: .callout}
+
+### Komplexere logische Ausdrücke und Vergleichsoperatoren
+
+FIXME
