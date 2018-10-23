@@ -131,3 +131,85 @@ print(a)
 []
 ~~~
 {: .output}
+
+## For-Schleifen
+
+Mit dem Ausdruck `for x in var:` kann man den gleichen Code-Block auf jedem Element `x` der Liste `var` ausführen.
+Ein Code-Block sind Anweisungen, die mit der gleichen Anzahl Leerzeichen eingerückt sind.
+Der Code-Block wird also wiederholt.
+
+~~~python
+l = [1, 2, 3, 4, 5]
+for x in l:
+  print("Element")
+  print(x)
+~~~
+~~~
+Element
+1
+Element
+2
+Element
+3
+Element
+4
+Element
+5
+~~~
+{: .output}
+
+> ## Einrückung mit Leerzeichen oder Tabs?
+> Für die Einrückung eines Codeblocks können entweder Leerzeichen oder Tabs verwendet werden.
+> Viele Texteditoren ersetzen eine Eingabe mit der <kbd>Tab</kbd> Taste auf der Tastatur automatisch mit einer bestimmten Anzahl Leerzeichen.
+> Da Tabs ebenfalls als „Whitespace“ angezeigt werden, ist es schwierig diese auseinanderzuhalten.
+> In alten Python-Versionen konnten Leerzeichen und Tabs im selben Skript gemischt werden, was zu Verwirrung und Fehlern bei unterschiedlich tief eingerückten
+> Code-Blöcken geführt hat.
+> In Python 3 ist das Mischen verboten.
+>
+> Es bleibt natürlich die Frage, was besser ist.
+> Darauf gibt es keine wirklich ultimative Antwort und diese Frage wird in entsprechenden Foren immer wieder stark diskutiert.
+> Die „Style Guide for Python Code“ empfielt in neuem Code Leerzeichen zu verwenden: 
+> [https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces)
+{: .callout}
+
+Anstatt über eine Liste, können `for`-Schleifen auf sogenannten *Iteratoren* ausgeführt werden.
+Iteratoren sind Datenstrukturen, die basierend auf einem aktuellen Zustand einen neuen Zustand berechnen und zurückgeben können.
+
+Die Funktion `range(a,b)` liefert einen Iterator zurück, der nacheinander alle Zahlen von `a` bis `b` (exklusive `b`) ausgibt.
+
+> ## Übung
+> Formulieren Sie `for`-Schleife von weiter oben so um, dass sie die `range` Funktion anstatt der Liste benutzt, aber die gleiche Ausgabe erzeugt.
+>> ## Lösung
+>> ~~~python
+>> for x in range(1,6):
+>>   print("Element")
+>>   print(x)
+>> ~~~
+> {: .solution}
+{: .challenge}
+
+Iteratoren haben gegüben von Listen den Vorteil, dass sie nicht alle Element speichern müssen.
+Wenn wir z.B. alle Zahlen von 1 bis 1.000.000 aufaddieren wollen, würde das viel Speicher belegen, wenn wir eine Liste
+mit einer Million Zahlen anlegen müssten.
+Mit einem Iterator wird immer nur ein kleiner Zustand (die aktuelle Zahl und das Ende des Bereichs) gespeichert.
+
+~~~python
+summe = 0
+for i in range(1,1_000_001):
+  summe = summe + i
+print("Summe ist: " + str(summe))
+~~~
+~~~
+Summe ist: 500000500000
+~~~
+{: .output}
+
+> ## Tausendertrennzeichen im Code
+> Um große Zahlen übersichtlicher eingeben zu können, ist seit Python 3.6 im Python-Code `_` als Tausendertrennzeichen erlaubt.
+{: .callout}
+
+## Logische Bedingungen
+
+## If-else
+
+## While-Schleifen
