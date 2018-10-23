@@ -698,6 +698,15 @@ True
 ~~~
 {: .output}
 
+> ## Geschwindigkeit von Sets .vs Listen
+> Die Überprüfung, ob ein Wert Teil eines Sets ist kann deutlich schneller geschehen
+als in einer Liste.
+> Während in einer Liste wirklich jedes Element angeschaut werden muss,
+> gibt es für Sets Indexstrukturen, die annähernd konstant und unabhängig von 
+> der Länge der Liste die (Nicht)-Zugehörigkeit eines Werts überprüfen können. 
+> Insbesondere bei großen Datenmengen kann es also von Vorteil sein ein Set zu nutzen, soweit es semantisch Sinn macht.
+{: .callout}
+
 > ## Frage(n)
 > Ist der Ausdruck `"1.42" in l` für die Menge `{1, 1.43, 1.42}`?
 >> ## Lösung
