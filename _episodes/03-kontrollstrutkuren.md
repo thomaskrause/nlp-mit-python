@@ -241,6 +241,38 @@ for hier_kann_wirklich_alles_stehen in range(0,11):
 ~~~
 {: .output}
 
+For-Schleifen und andere Kontrollstrukturen können verschachtelt werden, das heißt in einem `for`-Block können z.B. auch weitere `for`-Blöcke stehen.
+Die tiefere Verschachtelung eines Code-Blocks wird durch die größere Anzahl an Leerzeichen/Tabs ausgedrückt:
+~~~python
+for i in range(1,4):
+    for j in range(1,4):
+        summe = i + j
+        produkt = i * j
+        print(i, "+", j, "=", summe)
+        print(i, "*", j, "=", produkt)
+~~~
+~~~
+1 + 1 = 2
+1 * 1 = 1
+1 + 2 = 3
+1 * 2 = 2
+1 + 3 = 4
+1 * 3 = 3
+2 + 1 = 3
+2 * 1 = 2
+2 + 2 = 4
+2 * 2 = 4
+2 + 3 = 5
+2 * 3 = 6
+3 + 1 = 4
+3 * 1 = 3
+3 + 2 = 5
+3 * 2 = 6
+3 + 3 = 6
+3 * 3 = 9
+~~~
+{: .output}
+
 ## Ausführen von Code-Blöcken abhängig von logischen Bedingungen
 
 ### Einfache logische Bedingungen und der Datentyp `bool`
@@ -513,6 +545,18 @@ while x != 10:
 > Falls Sie ein Programm im Terminal beenden wollen, können Sie
 > <kbd>Strg</kbd>+<kbd>C</kbd> drücken.
 {: .callout}
+
+> ## Übung
+> Schreiben Sie ein kurzes Programm, dass alle Zahlen zwischen 1 und 999 ausgibt, die ohne Rest durch 13 teilbar sind.
+>> ## Lösung
+>> Mögliche Lösung:
+>> ~~~python
+>> for i in range(1,1000):
+>>     if i % 13 == 0:
+>>         print(i)
+>> ~~~
+>{: .solution}
+{: .challenge}
 
 ### Komplexere logische Ausdrücke und Vergleichsoperatoren
 
