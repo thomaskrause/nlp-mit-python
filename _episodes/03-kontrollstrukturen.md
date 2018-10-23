@@ -547,17 +547,163 @@ while x != 10:
 {: .callout}
 
 > ## Übung
-> Schreiben Sie ein kurzes Programm, dass alle Zahlen zwischen 1 und 999 ausgibt, die ohne Rest durch 13 teilbar sind.
+> Schreiben Sie ein kurzes Programm, das eine Liste aller Zahlen zwischen 1 und 999, die ohne Rest durch 13 teilbar sind, erstellt.
+> Das Programm soll die Liste am Ende ausgeben.
 >> ## Lösung
 >> Mögliche Lösung:
 >> ~~~python
+>> zahl13 = []
 >> for i in range(1,1000):
 >>     if i % 13 == 0:
->>         print(i)
+>>         zahl13.append(i)
+>> print(zahl13)
 >> ~~~
 >{: .solution}
 {: .challenge}
 
-### Komplexere logische Ausdrücke und Vergleichsoperatoren
+### Arithmetische Vergleichsoperatoren
 
-FIXME
+Neben `==` und `!=` gibt es für Zahlen noch weitere Operatoren:
+- `<` für „echt kleiner als“
+- `<=` für „kleiner gleich“
+- `>` für „echt größer als“
+- `>=` für größer gleich“
+
+~~~python
+print(2 < 2)
+print(2 <= 2)
+print(10 > 1)
+print(10 >= 1)
+~~~
+~~~
+False
+True
+True
+True
+~~~
+{: .output}
+
+> ## Übung
+> Schreiben Sie ein kurzes Programm, das eine Liste aller Zahlen zwischen 1 und 999, die ohne Rest durch 13 teilbar sind, erstellt.
+> Nutzen Sie dafür den `<` Operator!
+> Diskutieren Sie die Vor- und Nachteile im Vergleich zur Ihrer Version weiter oben.
+>> ## Lösung
+>> ~~~python
+zahl13 = []
+>> x = 13
+>> while x < 1000:
+>>     zahl13.append(x)
+>>     x = x + 13
+>> print(zahl13)
+>> ~~~
+>{: .solution}
+{: .challenge}
+
+### Logische Formeln
+
+Logische Ausdrücke können wie auch logische Formeln mit `and`, `or` und `not` verknüpft werden
+
+~~~python
+a = True
+b = False
+implikation = not a or b
+~~~
+
+Klammern können genutzt werten um explizit die Reihenfolge der Vergleichsoperatoren anzugeben
+~~~python
+if (1 != 1 and 1 == 4) or ((2+1) == 4):
+  print("Mathematik schon wieder kaputt")
+else:
+  print("Mathematik geht noch")
+~~~
+
+### Mengen und der  `in` Operator
+
+Es kann mit `in` auch überprüft werden, ob ein Element in einer Liste vorhanden ist.
+
+~~~python
+nachspeisen = ["Obst", "Quark", "Eis"]
+if "Obst" in nachspeisen:
+  print("Heute mal gesund.")
+else:
+  print("Esst mehr Obst!")
+~~~
+
+Neben Listen gibt es in Python auch Mengen, oder sogenannte *Sets*.
+Eine Menge enthält keine Duplikate, kann aber aus Listen mit der `set(...)` Funktion erstellt werden.
+Außerdem ist die Reihenfolge einer Menge nicht festgelegt.
+
+~~~python
+original = ["Eis", "Obst", "Quark", "Eis"]
+nachspeisen = set(original)
+print(len(original), len(nachspeisen))
+~~~
+~~~
+4 3
+~~~
+{: .output}
+
+Im Vergleich zur originalen Liste wurde in der Menge das doppelte `"Eis"` entfernt und daher ist die Länge nur 3 anstatt 4.
+
+~~~python
+print(nachspeisen)
+~~~
+~~~
+{'Eis', 'Obst', 'Quark'}
+~~~
+{: .output}
+
+Da Mengen keine Reihenfolge haben, werden neue Element mit der Funktion `add(v)` hinzugefügt.
+Mit `remove(v)` können sie entfernt werden.
+
+~~~python
+l = set() # leere Menge
+l.add(1) # wir fügen der Menge Elemente hinzu
+l.add("Piano")
+l.add(1.42)
+l.add(1.43)
+l.add(1.42)
+print(l)
+~~~
+~~~
+{1, 1.43, 1.42, 'Piano'}
+~~~
+{: .output}
+
+~~~python
+l.remove("Piano")
+print(l)
+~~~
+~~~
+{1, 1.43, 1.42}
+~~~
+{: .output}
+
+
+Die Funktionen `in` funktioniert auch auf Mengen: 
+~~~python
+1 in l
+~~~
+~~~
+True
+~~~
+{: .output}
+
+Ebenso gibt es die Funktion `not in` um zu überprüfen ob etwas nicht in der Menge enthalten ist:
+~~~python
+13 not in l
+~~~
+~~~
+True
+~~~
+{: .output}
+
+> ## Frage(n)
+> Ist der Ausdruck `"1.42" in l` für die Menge `{1, 1.43, 1.42}`?
+>> ## Lösung
+>> Nein, denn `"1.42"` ist ein String und das Element in der Menge ist eine Ganzkommazahl.
+>> Elemente müssen vom Typ gleich sein um verglichen werden zu können.
+>> Mit Hilfe der Typumwandlungsfunktion (`str(v)`,`int(v)`,`float(v)`, etc.) können solche Umwandlungen vorgenommen werden.
+>> Für einige Typen geschieht die Umwandlung automatisch, so ist z.B. `1.0 in l` wahr, da ein Float zu einem Integer automatisch umgewandelt wird.
+> {: .solution}
+{: .discussion}
