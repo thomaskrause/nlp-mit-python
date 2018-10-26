@@ -171,13 +171,13 @@ Anstatt Anweisungen für ein Programm interaktiv in der Konsole auszuführen, k�
 `.py` geschrieben werden.
 Der Befehl `python3 dateiname.py` auf der Konsole führt diese Anweisungen dann hintereinander aus.
 Wird das Programm beendet, werden auch alle Variablen vergessen.
+Bei der Entwicklung testet man oft kurze Code-Stücke in der interaktiven Konsole, die man dann in ein Skript überträgt.
 
 > ## Windows
 > In der virtuellen Maschine muss `python3` aufgerufen werden, damit die richtige Version von Python genutzt wird (unter Linux sind meistens beide großen Python-Versionen 2 und 3 nebeneinander installiert).
 > Windows enthält standardmäßig kein Python, nach einer systemweiten Installation und der Eintragung von der Python-Installation in die Systemvariable `PATH` kann man daher unter Windows mit dem Befehl `python` (also ohne die Versionsnummer „3“) auf der Kommandozeile starten.
 {: .callout}
 
-Bei der Entwicklung testet man oft kurze Code-Stücke in der interaktiven Konsole, die man dann in ein Skript überträgt.
 
 > ## Übung
 > Nutzen Sie einen Texteditor um ein Programm zu schreiben, dass folgende Anweisungen hintereinander ausführt und führen sie dies aus.
