@@ -10,7 +10,7 @@ objectives:
 - Verstehen des Datentyps `str` Typs von Python
 keypoints:
 - Strings sind Sequenzen von Zeichen auf die über einen Index zugegriffen werden kann.
-- Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
+#- Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
 - Python-Skripte können als Textdateien mit der Dateiendung `.py` gespeichert und dann mit dem `python3` Interpreter ausgeführt werden.
 ---
 
@@ -272,7 +272,7 @@ print("|" + txt_no_whitespaces + "|")
 ~~~
 {: .output}
 
-### `find(seq)` und `rfind(seq)`
+<!-- ### `find(seq)` und `rfind(seq)`
 
 Wenn wir eine Sequenz von 1 und mehr Zeichen in einem String suchen wollen, geben uns diese Methoden die Stelle (als Integer) im String zurück, 
 an der die Sequenz beginnt. 
@@ -338,7 +338,7 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > engl = 
 > ~~~
 > Diskutieren Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
-{: .challenge}
+{: .challenge} -->
 
 {% include links.md %}
 
