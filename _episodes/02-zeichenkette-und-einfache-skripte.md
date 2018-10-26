@@ -277,7 +277,7 @@ print("|" + txt_no_whitespaces + "|")
 ~~~
 {: .output}
 
-<!-- ### `find(seq)` und `rfind(seq)`
+### `find(seq)` und `rfind(seq)`
 
 Wenn wir eine Sequenz von 1 und mehr Zeichen in einem String suchen wollen, geben uns diese Methoden die Stelle (als Integer) im String zurück, 
 an der die Sequenz beginnt. 
@@ -343,7 +343,7 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > engl = 
 > ~~~
 > Diskutieren Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
-{: .challenge} -->
+{: .challenge}
 
 {% include links.md %}
 
