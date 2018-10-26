@@ -1,6 +1,6 @@
 ---
 title: "Einfache Ausdrücke, Datentypen und Variablen"
-teaching: 0
+teaching: 50
 exercises: 0
 questions:
 - "Wie kann man einfache Ausdrücke in Python ausführen?"
