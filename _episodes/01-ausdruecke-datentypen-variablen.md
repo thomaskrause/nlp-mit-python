@@ -315,6 +315,7 @@ float(pi)
 {: .output}
 
 Es noch gibt eine Vielzahl weiterer, bereits eingebauter Funktionen in Python.
+Eine Listen davon finden Sie unter [https://docs.python.org/3.6/library/functions.html](https://docs.python.org/3.6/library/functions.html)
 Einige davon benötigen keine Eingabeargumente, trotzdem müssen in diesem Fall die Klammern mit angegeben werden.
 
 
