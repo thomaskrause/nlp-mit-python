@@ -110,7 +110,7 @@ with open("outfile.txt","a") as f
   # wird nach diesem Block automatisch geschlossen
 ~~~
 
-### Tipps und Tricks¶
+### Tipps und Tricks
 
 Wenn ihr vermeiden wollt, dass ihr eine Datei überschreibt, die es schon gibt, gibt es mehrere Mittel. Zum einen könnt ihr einen anderen Schreibmodus verwenden:
 
