@@ -708,7 +708,7 @@ als in einer Liste.
 {: .callout}
 
 > ## Frage(n)
-> Ist der Ausdruck `"1.42" in l` für die Menge `{1, 1.43, 1.42}`?
+> Ist der Ausdruck `"1.42" in l` für die Menge `{1, 1.43, 1.42}` wahr?
 >> ## Lösung
 >> Nein, denn `"1.42"` ist ein String und das Element in der Menge ist eine Ganzkommazahl.
 >> Elemente müssen vom Typ gleich sein um verglichen werden zu können.
