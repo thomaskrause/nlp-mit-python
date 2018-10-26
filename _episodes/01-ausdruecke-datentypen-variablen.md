@@ -217,6 +217,15 @@ Und auch dieses Ergebnis können wir wieder in einer Variable speichern:
 ergebnis = zahl1+zahl2
 ~~~
 
+Variablen können einen leeren Wert annehmen, in denen ihnen der spezielle Wert
+`None` zugewiesen wird. 
+~~~python
+ergebnis = None
+ergebnis
+~~~
+Variablen vom Wert `None` erzeugen keine Ausgabe.
+
+
 > ## Übung
 > Wie können wir nun das Ergebnis der Addition ansehen? 
 > Versuchen Sie es auf der Python-Konsole.
