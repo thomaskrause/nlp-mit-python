@@ -10,7 +10,7 @@ objectives:
 - Verstehen des Datentyps `str` Typs von Python
 keypoints:
 - Strings sind Sequenzen von Zeichen auf die über einen Index zugegriffen werden kann.
-#- Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
+- Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
 - Python-Skripte können als Textdateien mit der Dateiendung `.py` gespeichert und dann mit dem `python3` Interpreter ausgeführt werden.
 ---
 
