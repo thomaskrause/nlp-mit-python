@@ -71,9 +71,12 @@ Wenn wir unsere linguistische Forschung mit technischen Mitteln unterstützen wo
 Also, beginnen wir mit dem einfachen Laden. Hierfür benötigen wir `open`:
 
 ~~~python
-sf = open('demofile.txt', 'r')
-content = f.read()
-content2 = f.readlines()
+f1 = open('demofile.txt', 'r')
+content1 = f1.read()
+# ...
+
+f2 = open('demofile.txt', 'r')
+content2 = f2.readlines()
 # ...
 ~~~
 
