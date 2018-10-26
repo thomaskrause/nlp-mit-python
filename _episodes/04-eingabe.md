@@ -82,7 +82,7 @@ content2 = f2.readlines()
 
 > ## Frage(n)
 > - Was passiert in jeder Zeile des Programmes?
-> - Welchen Typ hat f und welchen Typ hat content?
+> - Welchen Typ hat `f` und welchen Typ hat `content1` bzw. `content2`?
 > - Was fehlt noch? Warum ist das wichtig?
 > - Was ist der Unterschied zwischen `read` und `readlines`?
 {: .discussion}
