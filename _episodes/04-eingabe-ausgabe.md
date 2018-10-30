@@ -1,5 +1,5 @@
 ---
-title: "Eingabe von Daten"
+title: "Eingabe und Ausgabe von Daten"
 teaching: 0
 exercises: 1
 questions:
