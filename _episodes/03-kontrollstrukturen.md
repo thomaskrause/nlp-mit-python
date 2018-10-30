@@ -617,6 +617,30 @@ else:
   print("Mathematik geht noch")
 ~~~
 
+> ## Übung
+> Bilden Sie aus den gegebenen den folgenden drei Variablen den komplexen Wahrheitswert `social_security`. Dieser sagt aus, ob wir noch Kindergeld erhalten. Hier die genauen Bedingungen:
+> - Wenn wir minderjährig sind, gibt es Kindergeld
+> - Wenn wir nicht mehr minderjährig, aber jünger als 25 sind und studieren, gibt es Kindergeld
+> - Wenn wir älter als 24 sind und ein FSJ (freiwilliges soziales Jahr) absolviert haben, bekommen wir Kindergeld (wir ignorieren, dass das zeitlich begrenzt ist)
+> 
+> ~~~python
+> age = 24
+> studying = False
+> fsj = True
+>
+> social_security = # TODO: logischer Ausdruck
+> ~~~
+>> ## Lösung
+>> ~~~python
+>> age = 24
+>> studying = False
+>> fsj = True
+>>
+>> social_security = (age < 18) or (age < 25 and studying) or (age > 24 and fsj)
+>> ~~~
+> {: .solution}
+{: .challenge}
+
 ### Mengen und der  `in` Operator
 
 Es kann mit `in` auch überprüft werden, ob ein Element in einer Liste vorhanden ist.
