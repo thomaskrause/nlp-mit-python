@@ -345,5 +345,22 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > Diskutieren Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
 {: .challenge}
 
+## `startswith` und `endswith` 
+
+Die beiden Funktionen überprüfen, ob ein String mit einem Prefix beginnt oder einem Suffix endet.
+
+~~~python
+satz = "Ein Wort ist kein Satz."
+
+print(satz.startswith("Ein"))
+print(satz.endswith("!"))
+~~~
+~~~
+True
+False
+~~~
+{: .output}
+
+
 {% include links.md %}
 
