@@ -3,11 +3,12 @@ title: "Eigene Funktionen und Module"
 teaching: 0
 exercises: 0
 questions:
-- Wie können Funktionen aus externen Bibliotheken eingebunden werden?' 
 - Wie kann ich selbst eigene Funktionen definieren?
+- Wie können Funktionen aus externen Bibliotheken eingebunden werden?' 
 objectives:
 - Funktionalität von Programmen nachnutzen
 keypoints:
+- Mit Funktionen können Teile von Programmen ausgegliedert und nachgenutzt werden.
 ---
 
 ## Eigene Funktionen definieren

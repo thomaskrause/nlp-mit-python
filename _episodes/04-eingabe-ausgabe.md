@@ -8,6 +8,8 @@ objectives:
 - Interaktive Eingabe von Nutzern einholen
 - Ein- und Auslesen von Dateien
 keypoints:
+- Die eingebaute Funktion `input` erlaubt eine interaktive Eingabe vom Nutzer anzufordern.
+- Mit den eingebauten Funktionen `open` können Dateien zum Lesen und Schreiben geöffnet werden, diese müssen immer wieder geschlossen werden.
 ---
 
 ## Interaktive Eingabe
