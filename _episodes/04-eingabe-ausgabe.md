@@ -131,4 +131,4 @@ Alternativ gibt es im Modul os (Submodul path) eine Funktion `exists`:
 from os.path import exists
 print(exists('demofile.txt'))
 ~~~
-Dafür müssen wir diese Funktion allerdings `importieren`, auch das werden wir noch genauer kennen lernen.
+Dafür müssen wir diese Funktion allerdings *importieren*, auch das werden wir noch genauer kennen lernen.
