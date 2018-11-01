@@ -94,6 +94,7 @@ Der Code nutzt die eingebaute Funktion `isinstance` um zu überprüfen, ob eine 
 
 Außerdem ist es möglich, dass eine Funktion mehr als einen Wert zurückgibt. 
 In diesem Fall muss die `return` Anweisung alle Werte mit Komma getrennt auflisten.
+Die Zuweisung von mehreren Werten beim Aufruf einer Funktion erfolgt ebenfals durch Auflistung mit Komma.
 
 ~~~python
 def get_str_info(text):
@@ -131,5 +132,43 @@ Nothing happend.
 ~~~
 {: .output}
 Der Standardwert für das Argument `with_exclamation_marks` ist hier `False`.
+
+> ## Übung
+> Wir wollen alle Nomen aus einer Geschichte und in eine Datei schreiben finden. 
+> Dafür brauchen wir
+> - eine Liste von Wörtern, die wir aus einem String (der
+Geschichte) generieren
+> - eine Definition von Nomen - wir gehen vereinfacht davon aus, dass
+alle großgeschriebenen Wörter außer am Satzanfang
+Nomen sind
+>
+> Die Geschichte nehmen wir von hier: [http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel](http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel)
+>> ## Lösung
+>> ~~~python	
+>> # Unsere Funktion nimmt eine Liste als Parameter
+>> def find_nouns(list_of_words):
+>>     nouns = list()
+>>     # Das erste Wort ist wahrscheinlich großgeschrieben, fällt aber aus unserer Definition raus
+>>     for i in range(1, len(list_of_words)):
+>>     	current_word = list_of_words[i]
+>>     	if current_word[0].isupper():
+>>             # list_of_words[i-1]: Das vorherige Wort
+>>             if not list_of_words[i-1].endswith("."):
+>>                 nouns.append(current_word)
+>>     return nouns
+>> 
+>> 
+>> with open("hase_igel.txt") as f:
+>>     story = f.read()
+>>     words = story.split()
+>>     nouns = find_nouns(words)
+>> 
+>> with open("hase_igel_nouns.txt", "w") as result:
+>>     for noun in nouns:
+>>         result.write(noun + ", ")
+>> ~~~
+> {: .solution}
+{: .challenge}
+
 
 ## Module und der `import` Befehl
