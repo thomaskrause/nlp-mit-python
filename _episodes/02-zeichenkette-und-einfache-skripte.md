@@ -361,6 +361,17 @@ False
 ~~~
 {: .output}
 
+> ## Übung
+> Wie könnte man die beiden Funktionen auch alternativ ohne String-Methoden aber mit dem Wissen aus der ersten Teil dieser Einführung ausdrücken?
+>> ## Lösung
+>> ~~~python
+>> satz = "Ein Wort ist kein Satz."
+>>
+>> satz[:len("Ein")] == "Ein"
+>> satz[-len("Satz."):] == "Satz."
+>> ~~~
+>{: .solution}
+{: .challenge}
 
 {% include links.md %}
 
