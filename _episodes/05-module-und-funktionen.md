@@ -9,6 +9,7 @@ objectives:
 - Funktionalität von Programmen nachnutzen
 keypoints:
 - Mit Funktionen können Teile von Programmen ausgegliedert und nachgenutzt werden.
+- Eigene Module können in Python-Dateien abgespeichert und mit `import` in anderen Python-Skripten nachgenutzt werden.
 ---
 
 ## Eigene Funktionen definieren
@@ -264,3 +265,38 @@ mb.add(42,3.13)
 from mathmodules.fancy import add as fancy_add
 fancy_add(42)
 ~~~
+
+## Module der Standardbibliothek
+
+Python besitzt neben den eingebauten Funktionen und Typen auch noch eine riesige sogenannte Standardbibliothek.
+Dies sind Module, die in allen Python-Installationen (für eine bestimmte Version von Python) immer vorhanden sind.
+Sie können also erwarten, dass Sie in jedem Skript diese Module importieren können.
+
+Eine Auflistung und Dokumentation der Module der Standardbibliothek findet sich unter [https://docs.python.org/3.6/library/index.html](https://docs.python.org/3.6/library/index.html).
+
+Ein Beispiel für eine sehr nützliches Module aus der Standardbibliothek ist das Modul für reguläre Ausdrücke (also Mustersuche) mit dem Namen `re`.
+Muster oder „Patterns“ müssen erst einmal erstellt („kompilliert“) werden und kann dann auf Strings angewendet werden.
+~~~python
+import re
+pattern = re.compile('Glück.+')
+search_in = 'Hallo, was für ein Glück, dass wir uns heute treffen!'
+# gibt einen bool zurück, wenn der ganze String dem Pattern matched
+is_match = pattern.match(search_in)   
+# gibt bool zurück, wenn ein Teilstring dem Pattern matched
+found = pattern.search(search_in)
+
+if is_match:
+    print('It is a full match!')
+elif found_at:
+    print('I found it somewhere!')
+~~~
+~~~
+I found it somewhere!
+~~~
+{: .output}
+
+Auf der [Dokumentation des Moduls `re` ](https://docs.python.org/3.6/library/re.html) gibt es eine Einführung in die Syntax dieser Patterns und wie man nicht nur ja/nein Suchen sondern auch die Position des Treffers bekommen kann. 
+
+### Installation neuer Pakete mit `pip`
+
+FIXME
