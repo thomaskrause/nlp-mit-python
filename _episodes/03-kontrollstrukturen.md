@@ -1,7 +1,7 @@
 ---
 title: "Kontrollstrukturen und Listen"
-teaching: 0
-exercises: 0
+teaching: 110
+exercises: 30
 questions:
 - Wie können Sequenzen von Werten gespeichert werden?
 - Wie kann ich Code mehrfach ausführen?

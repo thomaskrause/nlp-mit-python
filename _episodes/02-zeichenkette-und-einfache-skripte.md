@@ -1,6 +1,6 @@
 ---
 title: "Zeichenketten und einfache Skripte"
-teaching: 100
+teaching: 110
 exercises: 0
 questions:
 - Wie kann ich Zeichenketten in Python eingeben und darstellen?
