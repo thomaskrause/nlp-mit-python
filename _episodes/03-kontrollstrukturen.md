@@ -641,102 +641,54 @@ else:
 > {: .solution}
 {: .challenge}
 
-### Mengen und der  `in` Operator
+## Interaktive Eingabe
 
-Es kann mit `in` auch überprüft werden, ob ein Element in einer Liste vorhanden ist.
-
-~~~python
-nachspeisen = ["Obst", "Quark", "Eis"]
-if "Obst" in nachspeisen:
-  print("Heute mal gesund.")
-else:
-  print("Esst mehr Obst!")
-~~~
-
-Neben Listen gibt es in Python auch Mengen, oder sogenannte *Sets*.
-Eine Menge enthält keine Duplikate, kann aber aus Listen mit der `set(...)` Funktion erstellt werden.
-Außerdem ist die Reihenfolge einer Menge nicht festgelegt.
+Wir kennen bereits `print(var)` um Informationen auszugeben.
+Das Gegenstück dazu die Funktion `input()`. 
+Sie erlaubt einem Python-Skript, Texteingaben vom Nutzer entgegenzunehmen.
 
 ~~~python
-original = ["Eis", "Obst", "Quark", "Eis"]
-nachspeisen = set(original)
-print(len(original), len(nachspeisen))
+print("Hallo, meine Name ist Script!")
+name = input("Wie heißen Sie? ")
+print("Hallo " +  name + "!")
 ~~~
+
+Dieses Script erzeugt erst die Ausgabe
 ~~~
-4 3
+Hallo, meine Name ist Script!
+Wie heißen Sie? ▮
 ~~~
 {: .output}
 
-Im Vergleich zur originalen Liste wurde in der Menge das doppelte `"Eis"` entfernt und daher ist die Länge nur 3 anstatt 4.
-
-~~~python
-print(nachspeisen)
+Das Argument von `print()` ist ein sogenannter "Prompt", also eine Eingabeaufforderung an den Nutzer. 
+Der Prompt wird ausgegeben und es wir solange gewartet, bis der Nutzer eine Eingabe gemacht und diese mit der Eingabetaste <kbd>Return</kbd> abgeschlossen hat.
+Die Funktion liefert die Eingabe als Typ String zurück.
+In diesem Beispiel wird die Rückgabe in eine Variable geschrieben und wieder ausgegeben.
 ~~~
-~~~
-{'Eis', 'Obst', 'Quark'}
-~~~
-{: .output}
-
-Da Mengen keine Reihenfolge haben, werden neue Element mit der Funktion `add(v)` hinzugefügt.
-Mit `remove(v)` können sie entfernt werden.
-
-~~~python
-l = set() # leere Menge
-l.add(1) # wir fügen der Menge Elemente hinzu
-l.add("Piano")
-l.add(1.42)
-l.add(1.43)
-l.add(1.42)
-print(l)
-~~~
-~~~
-{1, 1.43, 1.42, 'Piano'}
+Hallo, meine Name ist Script!
+Wie heißen Sie? Thomas 
+Hallo Thomas!
 ~~~
 {: .output}
 
-~~~python
-l.remove("Piano")
-print(l)
-~~~
-~~~
-{1, 1.43, 1.42}
-~~~
-{: .output}
-
-
-Die Funktionen `in` funktioniert auch auf Mengen: 
-~~~python
-1 in l
-~~~
-~~~
-True
-~~~
-{: .output}
-
-Ebenso gibt es die Funktion `not in` um zu überprüfen ob etwas nicht in der Menge enthalten ist:
-~~~python
-13 not in l
-~~~
-~~~
-True
-~~~
-{: .output}
-
-> ## Geschwindigkeit von Sets .vs Listen
-> Die Überprüfung, ob ein Wert Teil eines Sets ist kann deutlich schneller geschehen
-als in einer Liste.
-> Während in einer Liste wirklich jedes Element angeschaut werden muss,
-> gibt es für Sets Indexstrukturen, die annähernd konstant und unabhängig von 
-> der Länge der Liste die (Nicht)-Zugehörigkeit eines Werts überprüfen können. 
-> Insbesondere bei großen Datenmengen kann es also von Vorteil sein ein Set zu nutzen, soweit es semantisch Sinn macht.
-{: .callout}
-
-> ## Frage(n)
-> Ist der Ausdruck `"1.42" in l` für die Menge `{1, 1.43, 1.42}` wahr?
+> ## Übung
+> Schreiben Sie ein Skript das folgendes tut:
+> Das Skript hat eine interne „magic number“, die Sie frei wählen können. 
+> Fragen Sie den Nutzer, wie die Nummer ist. Geben Sie ihm Feedback, ob die Zahl die er geraten hat größer oder kleiner als die „magic number“ ist.
+> Wenn der Nutzer die Zahl erraten hat, gratulieren Sie ihm und beenden das Programm.
 >> ## Lösung
->> Nein, denn `"1.42"` ist ein String und das Element in der Menge ist eine Ganzkommazahl.
->> Elemente müssen vom Typ gleich sein um verglichen werden zu können.
->> Mit Hilfe der Typumwandlungsfunktion (`str(v)`,`int(v)`,`float(v)`, etc.) können solche Umwandlungen vorgenommen werden.
->> Für einige Typen geschieht die Umwandlung automatisch, so ist z.B. `1.0 in l` wahr, da ein Float zu einem Integer automatisch umgewandelt wird.
-> {: .solution}
-{: .discussion}
+>> Mögliche Lösung:
+~~~python
+magic_number = 355
+guessed = None
+while guessed != magic_number:
+    guessed = input("Bitte Nummer raten: ")
+    guessed = int(guessed)
+    if guessed < magic_number:
+        print("Zu klein!")
+    elif guessed > magic_number:
+        print("Zu groß!")
+print("Herzlichen Glückwunsch, Sie haben die Nummer erraten!")
+~~~
+>{: .solution}
+{: .challenge}
