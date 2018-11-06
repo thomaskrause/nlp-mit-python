@@ -1,19 +1,29 @@
-def levenshtein_distance(a, b):
-    cost = 0
-
+def levenshtein_distance_add(a, b):
     # Basisfall: leere Zeichenketten bei einem der beiden Strings
     # --> man muss die Zeichen des anderen Strings hinzufügen
     if len(a) == 0:
         return len(b)
     if len(b) == 0:
         return len(a)
+    # Basisfall ist nicht eingetreten
+    return None
 
-    # Teste ob das letzte Zeichen übereinstimmt
+
+def levenshtein_distance_modify(a, b):
     if a[-1] == b[-1]:
-        cost = 0
+        # Keine Änderung des letzten Zeichens notwendig
+        return 0
     else:
         # Änderung des letzten Zeichens notwendig
-        cost = 1
+        return 1
+
+def levenshtein_distance(a, b):
+    add_cost = levenshtein_distance_add(a, b)
+    if add_cost != None:
+        # Basisfall traf zu, der rekursive Aufruf wird abgebrochen
+        return add_cost
+
+    cost = levenshtein_distance_modify(a,b)
 
     # Gebe das Mimimum der Einzelfälle zurück:
     # - entferne letztes Zeichen von a
