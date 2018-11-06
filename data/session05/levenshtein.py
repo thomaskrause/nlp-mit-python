@@ -1,25 +1,26 @@
-def levenshtein_distance(s1, s2):
+def levenshtein_distance(a, b):
     cost = 0
 
-    # Basisfall: leere Zeichenketten
-    if len(s1) == 0:
-        return len(s2)
-    if len(s2) == 0:
-        return len(s1)
+    # Basisfall: leere Zeichenketten bei einem der beiden Strings
+    # --> man muss die Zeichen des anderen Strings hinzufügen
+    if len(a) == 0:
+        return len(b)
+    if len(b) == 0:
+        return len(a)
 
     # Teste ob das letzte Zeichen übereinstimmt
-    if s1[-1] == s2[-1]:
+    if a[-1] == b[-1]:
         cost = 0
     else:
         # Änderung des letzten Zeichens notwendig
         cost = 1
 
     # Gebe das Mimimum der Einzelfälle zurück:
-    # - entferne erstes Zeichen von s1
-    # - entferne erstes  Zeichen von s2
-    # - entferne erstes Zeichen von beiden Strings
+    # - entferne letztes Zeichen von a
+    # - entferne letztes Zeichen von b
+    # - entferne letztes Zeichen von beiden Strings
     return min(
-    levenshtein_distance(s1, s2[1:]) + 1, 
-    levenshtein_distance(s1, s2[1:]) + 1, 
-    levenshtein_distance(s1[1:], s2[1:]) + cost
+    levenshtein_distance(a[:-1], b) + 1, 
+    levenshtein_distance(a, b[:-1]) + 1, 
+    levenshtein_distance(a[:-1], b[:-1]) + cost
     )
