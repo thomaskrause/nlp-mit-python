@@ -17,6 +17,8 @@ def levenshtein_distance_modify(a, b):
         # Änderung des letzten Zeichens notwendig
         return 1
 
+from functools import lru_cache
+@lru_cache(maxsize=4095)
 def levenshtein_distance(a, b):
     add_cost = levenshtein_distance_add(a, b)
     if add_cost != None:
