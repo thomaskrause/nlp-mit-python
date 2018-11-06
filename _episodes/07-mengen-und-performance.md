@@ -1,5 +1,5 @@
 ---
-title: "Mengen und Performance und Listen"
+title: "Mengen und Performance von Listen"
 teaching: 0
 exercises: 0
 questions:
