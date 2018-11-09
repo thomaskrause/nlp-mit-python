@@ -3,8 +3,13 @@ title: "Levenshtein-Distanz"
 teaching: 0
 exercises: 0
 questions:
+- Wie kann man die Levenshtein-Distanz selbst in Python berechnen?
 objectives:
+- Anwenden vom Wissen zur Organisation von Quelltext
+- Implementierung eines gegebenen Algorithmus
 keypoints:
+- Man sollte versuchen größere Aufgaben in kleinere, einfache zu handhabene Teilaufgaben aufzuteilen
+- Funktionen sind nützlich, um diese kleineren Teilaufgaben abzubilden
 ---
 
 ## Nutzung von NLTK zur Berechnung der Levenshtein-Distanz
@@ -179,5 +184,5 @@ def levenshtein_distance(a, b):
 > ## Frage(n)
 > Sie werden bemerken, dass die Funktion viel Zeit für die Berechnung der Distanz für längere Strings braucht.
 > Warum ist das so und wie könnte man das beheben?
-> Vergleichen Sie diese Implementierung mit der von NLTK oder der, die im Rosetta Code Projekt gegeben ist: https://rosettacode.org/wiki/Levenshtein_distance#Python
+> Vergleichen Sie diese Implementierung mit der von NLTK oder der, die im Rosetta Code Projekt gegeben ist: [https://rosettacode.org/wiki/Levenshtein_distance#Python](https://rosettacode.org/wiki/Levenshtein_distance#Python)
 {: .discussion}

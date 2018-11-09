@@ -254,7 +254,7 @@ found = pattern.search(search_in)
 
 if is_match:
     print('It is a full match!')
-elif found_at:
+elif found:
     print('I found it somewhere!')
 ~~~
 ~~~
