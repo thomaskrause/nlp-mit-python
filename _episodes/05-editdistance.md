@@ -24,7 +24,7 @@ NLTK kann mit
 pip3 install nltk
 ~~~
 im Systemterminal einmalig installiert werden und mit
-~~~python3
+~~~python
 import nltk
 ~~~
 in einem Python-Skript importiert werden.
@@ -37,7 +37,7 @@ in einem Python-Skript importiert werden.
 {: .callout}
 
 Die Levenshtein-Distanz ist als Funktion mit der Signatur `edit_distance(s1, s2)` implementiert.
-~~~python3
+~~~python
 nltk.distance.edit_distance("Geisterbahn", "Achterbahn")
 ~~~
 ~~~
