@@ -1,6 +1,6 @@
 ---
 title: "Eigene Funktionen und Module"
-teaching: 0
+teaching: 60
 exercises: 0
 questions:
 - Wie kann ich selbst eigene Funktionen definieren?
@@ -47,10 +47,10 @@ print(v)
 >> ## Lösung
 >> ~~~python
 >> def complex_math(start, end, multiplier):
->>     sum = 0
+>>     summe = 0
 >>     for i in range(start, end):
->>         sum = sum + (i*multiplier)
->>     return sum
+>>         summe = summe + (i*multiplier)
+>>     return summe
 >> 
 >> print(complex_math(1,100, 1))
 >> print(complex_math(20,100, 3))
@@ -102,14 +102,14 @@ Die Zuweisung von mehreren Werten beim Aufruf einer Funktion erfolgt ebenfals du
 ~~~python
 def get_str_info(text):
     l = len(text)
-    n = len(set(text))
+    c = text[0]
     return l, n
 
 a, b = get_str_info("This is an arbitrary string, I swear")
 ~~~
 ~~~
 36
-16
+T
 ~~~
 {: .output}
 
@@ -147,8 +147,8 @@ Man z.B. kann man das folgende Python-Skript mit dem Namen `poornlp.py` abspeich
 ~~~python
 def get_str_info(text):
     l = len(text)
-    n = len(set(text))
-    return l, n
+    c = text[0]
+    return l, c
 
 def is_noun(word):
     return word[0].isupper()
