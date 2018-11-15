@@ -3,8 +3,15 @@ title: "Texte in NLTK"
 teaching: 0
 exercises: 0
 questions:
+- Wie werden Text in NLTK dargestellt?
+- Wie kann man auf diese Texte zugreifen?
+- Was kann man mit den Texten an einfachen statistischen Auswertungen durchführen?
 objectives:
+- Laden der vorgefertigten NLTK Buch Beispieltexte
+- Einfache Auswertungen auf diesen Texten
 keypoints:
+- Texte sind Sequenzen von Token  und können wir Listen von Strings behandelt werden
+- Es ist in NLTK direkt möglich, Frequenzanalysen, Kollokationen und andere einfache statistische Auswertungen auf Texten durchzuführen.
 ---
 
 Das NLTK besteht aus verschiedenen Modulen für
