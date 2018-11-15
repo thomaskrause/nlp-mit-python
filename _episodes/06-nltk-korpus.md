@@ -354,3 +354,44 @@ print(words)
 {'comprehend', 'lend', 'recommend', 'tend', 'dividend', 'Godsend', 'attend', 'send', 'spend', 'rend', 'trend', 'friend', 'Reverend', 'apprehend', 'extend', 'contend', 'reverend', 'legend', 'intend', 'transcend', 'blend', 'depend', 'defend', 'superintend', 'pretend', 'bend'}
 ~~~
 {: .output}
+
+## Konkordanz auf NLTK-Texten
+
+Das NLTK hat eine eigene Konkordanzfunktion:
+~~~python
+text4.concordance("fruit")
+~~~
+~~~
+Displaying 2 of 2 matches:
+as we do all the raw materials , the fruit of our own soil and industry , we ou
+ce will grow greater and bear richer fruit with the coming years . No doubt thi
+~~~
+{: .output}
+
+Damit können die gefunden Stellen gemeinsam mit ihren Kontext angezeigt werden. 
+In diesem Fall ist der Kontext durch die Wörter/Zeichen links und rechts vom Treffer gegeben.
+
+Die Konkordanzfunktion arbeitet auf tokenisiertem Text - sie
+kann deshalb nicht über mehrere Wörter suchen:
+~~~python
+text4.concordance("fruit of")
+~~~
+~~~
+no matches
+~~~
+{: .output}
+liefert keine Matches, weil es das Token „fruit of“ nicht gibt!
+
+Die Konkordanzfunktion funktioniert nur auf der Datenstruktur
+Text, die vom NLTK vorgegeben wird.
+
+> ## Übung
+> Wie können wir uns den Kontext für das Ergebnis einer Mustersuche ausgeben lassen?
+>> ## Lösung
+>> ~~~python
+>> words = set([w for w in text4 if re.search(".+(end|begin)$", w)])
+>> for w in words:
+>>     text4.concordance(w)
+>> ~~~
+> {: .solution}
+{: .challenge}
