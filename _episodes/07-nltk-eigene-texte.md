@@ -1,15 +1,17 @@
 ---
-title: "Eingabe und Ausgabe von Daten"
+title: "NLTK und eigene Texte"
 teaching: 0
 exercises: 0
 questions:
-- Wie können Dateien durch Python verarbeitet werden?' 
+- Wie können Dateien durch Python verarbeitet werden?
+- Wie kann ich meine eigenen Texte in NLTK einbinden?
 objectives:
-- Interaktive Eingabe von Nutzern einholen
 - Ein- und Auslesen von Dateien
 - Auf Argumente der Kommandozeile zugreifen
+- Tokensieren von Texten
 keypoints:
 - Mit den eingebauten Funktionen `open` können Dateien zum Lesen und Schreiben geöffnet werden, diese müssen immer wieder geschlossen werden.
+- Listen von Strings können mit `nltk.Text()` zu einem NLTK-Text umgewandelt werden.
 - Kommandozeilenargumente können über die Liste `sys.argv` abgerufen werden. Das erste Element ist immer der Aufrufpfad des Skripts.
 ---
 
@@ -120,6 +122,47 @@ Nomen sind
 >> ~~~
 > {: .solution}
 {: .challenge}
+
+
+## Einlesen einer Textdatei in NLTK
+
+Wir wollen nun unseren Beispieltext mit der Geschichte von Hase und Igel als Text in NLTK laden.
+Dafür müssten wir als erstes eine Liste von allen Wörtern des Textes in der richtigen Reihenfolge erstellen.
+Das heißt, dass wenn wir den Text zeilenweise einlesen, die Zeichenketten auftrennen müssen.
+Eine einfache Methode dazu haben wir mit der `split()` Funktion bereits kennen gelernt.
+Diese Funktion kann aber z.B. nicht mit Punktuation umgehen.
+
+~~~python
+txt = "Ich, der große Zappano, werde ein Kaninchen aus dem Hut zaubern!"
+txt.split()
+~~~
+~~~
+['Ich,', 'der', 'große', 'Zappano,', 'werde', 'ein', 'Kaninchen', 'aus', 'dem', 'Hut', 'zaubern!']
+~~~
+{: .output}
+
+NLTK bietet eine Funktion `word_tokenize(text)`, die diese Aufgabe besser löst.
+~~~python
+from nltk import word_tokenize
+word_tokenize(txt)
+~~~
+~~~
+['Ich', ',', 'der', 'große', 'Zappano', ',', 'werde', 'ein', 'Kaninchen', 'aus', 'dem', 'Hut', 'zaubern', '!']
+~~~
+{: .output}
+
+Die Funktion `nltk.Text` erstellt aus so einer Liste von Wörtern dann einen neuen Text,
+der genau so wie alle anderen Texte genutzt werden kann.
+~~~python
+ntxt = nltk.Text(word_tokenize(txt))
+ntxt.concordance("werde")
+FreqDist(ntxt).plot()
+~~~
+~~~
+Displaying 1 of 1 matches:
+Ich , der große Zappano , werde ein Kaninchen aus dem Hut zaubern !
+~~~
+{: .output}
 
 ## Kommandozeilenargumente
 
