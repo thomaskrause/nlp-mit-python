@@ -9,7 +9,8 @@ keypoints:
 
 Das NLTK besteht aus verschiedenen Modulen für
 verschiedene Aufgaben, z.B. `nltk.corpora`, `nltk.parse` oder `nltk.stem`. 
-Eine Übersicht der Module finden Sie z.B. im [Vorwort](http://www.nltk.org/book/ch00.html) des NLTK-Buchs
+Eine Übersicht der Module finden Sie z.B. im [Vorwort](http://www.nltk.org/book/ch00.html) des NLTK-Buchs.
+Viele Beispiele sind auch aus dem NLTK-Buch übernommen, und es lohnt sich, als Nachbereitung die Kapitel 1 bis 3 durchzulesen. 
 
 ## Download von NLTK-Ressourcen
 
@@ -396,16 +397,209 @@ Text, die vom NLTK vorgegeben wird.
 > {: .solution}
 {: .challenge}
 
+## Vorkommen eines Worts im Text
+
+Wenn man eine Übersicht haben möchte, an welchen Stellen ein Wort im Text vorkommt, kann man einen sogenannten „dispersion plot“ nutzen:
+
+~~~python
+text4.dispersion_plot(["citizens", "democracy", "freedom", "duties", "America"])
+~~~
+
 ## Einfache statistische Auswertungen
+
 
 ### Wortfrequenzen
 
-FIXME
+Um die Frequenz der Wörter für ein Korpus berechnen, kann man mit der Funktion `Freqdist(text)` ein neues Objekt anlegen, dass die Vorkommen zählt und die Möglichkeit gibt, auf verschiedene Aspekte der Frequenzanalyse zuzugreifen.
 
-### Kollokation
+~~~python
+fdist1 = FreqDist(text1)
+print(fdist1)
+~~~
+~~~
+<FreqDist with 19317 samples and 260819 outcomes>
+~~~
+{: .output}
 
-FIXME
+Mit der Methode `.most_common(n)` kann man sich jetzt die `n` häufigsten Wörter ausgeben lassen.
+~~~python
+fdist1.most_common(50)
+~~~
+~~~
+[(',', 18713), ('the', 13721), ('.', 6862), ('of', 6536), ('and', 6024), ('a', 4569), ('to', 4542), (';', 4072), ('in', 3916), ('that', 2982), ("'", 2684), ('-', 2552), ('his',2459), ('it', 2209), ('I', 2124), ('s', 1739), ('is', 1695), ('he', 1661), ('with', 1659), ('was', 1632), ('as', 1620), ('"', 1478), ('all', 1462), ('for', 1414), ('this', 1280), ('!', 1269), ('at', 1231), ('by', 1137), ('but', 1113), ('not', 1103), ('--', 1070), ('him', 1058), ('from', 1052), ('be', 1030), ('on', 1005), ('so', 918), ('whale', 906), ('one', 889), ('you', 841), ('had', 767), ('have', 760), ('there', 715), ('But', 705), ('or', 697), ('were', 680), ('now', 646), ('which', 640), ('?', 637), ('me', 627), ('like',624)]
+~~~
+{: .output}
+
+Über einen Indexzugriff kann man auch die Häufigkeit eines gegebenen Wortes ausgeben:
+~~~python
+fdist1['whale']
+~~~
+~~~
+906
+~~~
+{: .output}
+
+Man kann die Frequenzen auch wieder plotten lassen:
+~~~python
+print(len(text1))
+fdist1.plot(50)
+~~~
+~~~
+260819
+~~~
+{: .output}
+
+Wenn man die Häufigkeiten der häufigsten 50 Wörter aufaddiert kann man sehen, dass diese
+fast die Hälfte des Gesamttextes umfassen.
+~~~python
+print(len(text1))
+fdist1.plot(50, cumulative=True)
+~~~
+~~~
+260819
+~~~
+{: .output}
+
 
 ### Durchschnittliche Wortlänge
 
-FIXME
+Man kann mit `FreqDist()` auch andere Dinge berechnen, wie z.B. die Verteilung der Wortlänge eines Textes.
+Dazu erstellen wir zuerst ein neue List, in der für jedes Wort des Textes die Länge eingetragen ist.
+
+> ## Übung
+> Erstellen Sie eine Liste mit den Wortlängen des Textes `text1`!
+>> ## Lösung
+>> ~~~python
+>> l = [len(w) for w in text1]
+>> print(l)
+>> ~~~
+>> ~~~
+>> [1, 4, 4, 2, 6, 8, 4, 1, 9, 1, 1, 8, 2, 1, 4, 11, ...]
+>> ~~~
+>> {: .output}
+> {: .solution}
+{: .challenge}
+
+Jetzt können wir die Frequenz der verschiedenen Wortlängen direkt berechnen:
+~~~python
+ldist = FreqDist(l)
+print(ldist.most_common(10))
+ldist.plot()
+~~~
+~~~
+[(3, 50223), (1, 47933), (4, 42345), (2, 38513), (5, 26597), (6, 17111), (7, 14399), (8, 9966), (9, 6428), (10, 3528)]
+~~~
+{: .output}
+
+Wir können auch direkt die häufigste Wortlänge mit der Methode `.max()` berechnen lassen:
+~~~python
+ldist.max()
+~~~
+~~~
+3
+~~~
+{: .output}
+
+### Kollokation
+
+Kollokationen sind Sequenzen von ungewöhnlich häufig zusammen auftretenden Wörtern.
+Sequenzen von Wörtern, bei denen jedes einzelne Wort bereits häufig auftritt sind keine auffälligen Kollokationen, z.B. sind „the“ und „wine“ in einem Text vielleicht einzeln schon sehr häufig, deswegen ist klar, dass „the wine“ ebenfalls häufig auftritt und keine Kollokation.
+Dagegen ist „red wine“ eine, da die Sequenz der beiden Wörter häufiger auftritt als die einzelne Frequenz der beiden Wörter dies erwarten lassen würde. 
+
+Ein Beispiel für die Frequenz von „the“, „wine“ und „red“ in einem der Texte:
+~~~python
+print(fdist1["the"])
+print(fdist1["wine"])
+print(fdist1["red"])
+~~~
+~~~
+13721
+12
+36
+~~~
+{: .output}
+
+Nun ist die Frage, wie man die Häufigkeit von „red wine“ finden kann.
+Als erstes muss man eine Liste von sogenannten Bigrammen erstellen, also alle
+Paare von Wörtern die jeweils als Sequenz im Text vorkommen. 
+Bigramme können mit Methode `bigrams(text)` erstellt werden.
+~~~python
+for b in bigrams(text1):
+  print(b)
+~~~
+~~~
+('Nantucket', 'commanders')
+('commanders', ';')
+(';', 'that')
+('that', 'from')
+('from', 'the')
+('the', 'simple')
+('simple', 'observation')
+('observation', 'of')
+('of', 'a')
+[...]
+~~~
+{: .output}
+
+Die einzelnen Bigramme sind vom Typ Tupel, den wir bisher noch nicht kennengelernt haben.
+Tupel sind ähnlich wie Listen, allerdings ist die Anzahl der Element fest und es können nicht
+neue Element angehängt oder bestehende gelöscht werden.
+Ein Tupel-Wert kann in Python mit Hilfe von Klammern angelegt werden.
+~~~python
+t = ("red", "wine")
+type(t)
+print(t)
+print(t[0])
+print(t[1])
+~~~
+~~~
+<class 'tuple'>
+('red', 'wine')
+'red'
+'wine'
+~~~
+{: .output}
+
+Listen von Bigrammen können nun ähnlich wie Listen von Wörtern behandelt werden, indem z.B.
+Frequenzlisten davon erstellt und ausgewertet werden.
+
+~~~python
+bf = FreqDist(bigrams(text1))
+print(bf.most_common(10))
+print(bf[("red", "wine")])
+print(bf[("the", "wine")])
+~~~
+~~~
+[((',', 'and'), 2607), (('of', 'the'), 1847), (("'", 's'), 1737), (('in', 'the'), 1120), ((',', 'the'), 908), ((';', 'and'), 853), (('to', 'the'), 712), (('.', 'But'), 596), ((',', 'that'), 584), (('.', '"'), 557)]
+1
+0
+~~~
+{: .output}
+
+Während „the“ häufiger vorkommt als „red“, gibt es kein einziges Bigramm „the wine“ in diesem Text, während „red wine“ einmal vorkommt.
+Damit ist „red wine“ eine Kollokation.
+
+Nun kann man für einen Text direct mit der Methode `.collocations()` häufige Bigramme finden.
+~~~python
+text4.collocations()
+~~~
+~~~
+United States; fellow citizens; four years; years ago; Federal
+Government; General Government; American people; Vice President; Old
+World; Almighty God; Fellow citizens; Chief Magistrate; Chief Justice;
+God bless; every citizen; Indian tribes; public debt; one another;
+foreign nations; political parties
+~~~
+{: .output}
+
+~~~python
+text8.collocations()
+~~~
+~~~
+would like; medium build; social drinker; quiet nights; non smoker;
+long term; age open; Would like; easy going; financially secure; fun
+times; similar interests; Age open; weekends away; poss rship; well
+presented; never married; single mum; permanent relationship; slim
+build
+~~~
+{: .output}
