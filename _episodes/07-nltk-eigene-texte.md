@@ -133,36 +133,91 @@ Eine einfache Methode dazu haben wir mit der `split()` Funktion bereits kennen g
 Diese Funktion kann aber z.B. nicht mit Punktuation umgehen.
 
 ~~~python
-txt = "Ich, der große Zappano, werde ein Kaninchen aus dem Hut zaubern!"
-txt.split()
+feedback = "Die positivste Reaktion, die man in Berlin bekommen kann, ist eine fehlende Beschwerde."
+feedback.split()
 ~~~
 ~~~
-['Ich,', 'der', 'große', 'Zappano,', 'werde', 'ein', 'Kaninchen', 'aus', 'dem', 'Hut', 'zaubern!']
+['Die', 'positivste', 'Reaktion,', 'die', 'man', 'in', 'Berlin', 'bekommen', 'kann,', 'ist', 'eine', 'fehlende', 'Beschwerde.']
 ~~~
 {: .output}
 
 NLTK bietet eine Funktion `word_tokenize(text)`, die diese Aufgabe besser löst.
 ~~~python
 from nltk import word_tokenize
-word_tokenize(txt)
+word_tokenize(feedback)
 ~~~
 ~~~
-['Ich', ',', 'der', 'große', 'Zappano', ',', 'werde', 'ein', 'Kaninchen', 'aus', 'dem', 'Hut', 'zaubern', '!']
+['Die', 'positivste', 'Reaktion', ',', 'die', 'man', 'in', 'Berlin', 'bekommen', 'kann', ',', 'ist', 'eine', 'fehlende', 'Beschwerde', '.']
 ~~~
 {: .output}
 
 Die Funktion `nltk.Text` erstellt aus so einer Liste von Wörtern dann einen neuen Text,
 der genau so wie alle anderen Texte genutzt werden kann.
 ~~~python
-ntxt = nltk.Text(word_tokenize(txt))
-ntxt.concordance("werde")
-FreqDist(ntxt).plot()
+txt_de = nltk.Text(word_tokenize(feedback))
+txt_de.concordance("Reaktion")
+FreqDist(txt_de).plot()
 ~~~
 ~~~
 Displaying 1 of 1 matches:
-Ich , der große Zappano , werde ein Kaninchen aus dem Hut zaubern !
+Die positivste Reaktion , die man in Berlin bekommen kann ,
 ~~~
 {: .output}
+
+Eine Möglichkeit, Text weiter zu verarbeiten ist das Tagging jedes Tokens nach Wortarten.
+Dazu erstellen wir erst einen Text aus einen einfachen englischen Beispielsatz.
+~~~python
+txt_en = nltk.Text(word_tokenize("The most positive reaction you can get in Berlin is a missing complaint."))
+txt_en.tokens
+~~~
+~~~
+['The', 'most', 'positive', 'reaction', 'you', 'can', 'get', 'in', 'Berlin', 'is', 'a', 'missing', 'complaint', '.']
+~~~
+{: .output}
+
+Die Funktion `nltk.pos_tag(text)`  erlaubt jetzt das taggen eines englischen Texts:
+~~~python
+nltk.pos_tag(txt_en)
+~~~
+~~~
+[('The', 'DT'), ('most', 'RBS'), ('positive', 'JJ'), ('reaction', 'NN'), ('you', 'PRP'), ('can', 'MD'), ('get', 'VB'), ('in', 'IN'), ('Berlin', 'NNP'), ('is', 'VBZ'), ('a', 'DT'), ('missing', 'JJ'), ('complaint', 'NN'), ('.', '.')]
+~~~
+{: .output}
+Das Ergebnis ist eine Liste von Tupeln, wobei das erste Element das Token ist und das zweite der Tag für die Wortklasse. 
+Das hier verwendete Tagset ist as [UPenn Tagset](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html).
+Mit `nltk.help.upenn_tagset(tag)` kann man für eine einzelnes Tag die Beschreibung bekommen.
+~~~python
+nltk.help.upenn_tagset('NN')
+~~~
+~~~
+NN: noun, common, singular or mass
+    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
+    investment slide humour falloff slick wind hyena override subhumanity
+    machinist ...
+~~~
+{: .output}
+
+Wir werden uns später damit beschäftigen, wie diese Tagger funktionieren.
+Tagsets können über den optionalen Parameter `tagset` ausgewählt werden, z.B. gibt es auch das „[Universal POS Tagset](http://universaldependencies.org/u/pos/)“
+
+~~~python
+nltk.pos_tag(txt_en, tagset="universal")
+~~~
+~~~
+[('The', 'DET'), ('most', 'ADV'), ('positive', 'ADJ'), ('reaction', 'NOUN'), ('you', 'PRON'), ('can', 'VERB'), ('get', 'VERB'), ('in', 'ADP'), ('Berlin', 'NOUN'), ('is', 'VERB'), ('a', 'DET'), ('missing', 'ADJ'), ('complaint', 'NOUN'), ('.', '.')]
+~~~
+{: .output}
+
+Um den Tagger für eine andere Sprache zu nutzen, muss das Argument `lang` mit angeben werden.
+Als Argument muss der aus drei Buchstaben bestehende [ISO 639 Code](https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes) genutz werden, z.B. für Deutsch:
+~~~python
+nltk.pos_tag(txt_de, tagset="universal", lang="deu")
+~~~
+~~~
+[('Die', 'NOUN'), ('positivste', 'NOUN'), ('Reaktion', 'NOUN'), (',', '.'), ('die', 'NOUN'), ('man', 'NOUN'), ('in', 'ADP'), ('Berlin', 'NOUN'), ('bekommen', 'NOUN'), ('kann', 'VERB'), (',', '.'), ('ist', 'ADJ'), ('eine', 'NOUN'), ('fehlende', 'NOUN'), ('Beschwerde', 'NOUN'), ('.', '.')]
+~~~
+{: .output}
+Wir Sie sehen, ist der Tagger für Deutsch ausbaufähig.
 
 ## Kommandozeilenargumente
 
@@ -277,4 +332,14 @@ FileNotFoundError: [Errno 2] No such file or directory: 'nichtda.txt'
 >> ~~~
 >> {: .output}
 >{: .solution}
+{: .challenge}
+
+
+
+> ## Übung
+> Stellen Sie ihren angefangenen Chatbot fertig, dass er die Mindestanforderung erfüllt.
+> Dann bauen Sie ihn folgendermaßen aus (Schritt für Schritt)
+> - Tokenisieren Sie die Eingabe um die Stichwörter besser erkennen zu können
+> - Finden Sie mit Hilfe des POS-Taggers ein Nomen und referenzieren Sie das Nomen in der Nachfrage (ein englischer Dialog wäre jetzt besser)
+> - Fragen Sie am Anfang nach dem Namen des Gegenübers, schreiben Sie diesen in eine Datei und begrüßen Sie den Nutzer mit den richtigen Namen sobald er das Programm noch einmal ausführt.
 {: .challenge}
