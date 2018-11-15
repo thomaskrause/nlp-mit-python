@@ -9,16 +9,6 @@ keypoints:
 
 ## Mengen und der  `in` Operator
 
-Es kann mit `in` auch überprüft werden, ob ein Element in einer Liste vorhanden ist.
-
-~~~python
-nachspeisen = ["Obst", "Quark", "Eis"]
-if "Obst" in nachspeisen:
-  print("Heute mal gesund.")
-else:
-  print("Esst mehr Obst!")
-~~~
-
 Neben Listen gibt es in Python auch Mengen, oder sogenannte *Sets*.
 Eine Menge enthält keine Duplikate, kann aber aus Listen mit der `set(...)` Funktion erstellt werden.
 Außerdem ist die Reihenfolge einer Menge nicht festgelegt.
