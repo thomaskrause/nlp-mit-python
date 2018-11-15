@@ -395,3 +395,17 @@ Text, die vom NLTK vorgegeben wird.
 >> ~~~
 > {: .solution}
 {: .challenge}
+
+## Einfache statistische Auswertungen
+
+### Wortfrequenzen
+
+FIXME
+
+### Kollokation
+
+FIXME
+
+### Durchschnittliche Wortlänge
+
+FIXME
