@@ -83,6 +83,8 @@ Diese Teillösungen kombinieren wir dann zur ganzen Lösung.
 >{: .solution}
 {: .challenge}
 
+FIXME: Wird fortgesetzt
+
 ### „von jedem Buchstaben aus“
 
 > ## Frage(n)
@@ -104,8 +106,6 @@ Diese Teillösungen kombinieren wir dann zur ganzen Lösung.
 >> ~~~
 >{: .solution}
 {: .challenge}
-
-FIXME: Wird fortgesetzt
 
 ### „und wählt dann das Minimum“
 

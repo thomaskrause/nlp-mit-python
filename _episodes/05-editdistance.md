@@ -83,26 +83,5 @@ Diese Teillösungen kombinieren wir dann zur ganzen Lösung.
 >{: .solution}
 {: .challenge}
 
-### „von jedem Buchstaben aus“
-
-> ## Frage(n)
-> Was bedeutet der Punkt „von jedem Buchstaben aus“ für die eigentliche Berechnung? Was sind die einfachsten Fälle für diesen Teil der Berechnung?
-{: .discussion}
-
-> ## Übung
-> Schreiben Sie eine Funktion für den einfachen Fall, dass nur eine Zeichen beider Strings verglichen werden muss. Welches Zeichenposition für die Strings bietet sich an?
-> Die Funktion soll die Levenshtein-Distanz in diesem Fall zurückgeben.
->> ## Lösung
->> ~~~python
->> def levenshtein_distance_modify(a, b):
-    if a[-1] == b[-1]:
-        # Keine Änderung des letzten Zeichens notwendig
-        return 0
-    else:
-        # Änderung des letzten Zeichens notwendig
-        return 1
->> ~~~
->{: .solution}
-{: .challenge}
 
 FIXME: Wird fortgesetzt
