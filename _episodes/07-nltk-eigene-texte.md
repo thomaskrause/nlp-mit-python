@@ -1,7 +1,7 @@
 ---
 title: "NLTK und eigene Texte"
-teaching: 0
-exercises: 0
+teaching: 60
+exercises: 30
 questions:
 - Wie können Dateien durch Python verarbeitet werden?
 - Wie kann ich meine eigenen Texte in NLTK einbinden?

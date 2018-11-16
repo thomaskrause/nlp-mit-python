@@ -1,6 +1,6 @@
 ---
 title: "Texte in NLTK"
-teaching: 0
+teaching: 130
 exercises: 0
 questions:
 - Wie werden Text in NLTK dargestellt?
