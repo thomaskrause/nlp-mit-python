@@ -60,7 +60,7 @@ Nach dem Import sind die verschiedenen Korpora als Variablen mit dem Namen `text
 ## Texte als Sequenzen von Wörtern
 
 Wir haben bereits Zeichenketten als Sequenzen von Zeichen betrachtet.
-In Korpora wird typischerweise bereits ein weiter Vorverarbeitungsschritt vorausgesetzt, nämlich
+In Korpora wird typischerweise bereits ein weiterer Vorverarbeitungsschritt vorausgesetzt, nämlich
 dass die Texte in Token unterteilt sind.
 Token sind typischerweise Wörter und Punktuationen.
 Ein Text ist dann eine Sequenz von Token und kann wie eine Liste interpretiert werden.
