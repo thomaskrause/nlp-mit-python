@@ -129,8 +129,8 @@ Nomen sind
 Wir wollen nun unseren Beispieltext mit der Geschichte von Hase und Igel als Text in NLTK laden.
 Dafür müssten wir als erstes eine Liste von allen Wörtern des Textes in der richtigen Reihenfolge erstellen.
 Das heißt, dass wenn wir den Text zeilenweise einlesen, die Zeichenketten auftrennen müssen.
-Eine einfache Methode dazu haben wir mit der `split()` Funktion bereits kennen gelernt.
-Diese Funktion kann aber z.B. nicht mit Punktuation umgehen.
+Eine einfache Methode dazu bietet die eingebaute `split()` Methode von Python.
+Diese Methode kann aber z.B. nicht mit Punktuation umgehen.
 
 ~~~python
 feedback = "Die positivste Reaktion, die man in Berlin bekommen kann, ist eine fehlende Beschwerde."
