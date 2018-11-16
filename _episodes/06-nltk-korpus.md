@@ -16,8 +16,8 @@ keypoints:
 
 Das NLTK besteht aus verschiedenen Modulen für
 verschiedene Aufgaben, z.B. `nltk.corpora`, `nltk.parse` oder `nltk.stem`. 
-Eine Übersicht der Module finden Sie z.B. im [Vorwort](http://www.nltk.org/book/ch00.html) des NLTK-Buchs.
-Viele Beispiele sind auch aus dem NLTK-Buch übernommen, und es lohnt sich, als Nachbereitung die Kapitel 1 bis 3 durchzulesen. 
+Eine Übersicht der Module finden Sie z.B. im [Vorwort](http://www.nltk.org/book/ch00.html) des [NLTK-Buchs](http://www.nltk.org/book/).
+Viele Beispiele sind auch aus dem [NLTK-Buch](http://www.nltk.org/book/) übernommen, und es lohnt sich, als Nachbereitung die Kapitel 1 bis 3 durchzulesen. 
 
 ## Download von NLTK-Ressourcen
 
