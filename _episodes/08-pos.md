@@ -20,8 +20,8 @@ Die Datei besteht aus Sätzen, wobei jeder Satz in einer Zeile geschrieben ist.
 Tokens sind durch Leerzeichen abgetrennt und das POS-Tag ist mit `/` an jedes Token angeängt:
 ~~~
 Die/ART Römer/NN nennen/VVFIN es/PPER Pers[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]a/FM ./$.
-~~~[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]
-Dieses Dateiformat kann direkt von NLTK du[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]rch den [TaggedCorpusReader](https://www.nltk.org/api/nltk.corpus.reader.html?highlight=tagged#nltk.corpus.reader.tagged[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')].TaggedCorpusReader) eingelesen werden.
+~~~
+Dieses Dateiformat kann direkt von NLTK durch den [TaggedCorpusReader](https://www.nltk.org/api/nltk.corpus.reader.html?highlight=tagged#nltk.corpus.reader.tagged.TaggedCorpusReader) eingelesen werden.
 
 [RIDGES](https://www.linguistik.hu-berlin.de/de/institut/professuren/korpuslinguistik/forschung/ridges-projekt/ridges-projekt) ist ein frei verfügbares Korpus bestehend aus deutsprachige Kräuterkundetexte aus historischen Sprachstufen.
 Wir wollen auf diesem Goldstandard einen Hidden-Markov-basierten POS-Tagger trainieren.
