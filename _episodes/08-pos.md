@@ -7,6 +7,8 @@ questions:
 objectives:
 - Schritte des Lernverfahrens verstehen
 keypoints:
+- Mit dem `HiddenMarkovModelTrainer` aus dem `nltk.tag.hmm` Modul können eigene HMM-basierte POS-Tagger trainiert werden
+- Mit der `dill`-Bibliothek können diese Modelle gespeichert und wieder geladen werden.
 ---
 
 ## RIDGES Korpus
@@ -17,9 +19,9 @@ Dieses ist ein Subset aus dem RIDGES Korpus mit manuell korrigierten POS-Tags im
 Die Datei besteht aus Sätzen, wobei jeder Satz in einer Zeile geschrieben ist.
 Tokens sind durch Leerzeichen abgetrennt und das POS-Tag ist mit `/` an jedes Token angeängt:
 ~~~
-Die/ART Römer/NN nennen/VVFIN es/PPER Persa/FM ./$.
-~~~
-Dieses Dateiformat kann direkt von NLTK durch den [TaggedCorpusReader](https://www.nltk.org/api/nltk.corpus.reader.html?highlight=tagged#nltk.corpus.reader.tagged.TaggedCorpusReader) eingelesen werden.
+Die/ART Römer/NN nennen/VVFIN es/PPER Pers[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]a/FM ./$.
+~~~[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]
+Dieses Dateiformat kann direkt von NLTK du[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]rch den [TaggedCorpusReader](https://www.nltk.org/api/nltk.corpus.reader.html?highlight=tagged#nltk.corpus.reader.tagged[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')].TaggedCorpusReader) eingelesen werden.
 
 [RIDGES](https://www.linguistik.hu-berlin.de/de/institut/professuren/korpuslinguistik/forschung/ridges-projekt/ridges-projekt) ist ein frei verfügbares Korpus bestehend aus deutsprachige Kräuterkundetexte aus historischen Sprachstufen.
 Wir wollen auf diesem Goldstandard einen Hidden-Markov-basierten POS-Tagger trainieren.
@@ -80,5 +82,30 @@ new_model.tag(nltk.word_tokenize("Die Römer nennen es Majoran"))
 ~~~
 ~~~
 [('Die', 'ART'), ('Römer', 'NN'), ('nennen', 'VVFIN'), ('es', 'PPER'), ('Majoran', 'NN')]
+~~~
+{: .output}
+
+## Tiger2 Korpus
+
+Das Tiger2-Korpus basiert auf Zeitungstexten und wurde ebenfalls mit dem STTS annotiert.
+Laden Sie das Korpus "TIGER Corpus Release 2.2" in dem CONLL09-Format von der Tiger2-Webseite herunter:
+[http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/TIGERCorpus/download/start.html](http://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/TIGERCorpus/download/start.html)
+
+Das CONLL-Format enthält Informationen über Dependenz-Strukturen, die wir im Moment nicht benötigen.
+Es kann aber analog zur Textdatei in NLTK mit dem [`nltk.corpus.ConllCorpusReader`](https://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllCorpusReader) eingelesen werden, dabei muss mit angegeben werden welche Spalten als `word` oder `pos` genutzt und welche ignoriert werden sollen.
+~~~python
+tiger_corpus = nltk.corpus.ConllCorpusReader('.', 'tiger_release_aug07.corrected.16012013.conll09',
+                                     ['ignore', 'words', 'ignore', 'ignore', 'pos'],
+                                     encoding='utf-8')
+~~~ 
+
+Nun kann wieder analog zum RIDGESS Korpus mit den annotierten Daten trainiert und getagged werden.
+Das Trainieren kann etwas dauern, da Tiger2 deutlich größer ist als der Ausschnitt aus dem RIDGES Korpus.
+~~~python
+tiger_model = trainer.train(tiger_corpus.tagged_sents())
+tiger_model.tag(nltk.word_tokenize("Politik ist ein schweres Feld."))
+~~~
+~~~
+[('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]
 ~~~
 {: .output}
