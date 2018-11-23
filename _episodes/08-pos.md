@@ -14,7 +14,7 @@ keypoints:
 ## RIDGES Korpus
 
 Bitte laden Sie die Datei `ridges8_gold.txt` aus dem Moodle-Kurs herunter.
-Dieses ist ein Subset aus dem RIDGES Korpus mit manuell korrigierten POS-Tags im (STTS Tagset)[http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-table.html].
+Dieses ist ein Subset aus dem RIDGES Korpus mit manuell korrigierten POS-Tags im [STTS Tagset](http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-table.html)
 
 Die Datei besteht aus Sätzen, wobei jeder Satz in einer Zeile geschrieben ist.
 Tokens sind durch Leerzeichen abgetrennt und das POS-Tag ist mit `/` an jedes Token angeängt:
