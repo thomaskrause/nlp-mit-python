@@ -18,35 +18,6 @@ keypoints:
 - "Variablen haben Namen und diese Namen unterscheiden Groß- und Kleinschreibung" 
 ---
 
-## Python starten
-
-Zum Kennenlernen arbeiten wir zunächst nur auf der interaktiven Kommandozeile (Konsole oder Terminal) des Python-Interpreters. Diese wird gestartet, indem wir ein System-Terminal (kann unter Ubuntu z.B. mit dem Shortcut  <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> gestartet werden) öffnen und folgendes eintippen:
-
-~~~bash
-python3
-~~~
-
-
-Das Ergebnis sollte ungefähr so aussehen:
-~~~
-Python 3.6.6 (default, Sep 12 2018, 18:26:19) 
-[GCC 8.0.1 20180414 (experimental) [trunk revision 259383]] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-~~~
-{: .output}
-
-Die Versionen von Python und GCC werden wahrscheinlich nicht überall identisch sein. Wichtig: Python muss in Version 3.6.x vorliegen.
-
-> ## System-Terminal vs. Python-Terminal 
-> Zuerst wurde das System-Terminal gestartet.
-> Dieses erlaubt es Programme auf dem Computer zu starten.
-> Linux und Windows nutzen verschiedene Arten von Terminals mit verschiedenen Befehlen (MacOS orientiert sich an dem Linux-Terminal): ein Tutorial für alle 3 Betriebssysteme gibt es z.B. hier: [https://tutorial.djangogirls.org/de/intro_to_command_line/](https://tutorial.djangogirls.org/de/intro_to_command_line/).
->
-> Das danach gestartete Python-Terminal ist dagegen ein eigenständiges Programm und verhält sich auch unter  Windows, MacOS und Windows gleich.
-> Im Python-Terminal können Python-Befehle ausgeführt und getestet werden, die System-Terminalbefehle funktionieren hier nicht.
-{: .callout}
-
 
 ## Kommentare und Dokumentation
 
