@@ -25,19 +25,19 @@ Klicken Sie auf "Launch" unter dem Eintrag für Spyder um das Programm zu starte
 ![Spyder starten im Anaconda Navigator](../fig/anaconda-launch.png)
 
 Auf der Linken Seite von Anaconda befindet sich eine Texteditor für Quelltext-Dateien von Python.
-Rechts unten ist ein interaktives Terminal (auch „Konsole“ oder „Kommandozeile“ genannt) platziert.
+Rechts unten ist ein interaktive Konsole (auch „Terminal“ oder „Kommandozeile“ genannt) platziert.
 
 ![Spyder IDE Oberfläche](../fig/spyder-ide.png)
 
-## Python-Terminal
+## Python-Konsole
 
-Im Python-Terminal können *einzelne Python-Befehle* ausgeführt und getestet werden.
+Im Python-Konsole können *einzelne Python-Befehle* ausgeführt und getestet werden.
 Z.B. können Sie die folgende Zeichenketten in die Konsole eintipppen und die Eingabetaste drücken
 
 ~~~python
 print("Hello World")
 ~~~
-Jeder einzelne Befehl, der mit der Eingabetaste abgeschlossen wird kann eine Ausgabe als Text produzieren, der in dem Terminal angezeigt wird sobald der Befehl abgeschlossen ist. 
+Jeder einzelne Befehl, der mit der Eingabetaste abgeschlossen wird kann eine Ausgabe als Text produzieren, der in der Konsole angezeigt wird sobald der Befehl abgeschlossen ist. 
 Hier z.B. ist die Ausgabe.
 ~~~
 Hello World
@@ -45,7 +45,7 @@ Hello World
 {: .output}
 
 > ## Übung
-> Geben Sie einen Befehl ein, der die Zeichenkette `Hallo Python` im Terminal anzeigt.
+> Geben Sie einen Befehl ein, der die Zeichenkette `Hallo Python` in der Konsole anzeigt.
 >> ## Lösung
 >> ~~~python
 >> print("Hallo Python")
@@ -65,7 +65,7 @@ print("Hello World")
 print("Hallo Python")
 ~~~
 - die Datei mit der Endung `.py` abspeichern
-- und mit dem Klick auf das grüne Rechteck oder dem Tastenbefehl <kbd>F5</kbd> in dem Terminal ausführen
+- und mit dem Klick auf das grüne Rechteck oder dem Tastenbefehl <kbd>F5</kbd> in der Konsole ausführen
 ![Ausführen eines Quelltextes](../fig/spyder-exec.png)
 
 {% include links.md %}
