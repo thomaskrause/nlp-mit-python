@@ -109,3 +109,5 @@ tiger_model.tag(nltk.word_tokenize("Politik ist ein schweres Feld."))
 [('Politik', 'NN'), ('ist', 'VAFIN'), ('ein', 'ART'), ('schweres', 'ADJA'), ('Feld', 'NN'), ('.', '$.')]
 ~~~
 {: .output}
+
+{% include links.md %}

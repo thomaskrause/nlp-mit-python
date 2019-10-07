@@ -228,6 +228,7 @@ ergebnis = zahl1+zahl2
 
 Variablen können einen leeren Wert annehmen, in denen ihnen der spezielle Wert
 `None` zugewiesen wird. 
+
 ~~~python
 ergebnis = None
 ergebnis
@@ -308,13 +309,16 @@ type(pi)
 <class 'int'>
 ~~~
 {: .output}
-~~~
+
+~~~python
 pi
 ~~~
+
 ~~~
 3
 ~~~
 {: .output}
+
 ~~~python
 float(pi)
 ~~~

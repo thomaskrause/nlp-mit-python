@@ -692,3 +692,5 @@ print("Herzlichen Glückwunsch, Sie haben die Nummer erraten!")
 ~~~
 >{: .solution}
 {: .challenge}
+
+{% include links.md %}

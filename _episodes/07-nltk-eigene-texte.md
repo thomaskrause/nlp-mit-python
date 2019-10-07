@@ -284,9 +284,10 @@ Sie können jetzt das Skript austesten:
 ~~~bash
 python3 cat.py hase_igel.txt
 ~~~
-~~~output
+~~~
 Bei einer zufälligen Begegnung macht sich der Hase über die schiefen Beine des Igels lustig, woraufhin ihn dieser zu einem Wettrennen herausfordert,um den Einsatz eines goldenen „Lujedor“ (Louis d’or) und einer Flasche Branntwein. Bei der späteren Durchführung des Rennens auf einem Acker läuft der Igel nur beim Start ein paar Schritte, hat aber am Ende der Ackerfurche seine ihm zum Verwechseln ähnlich sehende Frau platziert. Als der siegesgewisse Hase heranstürmt, erhebt sich die Frau des Igels und ruft ihm zu: „Ick bün al hier!“ („Ich bin schon hier!“). Dem Hasen ist die Niederlage unbegreiflich, er verlangt Revanche und führt insgesamt 73 Läufe mit stets demselben Ergebnis durch. Beim 74. Rennen bricht er erschöpft zusammen und stirbt.
 ~~~
+{: .output}
 
 ~~~bash
 python3 cat.py
@@ -343,3 +344,5 @@ FileNotFoundError: [Errno 2] No such file or directory: 'nichtda.txt'
 > - Finden Sie mit Hilfe des POS-Taggers ein Nomen und referenzieren Sie das Nomen in der Nachfrage (ein englischer Dialog wäre jetzt besser)
 > - Fragen Sie am Anfang nach dem Namen des Gegenübers, schreiben Sie diesen in eine Datei und begrüßen Sie den Nutzer mit den richtigen Namen sobald er das Programm noch einmal ausführt.
 {: .challenge}
+
+{% include links.md %}
