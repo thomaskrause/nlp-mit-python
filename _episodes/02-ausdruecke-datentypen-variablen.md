@@ -32,7 +32,7 @@ Ein Beispiel:
 
 > ## Sprache in Python-Skripten
 >
-> Es ist üblich Kommentare und andere Element des Programmskripts
+> Es ist üblich Kommentare und andere Element des Quelltexts
 > in Englisch zu halten, da sie so für ein
 > breiteres Publikum verständlich sind. Im Rahmen dieses Kurses können
 > Sie das aber ignorieren. Sie sollten lediglich sicherstellen, dass 
