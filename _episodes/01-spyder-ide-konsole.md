@@ -58,11 +58,15 @@ Hello World
 Python-Programme besteht aber typischerweise aus vielen Anweisungen, die in einer oder mehreren Quelltext-Datei gebündelt werden.
 Ein typischer Arbeitsablauf kann also sein, in der Konsole eine Abfolgen von Befehlen auszuprobieren und diese dann in die Quelltext-Datei zu kopieren.
 
-~~~python
+Z.B. kann man die beiden Befehle von vorher 
+- als jeweils eine Zeile hintereinander in die Quelltextdatei schreiben,
+ ~~~python
 print("Hello World")
 print("Hallo Python")
 ~~~
-
+- die Datei mit der Endung `.py` abspeichern
+- und mit dem Klick auf das grüne Rechteck oder dem Tastenbefehl <kbd>F5</kbd> in dem Terminal ausführen
+![Ausführen eines Quelltextes](../fig/spyder-exec.png)
 
 {% include links.md %}
 
