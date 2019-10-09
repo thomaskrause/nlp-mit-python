@@ -1,5 +1,5 @@
 ---
-title: "Spyder IDE und die Python-Konsle"
+title: "Spyder IDE und die Python-Konsole"
 teaching: 30
 exercises: 0
 questions:
