@@ -280,15 +280,16 @@ Hilfreiche allgemeine Python-Pakete können z.B. über den „Python Package Ind
 [https://pypi.org](https://pypi.org) gefunden werden.
 Die Installation auf dem lokalen System erfolgt dann mit dem Kommandozeilentool
 `pip`.
+Um die Sytem-Kommandozeile auzurufen, muss man unter Windows im Startmenü „Anaconda Prompt“ suchen und auswählen
 
 Z.B. gibt es ein Paket um ASCII Art zu generieren:
 [https://pypi.org/project/art/](https://pypi.org/project/art/)
 
-Mit
+Mit dem Befehl
 ~~~bash
 pip install art
 ~~~
-kann das Paket installiert werden.
+in der System-Kommandozeile kann das Paket installiert werden.
 
 Danach ist es über `import art` für eigene Python-Skripte oder auf der interaktiven Python-Konsole verfügbar:
 ~~~python
