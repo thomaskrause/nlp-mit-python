@@ -14,16 +14,12 @@ keypoints:
 
 ## Nutzung von NLTK zur Berechnung der Levenshtein-Distanz
 
-NLTK ist eine Python-Bibliothek zur Umsetzung vieler NLP-Standard-Aufgaben.
-NLTK ist in Untermodulen organisiert.
+NLTK ist eine Python-Bibliothek zur Umsetzung vieler NLP-Standard-Aufgaben und bereits in Anaconda vorinstalliert ist.
+Die Bibliothek ist in Untermodulen organisiert.
 Für Metriken wie die Levenshtein-Distanz, gibt es das Untermodul `nltk.distance` 
 ([Dokumentation](http://www.nltk.org/api/nltk.metrics.html#module-nltk.metrics.distance))
 
-NLTK kann mit
-~~~bash
-pip3 install nltk
-~~~
-im Systemterminal einmalig installiert werden und mit
+NLTK mit
 ~~~python
 import nltk
 ~~~

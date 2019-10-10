@@ -10,7 +10,7 @@ objectives:
 keypoints:
 - Mit Funktionen können Teile von Programmen ausgegliedert und nachgenutzt werden.
 - Eigene Module können in Python-Dateien abgespeichert und mit `import` in anderen Python-Skripten nachgenutzt werden.
-- Mit `pip3` können neue Pakete, die Module enthalten, installiert werden.
+- Mit `pip` können neue Pakete, die Module enthalten, installiert werden.
 ---
 
 ## Eigene Funktionen definieren
@@ -264,19 +264,29 @@ I found it somewhere!
 
 Auf der [Dokumentation des Moduls `re` ](https://docs.python.org/3.6/library/re.html) gibt es eine Einführung in die Syntax dieser Patterns und wie man nicht nur ja/nein Suchen sondern auch die Position des Treffers bekommen kann. 
 
+## Module aus Anaconda
+
+Anaconda ist eine Python-Distribution, in der bereits viele Pakete für NLP, Machine Learning und Data Science vorinstalliert sind.
+Im Anaconda Navigator kann man über „Environments“ 
+- überprüfen welche Pakete bereits vorhanden sind
+- die installierten Pakete aktualisieren
+- neue Pakete aus Anaconda installieren
+
+![Anaconda Paketmanager](../fig/anaconda-install.png)
+
 ### Installation neuer Pakete mit `pip`
 
-Hilfreiche Python-Pakete können z.B. über den „Python Package Index“ unter
+Hilfreiche allgemeine Python-Pakete können z.B. über den „Python Package Index“ unter
 [https://pypi.org](https://pypi.org) gefunden werden.
 Die Installation auf dem lokalen System erfolgt dann mit dem Kommandozeilentool
-`pip3` (um die Pakte für Python 3 zur Verfügung zu stellen).
+`pip`.
 
 Z.B. gibt es ein Paket um ASCII Art zu generieren:
 [https://pypi.org/project/art/](https://pypi.org/project/art/)
 
 Mit
 ~~~bash
-pip3 install art
+pip install art
 ~~~
 kann das Paket installiert werden.
 
