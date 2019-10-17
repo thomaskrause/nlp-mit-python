@@ -20,11 +20,16 @@ Unter Linux müssen das Programm `anaconda-navigator` ausführen, z.B. unter Ubu
 
 Der *Anaconda Navigator* bietet verschiedene Programme zum Starten an, mit denen man Python-Programme entwickeln und ausführen kann. 
 In diesem Kurs wollen wir die Integrierte Entwicklungsumgebung (IDE für "Integrated Development Environment") *Spyder* nutzen.
-Klicken Sie auf "Launch" unter dem Eintrag für Spyder um das Programm zu starten.s
+Klicken Sie auf "Launch" unter dem Eintrag für Spyder um das Programm zu starten.
 
 ![Spyder starten im Anaconda Navigator](../fig/anaconda-launch.png)
 
-Auf der Linken Seite von Anaconda befindet sich eine Texteditor für Quelltext-Dateien von Python.
+Alternativ zum Anaconda Navigator können Sie Spyder auch direkt z.B. über das Windows-Startmenü starten
+
+![Spyder über das Windows Startmenü starten](../fig/windows-launch-spyder.png)
+
+
+Auf der Linken Seite von Spyder befindet sich eine Texteditor für Quelltext-Dateien von Python.
 Rechts unten ist ein interaktive Konsole (auch „Terminal“ oder „Kommandozeile“ genannt) platziert.
 
 ![Spyder IDE Oberfläche](../fig/spyder-ide.png)
