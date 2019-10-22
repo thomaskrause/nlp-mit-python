@@ -21,7 +21,6 @@ Damit alle Teilnehmer des Kurses die *gleiche Python-Umgebung* mit den gleichen 
 ![](fig/download-anaconda.png)
 2. Führen Sie die heruntergeladene Datei aus und folgen Sie den Installationsweisungen.
 Bei Problemen können Sie die [Anaconda Installationsanleitung](https://docs.anaconda.com/anaconda/install/) zu Rate ziehen.
-3. Nach der Installation sollten sie 
 
 
 
