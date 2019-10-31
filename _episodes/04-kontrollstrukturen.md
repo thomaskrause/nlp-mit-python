@@ -660,7 +660,7 @@ Wie heißen Sie? ▮
 ~~~
 {: .output}
 
-Das Argument von `print()` ist ein sogenannter "Prompt", also eine Eingabeaufforderung an den Nutzer. 
+Das Argument von `input()` ist ein sogenannter "Prompt", also eine Eingabeaufforderung an den Nutzer. 
 Der Prompt wird ausgegeben und es wir solange gewartet, bis der Nutzer eine Eingabe gemacht und diese mit der Eingabetaste <kbd>Return</kbd> abgeschlossen hat.
 Die Funktion liefert die Eingabe als Typ String zurück.
 In diesem Beispiel wird die Rückgabe in eine Variable geschrieben und wieder ausgegeben.
