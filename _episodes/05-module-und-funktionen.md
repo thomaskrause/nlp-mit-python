@@ -42,24 +42,29 @@ print(v)
 ~~~
 
 > ## Übung
-> Schreiben Sie eine Funktion, die gegeben dreier Werte die Summe aller Zahlen zwischen dem ersten und dem zweiten Wert multipliziert mit dem dritten Wert angibt.
+> Schreiben Sie eine Funktion, die gegeben zweier Werte die Summe aller Zahlen zwischen dem ersten und dem zweiten Wert (inklusive) angibt.
 > Rufen Sie diese Funktion für verschiedene Werte auf und geben Sie die Werte aus.
+> Für z.B. die Argumente 5 und 13 soll die Funktion die Summe
+> 5 + 6 + 7 + 8 + 9 + 10 + 12 + 13 = 81 
+> berechnen.
 >> ## Lösung
 >> ~~~python
->> def complex_math(start, end, multiplier):
+>> def complex_math(start, end):
 >>     summe = 0
->>     for i in range(start, end):
->>         summe = summe + (i*multiplier)
+>>     for i in range(start, end+1):
+>>         summe = summe + i
 >>     return summe
 >> 
->> print(complex_math(1,100, 1))
->> print(complex_math(20,100, 3))
->> print(complex_math(1,10, 3.14))
+>> print(complex_math(5,13))
+>> print(complex_math(1,100))
+>> print(complex_math(20,100))
+>> print(complex_math(1,10))
 >> ~~~
 >> ~~~
->> 4950
->> 14280
->> 141.3
+>> 81
+>> 5050
+>> 4860
+>> 55
 >> ~~~
 >> {: .output}
 > {: .solution}
