@@ -276,16 +276,16 @@ Muster oder „Patterns“ müssen erst einmal erstellt („kompilliert“) werd
 ~~~python
 import re
 pattern = re.compile('Glü.+')
-search_in = 'Hallo, was für ein Glück, dass wir uns heute treffen!'
 # gibt einen bool zurück, wenn der ganze String dem Pattern matched
-is_match = pattern.match(search_in)   
+is_match = pattern.match("Was für ein Glück")   
 # gibt bool zurück, wenn ein Teilstring dem Pattern matched
-found = pattern.search(search_in)
+found = pattern.search("Was für ein Glück")
 
 if is_match:
     print('It is a full match!')
 elif found:
     print('I found it somewhere!')
+    print("Found string=", found.group(0))
 ~~~
 ~~~
 I found it somewhere!
