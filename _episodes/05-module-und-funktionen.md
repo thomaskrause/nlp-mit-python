@@ -275,7 +275,7 @@ Ein Beispiel für eine sehr nützliches Module aus der Standardbibliothek ist da
 Muster oder „Patterns“ müssen erst einmal erstellt („kompilliert“) werden und kann dann auf Strings angewendet werden.
 ~~~python
 import re
-pattern = re.compile('Glück.+')
+pattern = re.compile('Glü.+')
 search_in = 'Hallo, was für ein Glück, dass wir uns heute treffen!'
 # gibt einen bool zurück, wenn der ganze String dem Pattern matched
 is_match = pattern.match(search_in)   
