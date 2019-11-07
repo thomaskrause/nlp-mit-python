@@ -107,7 +107,7 @@ Diese Teillösungen kombinieren wir dann zur ganzen Lösung.
 > Was bedeutet der Punkt „und wählt dann das Minimum“ für die eigentliche Berechnung? Minimum von was?
 {: .discussion}
 
-Sie werden für die Lösung eine Funktion schreiben müssen, die stich rekursiv für immer kleiner werdene Teilzeichenketten selbst aufruft
+Sie werden für die Lösung eine Funktion schreiben müssen, die sich rekursiv für immer kleiner werdende Teilzeichenketten selbst aufruft
 und die das Minimum der Levenshtein-Distanz für diese Teilzeichenketten auswählt.
 Im Basisfall, dass einer der beiden String leer ist, wird die Rekursion abgebrochen.
 
