@@ -306,13 +306,21 @@ Im Anaconda Navigator kann man über „Environments“
 
 ### Installation neuer Pakete mit `pip`
 
-Hilfreiche allgemeine Python-Pakete können z.B. über den „Python Package Index“ unter
+Hilfreiche allgemeine Python-Pakete, die nicht in Anaconda enthalten sind, können über den „Python Package Index“ unter
 [https://pypi.org](https://pypi.org) gefunden werden.
 Die Installation auf dem lokalen System erfolgt dann mit dem Kommandozeilentool
 `pip`.
-Um die Sytem-Kommandozeile auzurufen, muss man unter Windows im Startmenü „Anaconda Prompt“ suchen und auswählen
+Um die Sytem-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
+Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen und dieses starten.
+Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
+```bash
+conda activate
+```
+im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
+Falls Sie mehr über die Bedienung von System-Kommandozeilen erfahren wollen, können Sie sich z.B. das Tutorial unter <https://tutorial.djangogirls.org/de/intro_to_command_line/> anschauen.
 
-Z.B. gibt es ein Paket um ASCII Art zu generieren:
+Anaconda bring schon sehr viele Pakete mit, aber nichts um sogenannte [ASCII Art](https://de.wikipedia.org/wiki/ASCII-Art) automatisch zu generieren. 
+Eine Suche im Python Package Index liefert aber z.B. das Paket `art` um ASCII Art zu generieren:
 [https://pypi.org/project/art/](https://pypi.org/project/art/)
 
 Mit dem Befehl
