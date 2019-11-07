@@ -144,6 +144,31 @@ Der Standardwert für das Argument `with_exclamation_marks` ist hier `False`.
 
 ## Module und der `import` Befehl
 
+### Spyder-Projekte
+
+Bisher haben wir immer nur einzelne Python-Dateien in Spyder geöffnet, gespeichert und ausgeführt.
+Man kann mehrere Dateien in einem Projekt-Ordner in Spyder gemeinsam verwalten. 
+Ein Projekt kann z.B. eine Hausaufgabe für eine Woche mit verschiedenen Python-Dateien für jede einzelne Aufgabe sein.
+
+Rufen Sie dazu im Menü `Projekt -> Neues Projekt` auf.
+![Menü für neues Projekt](../fig/spyder-new-project.png)
+
+Dann wählen Sie einen Namen und einen Ort für das neue Projekt und wählen „Erstellen“.
+![Auswählen des Projektnamens und -orts](../fig/spyder-new-project-name.png)
+
+Ein Spyder-Projekt ist ein normaler Ordner im Datei-System, in dem Sie neue Dateien hinzufügen können.
+Z.B. können Sie im *Projektmanager* auf den Projektordner rechts klicken und dann `Neu -> Modul` auswählen um eine neue Python-Datei anzulegen.
+![Hinzufügen einer Python-Datei zu einem Spyder-Projekt](../fig/spyder-new-module.png)
+
+Geben Sie einen neuen Namen für die Datei an (mit Endung `.py`) und drücken Sie speichern.
+![Namen für neue Datei angeben](../fig/spyder-new-file-name.png)
+
+Danach erscheint die neue Datei auch im *Projektmanager* und kann im Editor geöffnet und editor werden.
+![Spyder-Projektmanager mit neuer Datei](../fig/spyder-project-tree.png)
+
+Wenn Sie Spyder neu starten, können Sie einen bestehenden Projekt-Ordner über den Menüeintrag `Projekt -> Projekt öffnen` wieder öffnen.
+![Projektordner in Spyder öffnen](../fig/spyder-open-project.png)
+
 ### Eigene Module
 
 Jede Python-Datei ist gleichzeitig eine sogenanntes *Modul*.
