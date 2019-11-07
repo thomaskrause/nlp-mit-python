@@ -236,7 +236,7 @@ Python besitzt neben den eingebauten Funktionen und Typen auch noch eine riesige
 Dies sind Module, die in allen Python-Installationen (für eine bestimmte Version von Python) immer vorhanden sind.
 Sie können also erwarten, dass Sie in jedem Skript diese Module importieren können.
 
-Eine Auflistung und Dokumentation der Module der Standardbibliothek findet sich unter [https://docs.python.org/3.6/library/index.html](https://docs.python.org/3.6/library/index.html).
+Eine Auflistung und Dokumentation der Module der Standardbibliothek findet sich unter <https://docs.python.org/3.7/library/index.html>.
 
 
 ### Reguläre Ausdrücke auf Strings mit Modul `re`
