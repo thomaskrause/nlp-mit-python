@@ -262,7 +262,7 @@ I found it somewhere!
 ~~~
 {: .output}
 
-Auf der [Dokumentation des Moduls `re` ](https://docs.python.org/3.6/library/re.html) gibt es eine Einführung in die Syntax dieser Patterns und wie man nicht nur ja/nein Suchen sondern auch die Position des Treffers bekommen kann. 
+Auf der [Dokumentation des Moduls `re` ](https://docs.python.org/3.7/library/re.html) gibt es eine Einführung in die Syntax dieser Patterns und wie man nicht nur ja/nein Suchen sondern auch die Position des Treffers bekommen kann. 
 
 ## Module aus Anaconda
 
