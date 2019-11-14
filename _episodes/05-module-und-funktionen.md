@@ -310,7 +310,7 @@ Hilfreiche allgemeine Python-Pakete, die nicht in Anaconda enthalten sind, könn
 [https://pypi.org](https://pypi.org) gefunden werden.
 Die Installation auf dem lokalen System erfolgt dann mit dem Kommandozeilentool
 `pip`.
-Um die Sytem-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
+Um die System-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
 Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen und dieses starten.
 Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
 ```bash

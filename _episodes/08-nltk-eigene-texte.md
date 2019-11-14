@@ -221,13 +221,39 @@ Wir Sie sehen, ist der Tagger für Deutsch ausbaufähig.
 
 ## Kommandozeilenargumente
 
+> ## System-Konsole aufrufen
+> Um die System-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
+> Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen
+> und dieses starten.
+> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
+> ```bash
+> conda activate
+> ```
+> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
+> Wenn Sie das System-Terminal ausführen, müssen Sie meistens erst 
+> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
+> ```bash
+> conda activate
+> ```
+> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
+> Falls Sie mehr über die Bedienung von System-Kommandozeilen erfahren wollen, können Sie sich z.B. das Tutorial unter 
+> <https://tutorial.djangogirls.org/deintro_to_command_line/> anschauen.
+{: .callout}
+
+
 Wenn man ein Skript  in der System-Konsole aufruft, kann man dem Aufruf zusätzliche per Leerzeichen getrennt Argumente übergeben.
 ~~~bash
 python3 meinskript.py Argument1 NochEinArgument
 ~~~
+
 Ähnlich wie bei einer Python-Funktion ist das sehr nützlich, um die gleiche Aufgabe bzw. den gleichen Algorithmus/Code auf unterschiedlichen Eingaben auszuführen. 
 Wenn ein Skript eine Datei einliest, wäre das z.B. eine gute Möglichkeit den Dateipfad anzugeben, 
 damit man das Skript auf verschieden Dateien ausführen kann ohne das Skript selbst fehleranfällig anpassen zu müssen.
+
+Man kann die Argumente, die an ein Skript übergeben werden, alternativ auch in Spyder angeben.
+Dazu muss im Menü "Run -> Configuration per File" oder der Shortcut <kbd>Strg</kbd>+<kbd>F6</kbd> ausgeführt werden.
+Dann kann man das Häkchen bei "Command line options" auswählen und die Argumente eingeben.
+![Einstellung Argumente für Skript in Spyder](../fig/spyder-script-args.png).
 
 Der Zugriff auf die Argumente erfolgt über die Liste `argv` aus dem Modul `sys`.
 
