@@ -199,7 +199,7 @@ free
 
 Eleganter (und schneller) ist aber die Verwendung einer sogenannten „list comprehension“, einer aussagelogischen Abfrage:
 ~~~python
-[word for word in text4 if w.startswith("fr")]
+[word for word in text4 if word.startswith("fr")]
 ~~~
 ~~~
 ['from', 'frequent', 'from', 'from', 'from', 'free', 'from', 'free', 'from', 'freemen', 'from', 'from', 'from', 'frankly', 'from', 'from', 'frontier', 'from', 'friends', 'from', 'from', 'fresh', 'from', 'from', 'from', 'free', 'fraud', 'fruits', 'from', 'free', 'from', 'friendly', 'friendly', 'friendship', 'friendship', 'fruitful', 'from', 'freely', 'from', 'free', 'free', 'from', 'from', 'from', 'from', 'frugal', 'from', 'free', 'from', 'friendship', 'from', 'freedom', 'freedom', 'freedom', 'from', 'from', 'freedom', 'from', 'from', 'friendship', 'from', 'from', 'frontiers', 'from', 'friendly', 'free', 'from', 'from', 'friends', 'from', 'freedom', 'freedom', 'from', 'friend', 'from', 'from', 'from', 'from', 'friendship', 'from', 'from', 'free', 'from', 'fruits', 'from', 'from', 'friendly', 'free', 'from', 'freedom', 'friendly', 'from', 'from', 'from', 'from', 'from', 'from', 'free', 'from', 'from', 'from', 'free', 'from', 'fraught', 'from', 'from', 'from', 'from', 'friendship', 'from', 'from', 'from', 'frontiers', 'from', 'from', 'free', 'from', 'from', 'fruit', 'from', 'friendly', 'free', 'from', 'from', 'from', 'from', 'frontiers', 'frontiers', 'from', 'from', 'front', 'from', 'from', 'from', 'from', 'from', 'from', 'from', 'from', 'friendship', 'free', 'from', 'from', 'from', 'from', 'from', 'from', 'from', 'free', 'from', 'from', 'from',
