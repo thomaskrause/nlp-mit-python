@@ -212,6 +212,147 @@ Der grundsätzliche Aufbau des Ausdrucks ist
 [ausdruck for element in liste if bedingung]
 ~~~
 Für jedes `item` in der `liste` wird der `ausdruck` ausgeführt, wenn die `bedingung` wahr ist.
+Das Ergebnis ist eine Liste aller Werte, die durch den Ausdruck generiert werden.
+~~~python
+fr_woerter = [word for word in text4 if word.startswith("fr")]
+print(fr_woerter)
+print(type(fr_woerter))
+~~~
+~~~
+[...]
+'from', 'freedom', 'free', 'freedom', 'freedom', 'freedom', 'free', 'freedom', 'friendship', 'free', 'freedom', 'free', 'freedom', 'freedom', 'free', 'fragile', 'freedom', 'freedom', 'free', 'freedom', 'from', 'freedom', 'freedom', 'from', 'freedom', 'freedom', 'freedom', 'freedom', 'free', 'freedom', 'freedom', 'freedom', 'from', 'free', 'freedom', 'free', 'freedom', 'from', 'friend', 'from', 'friends', 'from', 'from', 'friend', 'freedom', 'freedom', 'from', 'free', 'free', 'from', 'freedoms', 'from', 'free', 'freedom', 'free', 'friendsâ', 'from', 'from', 'freedom', 'freedom', 'freedom', 'from', 'from', 'from', 'from', 'from', 'freedom', 'from', 'from', 'from', 'from', 'from', 'friendship', 'from', 'free', 'from', 'freedoms', 'from', 'from']
+<class 'list'>
+~~~
+{: .output}
+
+Ein Aufruf von `print` innerhalb der „list comprehension“ funktioniert daher in der interaktiven Konsole, 
+die immer den Rückgabewert ausgibt, nur bedingt.
+~~~python
+[print(word) for word in text4 if word.startswith("friends")]
+~~~
+~~~
+friends
+friendship
+friendship
+friendship
+friendship
+friends
+friendship
+friendship
+friendship
+friends
+friendship
+friendship
+friendship
+friends
+friends
+friendship
+friendship
+friendship
+friends
+friends
+friends
+friendship
+friends
+friends
+friendship
+friendship
+friends
+friends
+friends
+friends
+friends
+friends
+friends
+friendship
+friendship
+friends
+friends
+friendships
+friends
+friendship
+friends
+friends
+friends
+friends
+friends
+friends
+friendship
+friends
+friends
+friends
+friends
+friends
+friendships
+friends
+friends
+friendship
+friends
+friendsâ
+friendship
+Out[6]: 
+[None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None,
+ None]
+~~~
+{: .output}
+„List comprehension“ Ausdrücke sind also am besten dazu geeignet, Listen zu generieren.
 
 Man kann für die Bedingung auch reguläre Ausdrücke verwenden, wenn man das `re` Modul importiert und 
 die `re.search(pattern, word)` Funktion verwendet.
@@ -236,7 +377,7 @@ fruits
 
 Oder z.B. die Suche nach allen Wörtern, die mit „end“ oder „begin“ enden:
 ~~~python
-[w for w in text4 if re.search(".+(end|begin)$", w)]
+[w   for w in text4 if re.search(".+(end|begin)$", w)]
 ~~~
 ~~~
 recommend
