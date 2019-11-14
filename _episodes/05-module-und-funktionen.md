@@ -276,11 +276,12 @@ Muster oder „Patterns“ müssen erst einmal erstellt („kompilliert“) werd
 ~~~python
 import re
 pattern = re.compile('Glü.+')
-# gibt einen bool zurück, wenn der ganze String dem Pattern matched
+# gibt nicht None zurück, wenn der ganze String dem Pattern matched
 is_match = pattern.match("Was für ein Glück")   
-# gibt bool zurück, wenn ein Teilstring dem Pattern matched
+# gibt nicht None zurück, wenn ein Teilstring dem Pattern matched
 found = pattern.search("Was für ein Glück")
 
+# Überprüfe ob die jeweiligen Ergebnisse nicht None sind
 if is_match:
     print('It is a full match!')
 elif found:
