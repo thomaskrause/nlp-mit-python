@@ -219,7 +219,7 @@ die `re.search(pattern, word)` Funktion verwendet.
 Z.B. kann man nach allen Wörtern suchen, die mit „fruit“ anfangen, aber noch mehre Zeichen enthalten können:
 ~~~python
 import re
-[print(w) for w in text4 if re.search("fruit.*", w)]
+[w for w in text4 if re.search("fruit.*", w)]
 ~~~
 ~~~
 fruits
@@ -236,7 +236,7 @@ fruits
 
 Oder z.B. die Suche nach allen Wörtern, die mit „end“ oder „begin“ enden:
 ~~~python
-[print(w) for w in text4 if re.search(".+(end|begin)$", w)]
+[w for w in text4 if re.search(".+(end|begin)$", w)]
 ~~~
 ~~~
 recommend
