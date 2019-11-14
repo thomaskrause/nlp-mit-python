@@ -285,10 +285,11 @@ if is_match:
     print('It is a full match!')
 elif found:
     print('I found it somewhere!')
-    print("Found string=", found.group(0))
+    print("Found string =", found.group(0))
 ~~~
 ~~~
 I found it somewhere!
+Found string = Glück
 ~~~
 {: .output}
 
