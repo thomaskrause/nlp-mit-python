@@ -156,7 +156,7 @@ der genau so wie alle anderen Texte genutzt werden kann.
 ~~~python
 txt_de = nltk.Text(word_tokenize(feedback))
 txt_de.concordance("Reaktion")
-FreqDist(txt_de).plot()
+nltk.FreqDist(txt_de).plot()
 ~~~
 ~~~
 Displaying 1 of 1 matches:
@@ -214,10 +214,18 @@ Als Argument muss der aus drei Buchstaben bestehende [ISO 639 Code](https://en.w
 nltk.pos_tag(txt_de, tagset="universal", lang="deu")
 ~~~
 ~~~
+NotImplementedError: Currently, NLTK pos_tag only supports English and Russian (i.e. lang='eng' or lang='rus')
+~~~
+{: .output}
+In älteren Versionen von NLTK war ein sehr rudimentäre Tagger für Deutsch enthalten.
+Dieser wurde allerdings entfernt.
+Für das Beispiel hätte der alte POS-Tagger 
+~~~
 [('Die', 'NOUN'), ('positivste', 'NOUN'), ('Reaktion', 'NOUN'), (',', '.'), ('die', 'NOUN'), ('man', 'NOUN'), ('in', 'ADP'), ('Berlin', 'NOUN'), ('bekommen', 'NOUN'), ('kann', 'VERB'), (',', '.'), ('ist', 'ADJ'), ('eine', 'NOUN'), ('fehlende', 'NOUN'), ('Beschwerde', 'NOUN'), ('.', '.')]
 ~~~
 {: .output}
-Wir Sie sehen, ist der Tagger für Deutsch ausbaufähig.
+ausgegeben.
+Wir Sie sehen, war der Tagger für Deutsch ausbaufähig und seine Entfernung kein großer Verlust.
 
 ## Kommandozeilenargumente
 
