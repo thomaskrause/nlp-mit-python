@@ -727,9 +727,9 @@ print(bf[("the", "wine")])
 Während „the“ häufiger vorkommt als „red“, gibt es kein einziges Bigramm „the wine“ in diesem Text, während „red wine“ einmal vorkommt.
 Damit ist „red wine“ eine Kollokation.
 
-Nun kann man für einen Text direct mit der Methode `.collocations()` häufige Bigramme finden.
+Nun kann man für einen Text direct mit der Methode `.collocation_list()` häufige Bigramme finden.
 ~~~python
-text4.collocations()
+text4.collocation_list()
 ~~~
 ~~~
 United States; fellow citizens; four years; years ago; Federal
@@ -741,7 +741,7 @@ foreign nations; political parties
 {: .output}
 
 ~~~python
-text8.collocations()
+text8.collocation_list()
 ~~~
 ~~~
 would like; medium build; social drinker; quiet nights; non smoker;
