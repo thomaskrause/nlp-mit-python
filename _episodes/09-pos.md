@@ -69,10 +69,28 @@ print(model.tag(nltk.word_tokenize("Majoran ist cool")))
 {: .output}
 
 Modelle können mit der [Dill-Bibliothek](https://pypi.org/project/dill/) in Dateien gespeichert und wieder geladen werden.
-Diese muss erst mit `pip3` installiert werden.
+Diese muss erst mit `pip` in einer Konsole mit aktivierter Conda-Umgebung installiert werden.
 ~~~bash
-pip3 install dill
+pip install dill
 ~~~
+> ## System-Konsole aufrufen
+> Um die System-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
+> Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen
+> und dieses starten.
+> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
+> ```bash
+> conda activate
+> ```
+> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
+> Wenn Sie das System-Terminal ausführen, müssen Sie meistens erst 
+> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
+> ```bash
+> conda activate
+> ```
+> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
+> Falls Sie mehr über die Bedienung von System-Kommandozeilen erfahren wollen, können Sie sich z.B. das Tutorial unter 
+> <https://tutorial.djangogirls.org/deintro_to_command_line/> anschauen.
+{: .callout}
 Dann kann man ein Modell folgendermaßen speichern:
 ~~~python
 import dill
