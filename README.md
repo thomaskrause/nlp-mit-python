@@ -1,8 +1,5 @@
-# FIXME Lesson title
+# Einführung in die maschinelle Sprachverarbeitung mit Python
 
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
-
-FIXME
 
 ## Contributing
 
@@ -15,7 +12,7 @@ how to write new episodes.
 
 ## Maintainer(s)
 
-* FIXME
+* Thomas Krause
 
 ## Authors
 
