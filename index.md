@@ -13,6 +13,8 @@ Es bietet einen Einstieg in die Programmiersprache Python und soll die praktisch
 > ## Vorkenntnisse
 >
 > Es sind keine Vorkenntnisse im Programmieren notwendig.
+> Sie sollten in der Lage sein, das System-Terminal (oder auch Konsole) aufzurufen und Grundbefehle im Terminal auszuführen.
+> Unter <https://tutorial.djangogirls.org/de/intro_to_command_line/> finden Sie ein Tutorial zu Terminals, zu dem es auch ein [Video](https://youtu.be/jvZLWhkzX-8) gibt.
 {: .prereq}
 
 {% include links.md %}
