@@ -8,7 +8,7 @@ layout: page
 - Betriebsystem
   * Windows 7 oder neuer, *oder*
   * macOS 10.10+ *oder*
-  * Linux (Ubuntu, ReadHad, CentOS 6+, ...)
+  * Linux (Ubuntu, RedHad, CentOS 6+, ...)
 - Minimum 5 GB freier Festplattenspeicher   
 
 ## Download und Installation von Miniconda
