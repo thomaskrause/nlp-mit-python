@@ -37,7 +37,7 @@ Diese ist für Windows, Mac und Linux als Open Source Software frei verfügbar.
 
 > ## Datenschutz
 >
-> Leider kann Visual Studio Code Telemetriedaten (also z.B. dass die Software benutzt wird oder welche Plugins installiert sind) and den Hersteller Microsoft senden.
+> Leider kann Visual Studio Code Telemetriedaten (also z.B. dass die Software benutzt wird oder welche Plugins installiert sind) an den Hersteller Microsoft senden.
 > Es ist inzwischen einfacher geworden, diese in der Software selbst abzustellen: <https://code.visualstudio.com/docs/getstarted/telemetry>.
 > Das Projekt VSCodium (<https://github.com/VSCodium/vscodium/>) bietet eine Version von VS Code an, in dem das Sammeln von Telemetriedaten bereits ausgebaut ist.
 > Sie können diese alternativen Installationsdateien [hier](https://github.com/VSCodium/vscodium/releases/) herunterladen. 
