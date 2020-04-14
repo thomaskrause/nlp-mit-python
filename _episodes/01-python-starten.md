@@ -153,7 +153,7 @@ python3 hello.py
 ~~~
 ![Python-Datei in Terminal ausführen](../fig/vscode-runfile.png)
 
-Herzlichen Glückwunsch, Sie haben ihr erstes eigenes Python-Programm ausgeführt!
+Herzlichen Glückwunsch, Sie haben ihr erstes eigenes Python-Programm ausgeführt! 🎉
 
 Wenn eine Datei als Argument übergeben wird, wird `python3` diese Anweisung für Anweisung ausführen und alle Ausgaben, die z.B. mit dem Python-Befehl `print()` gemacht werden ausgeben.
 
