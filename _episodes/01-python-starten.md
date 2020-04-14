@@ -15,19 +15,19 @@ keypoints:
 
 ## Visual Studio Code starten
 
-Nach der Installation sollten Sie unter unter Windows und Mac OS einen Eintrag "Visual Studio Code" im Startmenü bzw. im Launchpad haben.
-Wenn Sie das Programm starten, sollten Sie neben dem Willkommensdialog im Zentrum auch links eine Seitenleiste sehen können.
-
-![VS Code IDE Oberfläche nach dem Start](../fig/vscode-sidebar.png)
-
-In der Seitenleiste gibt es verschiedene Unterbereiche, zwischen denen Sie mit einem Klick auf das jeweilige Icon wechseln können.
-Als erstes sollten Sie den "Explorer" Unterbereich öffnen, in dem Sie auf das erste Icon oben links klicken.
-
 Eine "Integrated Development Environment" (IDE) wie VS Code ist im Grunde ein Texteditor mit vielen Extra-Funktionen, die die Arbeit mit Quelltexten einfacher macht.
 Ein Python-Programm wird am Anfang typischerweise nur aus einer einzelnen Quelltext-Datei bestehen, aber mit zunehmender Komplexität wird die Funktionalität auf mehrere Quelltext-Dateien verteilt werden.
 Auch macht es für den Kurs Sinn, die Quelltexte gemeinsam in Ordnern abzuspeichern.
 Legen Sie z.B. in ihrem Benutzerordner einen Unterordner `lehre` und darunter einen Unterordner `nlp` an.
 Sie können den Ort des Projektordners frei wählen und je nach Betriebssystem befindet sich der Benutzerordner an anderer Stelle.
+
+Starten Sie Visual Studio Code wie in den [Setup-Schritten](../setup.html) beschrieben.
+Danach sollten Sie neben dem Willkommensdialog im Zentrum auch links eine Seitenleiste sehen können.
+
+![VS Code IDE Oberfläche nach dem Start](../fig/vscode-sidebar.png)
+
+In der Seitenleiste gibt es verschiedene Unterbereiche, zwischen denen Sie mit einem Klick auf das jeweilige Icon wechseln können.
+Als erstes sollten Sie den "Explorer" Unterbereich öffnen, in dem Sie auf das erste Icon oben links klicken.
 Öffnen sie danach den neu erstellen Projektordner in VS Code, in dem Sie in der Explorer-Seitenleiste "Open Folder" auswählen.
 
 ![VS Code Open Folder](../fig/vscode-sidebar-openfolder.png)
