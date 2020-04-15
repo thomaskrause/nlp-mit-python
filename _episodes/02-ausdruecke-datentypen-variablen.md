@@ -265,7 +265,24 @@ type(3.141)
 {: .output}
 einen Rückgabe wert für eine Kommazahl (Float) zurück.
 
-Python ist eine dynamisch tpyisierte Programmiersprache.
+Mit der eingebauten Funktion `isinstance(wert, klasse)` kann man überprüfen, ob ein Wert bzw. eine Variable einen bestimmten Typ hat.
+Der Rückgabewert ist dabei vom Typ `bool`, also ein Wahrheitswert, und kann `True` oder `False` sein.
+~~~python
+isinstance(3, int)
+~~~
+~~~
+True
+~~~
+{: .output}
+~~~python
+isinstance(3.0, int)
+~~~
+~~~
+False
+~~~
+{: .output}
+
+Python ist eine dynamisch typisierte Programmiersprache.
 Das heißt, die gleiche Variable kann unterschiedliche Typen wie Float oder Integer zugewiesen bekommen.
 Mit `type` kann man den Typ herausfinden, aber es gibt auch Funktionen um explizit eine Variable zu einem anderen Typ zu überführen
 („casten“).
@@ -299,7 +316,7 @@ float(pi)
 {: .output}
 
 Es noch gibt eine Vielzahl weiterer, bereits eingebauter Funktionen in Python.
-Eine Listen davon finden Sie unter [https://docs.python.org/3.6/library/functions.html](https://docs.python.org/3.6/library/functions.html)
+Eine Listen davon finden Sie unter [https://docs.python.org/3.7/library/functions.html](https://docs.python.org/3.7/library/functions.html)
 Einige davon benötigen keine Eingabeargumente, trotzdem müssen in diesem Fall die Klammern mit angegeben werden.
 
 
