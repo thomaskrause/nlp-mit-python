@@ -19,26 +19,6 @@ keypoints:
 ---
 
 
-## Kommentare und Dokumentation
-
-Kommentieren Sie ihren eigenen Code und dokumentieren Sie somit dessen Funktionsweise. Das erleichtert anderen und auch Ihnen, den Code später noch zu verstehen. Außerdem können auf diese Weise Voraussetzungen Ihres Programms an die Eingabe und eine Darlegung der Form des Outputs dargelegt werden. Kommentare im Code beginnen Sie mit einer `#`.
-
-Ein Beispiel:
-
-~~~python
-# Das ist ein Kommentar
-# This is a comment
-~~~
-
-> ## Sprache in Python-Skripten
->
-> Es ist üblich Kommentare und andere Element des Quelltexts
-> in Englisch zu halten, da sie so für ein
-> breiteres Publikum verständlich sind. Im Rahmen dieses Kurses können
-> Sie das aber ignorieren. Sie sollten lediglich sicherstellen, dass 
-> Ihre Mit-Studierenden und Ihr Dozent Sie verstehen.
-{: .callout}
-
 ## Ganze Zahlen und Kommazahlen
 
 In Programmen muss man immer wieder Dinge berechnen, zum Beispiel Häufigkeiten 
@@ -91,7 +71,7 @@ Es gibt folgende relevante Rechenoperationen in Python, die Operatoren sind in K
 Wie in der Mathematik, haben auch in Python `*` und `/` Vorrang vor `+` und `-`. 
 
 > ## Übung
-> Was ist die Ausgabe vom Ausdruck und warum?
+> Was ist die Ausgabe dieses Ausdrucks und warum?
 > ~~~python
 > -4*2+10
 >~~~
@@ -319,6 +299,25 @@ Es noch gibt eine Vielzahl weiterer, bereits eingebauter Funktionen in Python.
 Eine Listen davon finden Sie unter [https://docs.python.org/3.7/library/functions.html](https://docs.python.org/3.7/library/functions.html)
 Einige davon benötigen keine Eingabeargumente, trotzdem müssen in diesem Fall die Klammern mit angegeben werden.
 
+## Kommentare und Dokumentation
+
+Kommentieren Sie ihren eigenen Code und dokumentieren Sie somit dessen Funktionsweise. Das erleichtert anderen und auch Ihnen, den Code später noch zu verstehen. Außerdem können auf diese Weise Voraussetzungen Ihres Programms an die Eingabe und eine Darlegung der Form des Outputs dargelegt werden. Kommentare im Code beginnen Sie mit einer `#`.
+
+Ein Beispiel:
+
+~~~python
+# Das ist ein Kommentar
+# This is a comment
+~~~
+
+> ## Sprache in Python-Skripten
+>
+> Es ist üblich Kommentare und andere Element des Quelltexts
+> in Englisch zu halten, da sie so für ein
+> breiteres Publikum verständlich sind. Im Rahmen dieses Kurses können
+> Sie das aber ignorieren. Sie sollten lediglich sicherstellen, dass 
+> Ihre Mit-Studierenden und Ihr Dozent Sie verstehen.
+{: .callout}
 
 {% include links.md %}
 
