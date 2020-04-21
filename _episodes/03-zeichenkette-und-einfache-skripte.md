@@ -5,13 +5,13 @@ exercises: 0
 questions:
 - Wie kann ich Zeichenketten in Python eingeben und darstellen?
 - Wie kann ich auf diese oder Teile davon zugreifen?
-- Wie können Programmanweisungen gespeichert und wieder ausgeführt werden?
+- Was muss ich beim Ausführen von Python-Skripten beachten?
 objectives:
 - Verstehen des Datentyps `str` Typs von Python
 keypoints:
 - Strings sind Sequenzen von Zeichen auf die über einen Index zugegriffen werden kann.
 - Es gibt Methoden, die Operationen auf diesen Zeichenketten ausführen, wie z.B. finden und ersetzen.
-- Python-Skripte können als Textdateien mit der Dateiendung `.py` gespeichert und dann mit dem `python3` Interpreter ausgeführt werden.
+- Variablen werden nur innerhalb eines Aufrufs des Python-Interpreters gespeichert.
 ---
 
 ## Zeichenketten als Wert definieren
@@ -111,11 +111,104 @@ text[0:3]
 > ## Frage(n)
 > Probieren Sie anhand eines Beispielstrings mit der Länge L folgende Dinge aus:
 > - Was passiert, wenn Sie a, b oder beide Grenzen weglassen?
-> - Was passiert, wenn b > L
-> - Was passiert, wenn a > L
+> - Was passiert, wenn b > Länge des Strings
+> - Was passiert, wenn a > Länge des Strings
 > - Was passiert, wenn a > b? Was wenn a == b?
 > - Was passiert, wenn a > 0 und b < 0?
 > - Was passiert, wenn a < 0 und b > 0?
+>
+>> ## Lösung
+>> Wenn die erste Grenze a weggelassen wird, wird implizit das erste Zeichen (0) als Start angenommen.
+>> ~~~python
+>> text[:3]
+>> ~~~
+>> ~~~
+>> 'Ein'
+>> ~~~
+>> {: .output}
+>>
+>> Wenn dagegen die zweite Grenze b weggelassen wird, wird implizit das letzte Zeichen als Ende angenommen.
+>> ~~~python
+>> text[23:]
+>> ~~~
+>> ~~~
+>> 'Cent'
+>> ~~~
+>> {: .output}
+>>
+>> Das Weglassen beider Grenzen entspricht dem ganzen String, ohne Einschränkung für Beginn und Ende.
+>> ~~~python
+>> text[:]
+>> ~~~
+>> ~~~
+>> 'Ein Brötchen kostet 25 Cent'
+>> ~~~
+>> {: .output}
+>>
+>> Der End-Index wird immer implizit auf die Länge des Strings begrenzt.
+>> Ist der Größer, wird der String nur bis zum Ende des Strings zurück gegeben. 
+>> Ist hingegen der Start-Index größer als die Länge des Texts, wird nur der leere String zurück gegeben.
+>> ~~~python
+>> text[4:123]
+>> ~~~
+>> ~~~
+>> 'Brötchen kostet 25 Cent'
+>> ~~~
+>> {: .output}
+>> ~~~python
+>> text[123:]
+>> ~~~
+>> ~~~
+>> ''
+>> ~~~
+>> {: .output}
+>>
+>> Analog dazu, wird auch der leere String ausgegeben, wenn der Start-Index größer oder gleich dem End-Index ist.
+>> ~~~python
+>> text[123:4]
+>> ~~~
+>> ~~~
+>> ''
+>> ~~~
+>> {: .output}
+>> ~~~python
+>> text[4:4]
+>> ~~~
+>> ~~~
+>> ''
+>> ~~~
+>> {: .output}
+>>
+>> Wenn der Start-Index a größer gleich 0 ist und der End-Index b negativ, wird der Teilstring vom Zeichen mit dem Index a bis zum b. Zeichen zählend vom Ende des Texts zurückgegeben.
+>> ~~~python
+>> text[4:-8]
+>> ~~~
+>> ~~~
+>> 'Brötchen kostet'
+>> ~~~
+>> {: .output}
+>> Das geht aber nur, solange der negative Wert nicht über den Anfang des mit a beginnenden Teilstrings "hinausragt".
+>> 
+>> Wenn a < 0 und b > 0 ist, wird normalerweise eine leerer String zurückgegeben. Wenn das Ende b aber größer ist als die Länge des Strings, ist der Ausdruck äquivalent zu `text[-a:]` und es werden die letzten a Zeichen des Teilstrings ausgeben.
+>> ~~~python
+>> text[-4:10]
+>> ~~~
+>> ~~~
+>> ''
+>> ~~~
+>> {: .output}
+>> ~~~python
+>> text[-4:100]
+>> ~~~
+>> ~~~
+>> 'Cent'
+>> ~~~
+>> {: .output}
+>>
+>> Wie Sie sehen, können negative Index sehr schnell sehr kompliziert und unerwartete Semantik mit sich bringen.
+>> Die Python-Dokumentation zu "Sequences" hat weitere Beispiele für komplexe Zugriffe über Indexes: <https://docs.python.org/3.7/library/stdtypes.html?highlight=sequence#sequence-types-list-tuple-range>.
+>> Solche komplexen Konstrukte werden ohne genaue Kenntnis der Python-Dokument sehr schnell sehr schwer verständlich und sollten vermieden werden.
+> {: .solution}
 {: .discussion}
 
 > ## Übung
@@ -167,15 +260,15 @@ Brötchen;25 Cent
 
 ## Ausführen mehrerer Anweisungen in einem Skript
 
-Anstatt Anweisungen für ein Programm interaktiv in der Konsole auszuführen, können sie auch in eine Textdatei mit der Endung 
-`.py` geschrieben werden.
+Wie wir bereits im [1. Kapitel](../01-python-starten/index.html) gesehen haben, können wir anstatt Anweisungen für ein Programm interaktiv in der Konsole auszuführen sie auch in eine Textdatei mit der Endung `.py` schreiben.
 Der Befehl `python3 dateiname.py` auf der Konsole führt diese Anweisungen dann hintereinander aus.
 Wird das Programm beendet, werden auch alle Variablen vergessen.
+Jeder Aufruf vom Python-Interpreter startet also immer ohne definierte Variablen, erst durch die einzelnen Ausführungsschritte im Skripts werden die Variablen definiert und mit Werten belegt.
 Bei der Entwicklung testet man oft kurze Code-Stücke in der interaktiven Konsole, die man dann in ein Skript überträgt.
 
 > ## Windows
-> In der virtuellen Maschine muss `python3` aufgerufen werden, damit die richtige Version von Python genutzt wird (unter Linux sind meistens beide großen Python-Versionen 2 und 3 nebeneinander installiert).
-> Windows enthält standardmäßig kein Python, nach einer systemweiten Installation und der Eintragung von der Python-Installation in die Systemvariable `PATH` kann man daher unter Windows mit dem Befehl `python` (also ohne die Versionsnummer „3“) auf der Kommandozeile starten.
+> Windows enthält standardmäßig kein Python und die Unterscheidung in Version 2 und 3 ist daher nicht so relevant. 
+> Nach einer systemweiten Installation und der Eintragung von der Python-Installation in die Systemvariable `PATH` oder mit `conda activate` kann man daher unter Windows mit dem Befehl `python` (also ohne die Versionsnummer „3“) auf der Kommandozeile starten.
 {: .callout}
 
 
