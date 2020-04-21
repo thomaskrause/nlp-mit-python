@@ -16,7 +16,7 @@ keypoints:
 
 ## Zeichenketten als Wert definieren
 
-Zeichenketten oder *Strings* sind Sequenzen von Zeichen. 
+Zeichenketten oder *Strings* sind Sequenzen von Zeichen die zur Repräsentation von Text verwendet werden. 
 Sie werden in Python gekennzeichnet mit umschließenden `'` oder `"`. Folgende Befehle sind also äquivalent:
 
 ~~~python
@@ -426,6 +426,20 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > ## Frage(n)
 > - Warum kann `replace` einfach mehrmals hintereinander aufgerufen werden?
 > - Was passiert, wenn ein String eine zu ersetzende Zeichensequenz nicht enthält?
+>
+>> ## Lösung
+>> Die Funktion `replace` liefert als Rückgabewert wieder einen neuen String zurück und auf Strings kann man die Funktion `replace` ausführen. 
+>> Man muss nicht zwingend den Rückgabewert in eine Variable zwischenspeichern, um ihn zu nutzen.
+>>
+>> Wenn die gesuchte Zeichensequenz nicht vorkommt, wird der unveränderte Original-String zurückgegeben.
+>> ~~~python
+>> messy_input.replace("Berlin", "Brandenburg")
+>> ~~~
+>> ~~~
+>> 'Sie wohnen in der Hauptstraße. Das ist ungewöhnlich.'
+>> ~~~
+>> {: .output}
+> {: .solution}
 {: .discussion}
 
 > ## Übung
@@ -435,7 +449,22 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > # Ihr Code
 > engl = 
 > ~~~
-> Diskutieren Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
+> Überlegen Sie kurz, ob dieses Vorgehen generell, also für eine beliebige deutsche Eingabe, sinnvoll ist.
+>> ## Lösung
+>> 
+>> Wir können im Moment nur kontextunabhängig einzelne Strings ersetzen.
+>> Für das konkrete Beispiel reicht das schon, auch wenn wir natürlich kein Zugriff auf ein Lexikon oder syntaktische und semantische Informationen haben und nicht einmal Wörter erkennen oder sogar die Wortstellung umschreiben können. 
+>>
+>> ~~~python
+>> german = "Die Katze ist schwarz"
+>> engl = german.replace("Die", "The").replace("Katze", "cat").replace("ist", "is").replace("schwarz", "black")
+>> print(engl)
+>> ~~~
+>> ~~~
+>> The cat is black
+>> ~~~
+>> {: .output}
+> {: .solution}
 {: .challenge}
 
 ## `startswith` und `endswith` 
