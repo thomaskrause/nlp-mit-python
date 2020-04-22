@@ -428,7 +428,7 @@ Sie wohnen in der Hauptstrasse. Das ist ungewoehnlich.
 > - Was passiert, wenn ein String eine zu ersetzende Zeichensequenz nicht enthält?
 >
 >> ## Lösung
->> Die Funktion `replace` liefert als Rückgabewert wieder einen neuen String zurück und auf Strings kann man die Funktion `replace` ausführen. 
+>> Die Methode `replace` liefert als Rückgabewert wieder einen neuen String zurück und auf Strings kann man die Methode `replace` ausführen. 
 >> Man muss nicht zwingend den Rückgabewert in eine Variable zwischenspeichern, um ihn zu nutzen.
 >>
 >> Wenn die gesuchte Zeichensequenz nicht vorkommt, wird der unveränderte Original-String zurückgegeben.
