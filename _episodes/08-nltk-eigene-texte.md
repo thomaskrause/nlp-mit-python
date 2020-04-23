@@ -21,7 +21,7 @@ Wenn wir unsere linguistische Forschung mit technischen Mitteln unterstützen wo
 
 ### Lesen
 
-Also, beginnen wir mit dem einfachen Laden. Hierfür benötigen wir `open`:
+Also, beginnen wir mit dem einfachen Laden. Hierfür benötigen wir `open` (schauen Sie für die Beschreibung der verwendeten Funktionen auch in die Python-Hilfe):
 
 ~~~python
 f1 = open('demofile.txt', 'r')
@@ -38,6 +38,19 @@ content2 = f2.readlines()
 > - Welchen Typ hat `f` und welchen Typ hat `content1` bzw. `content2`?
 > - Was fehlt noch? Warum ist das wichtig?
 > - Was ist der Unterschied zwischen `read` und `readlines`?
+>
+>> ## Lösung
+>>
+>> Die Funktion `open` öffnet die Datei im Lesemodus (`"r"` als Wert für den Modus-Parameter) und liest dann den Inhalt mit den Methoden `read()` bzw. `readlines()` in Variablen.
+> `read()` liest die gesamte Datei als einen String und liefert einen Wert vom Typ `str` zurück.
+> `readlines()` liest die Datei zeilenweise und liefert eine Liste mit Strings zurück.
+> Es fehlt noch das Schließen der Dateien mit der Methode `close()`.
+> ~~~python
+> f1.close()
+> ~~~
+> Das Schließen von Datein ist notwendig, wenn die gleiche Datei von mehreren Programmen oder Programmteilen genutzt werden soll.
+> Insbesondere beim mischen von Lesen und Schreiben in Dateien kann es zu Problemen kommen, wenn gleichzeitig zwei Dateivariablen offen sind.
+> {: .solution}
 {: .discussion}
 
 ### Schreiben
@@ -54,6 +67,11 @@ f.close()
 > ## Frage(n)
 > Existiert `outfile.txt` bereits?
 > Was kann passieren, wenn wir `f` nicht schließen?
+>> ## Lösung
+>>
+>> Die Datei muss nicht bereits existieren, das Programm wird die Datei neu anlegen und überschreiben.
+>> Wenn `f` nicht geschlossen wird, wird zwar auch die Datei angelegt, aber es kann passieren, dass der Inhalt nicht oder nicht vollständig geschrieben wird.
+> {: .solution}
 {: .discussion}
 
 Einen Datei manuell in allen möglichen Code-Pfaden zu schließen kann man oft vergessen, in Python gibt es daher einen speziellen `with` Block, der uns das vereinfacht:
@@ -65,7 +83,7 @@ with open("outfile.txt","a") as f
 
 ### Tipps und Tricks
 
-Wenn ihr vermeiden wollt, dass ihr eine Datei überschreibt, die es schon gibt, gibt es mehrere Mittel. Zum einen könnt ihr einen anderen Schreibmodus verwenden:
+Wenn Sie vermeiden wollen, dass Sie eine Datei überschreiben, die es schon gibt, gibt es mehrere Mittel. Zum einen können Sie einen anderen Schreibmodus verwenden:
 
 ~~~python
 f = open('demofile.txt', 'x')
@@ -229,25 +247,6 @@ Wir Sie sehen, war der Tagger für Deutsch ausbaufähig und seine Entfernung kei
 
 ## Kommandozeilenargumente
 
-> ## System-Konsole aufrufen
-> Um die System-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
-> Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen
-> und dieses starten.
-> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
-> ```bash
-> conda activate
-> ```
-> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
-> Wenn Sie das System-Terminal ausführen, müssen Sie meistens erst 
-> Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
-> ```bash
-> conda activate
-> ```
-> im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
-> Falls Sie mehr über die Bedienung von System-Kommandozeilen erfahren wollen, können Sie sich z.B. das Tutorial unter 
-> <https://tutorial.djangogirls.org/deintro_to_command_line/> anschauen.
-{: .callout}
-
 
 Wenn man ein Skript  in der System-Konsole aufruft, kann man dem Aufruf zusätzliche per Leerzeichen getrennt Argumente übergeben.
 ~~~bash
@@ -258,23 +257,8 @@ python3 meinskript.py Argument1 NochEinArgument
 Wenn ein Skript eine Datei einliest, wäre das z.B. eine gute Möglichkeit den Dateipfad anzugeben, 
 damit man das Skript auf verschieden Dateien ausführen kann ohne das Skript selbst fehleranfällig anpassen zu müssen.
 
-Man kann die Argumente, die an ein Skript übergeben werden, alternativ auch in Spyder angeben.
-Dazu muss im Menü "Run -> Configuration per File" oder der Shortcut <kbd>Strg</kbd>+<kbd>F6</kbd> ausgeführt werden.
-Dann kann man das Häkchen bei "Command line options" auswählen und die Argumente eingeben.
-![Einstellung Argumente für Skript in Spyder](../fig/spyder-script-args.png).
-
 Der Zugriff auf die Argumente erfolgt über die Liste `argv` aus dem Modul `sys`.
-
-> ## Frage
-> Wie können Sie auf diese Liste in ihren eigenem Skript zugreifen?
->> ## Lösung
->> ~~~pyhon
->> import sys
->> print(sys.argv)
->> ~~~
-> {: .solution}
-{: .callout}
-
+Dazu müssen Sie das Modul erst importieren, und können dann auf die Listen-Variable zugreifen.
 Gegeben Sei das folgendes Skript in einer Datei `cat.py`. 
 ~~~python
 import sys
