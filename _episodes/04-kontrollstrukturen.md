@@ -289,9 +289,7 @@ for i in range(1,4):
 ~~~
 {: .output}
 
-## Ausführen von Code-Blöcken abhängig von logischen Bedingungen
-
-### Einfache logische Bedingungen und der Datentyp `bool`
+## Einfache logische Bedingungen und der Datentyp `bool`
 
 Neben Strings und Zahlen hat Python auch einen Datentyp für Wahrheitswerte.
 Eine Variable mit Wahrheitswerten kann entweder den Wert `True` oder `False` haben.
@@ -400,7 +398,7 @@ True
 ~~~
 {: .output}
 
-
+## Wenn-Dann-Blöcke
 
 ### If-Ausdrücke
 
@@ -525,7 +523,7 @@ Mathematik geht
 ~~~
 {: .output}
 
-### While-Schleifen
+## While-Schleifen
 
 Man kann logische Bedingungen auch in While-Schleifen verwenden, um einen Block zu wiederholen, solange eine Bedingung erfüllt ist.
 
@@ -581,7 +579,7 @@ while x != 10:
 >{: .solution}
 {: .challenge}
 
-### Arithmetische Vergleichsoperatoren
+## Arithmetische Vergleichsoperatoren
 
 Neben `==` und `!=` gibt es für Zahlen noch weitere Operatoren:
 - `<` für „echt kleiner als“
@@ -632,7 +630,7 @@ zahl13 = []
 >{: .solution}
 {: .challenge}
 
-### Logische Formeln
+## Logische Formeln
 
 Logische Ausdrücke können wie auch logische Formeln mit `and`, `or` und `not` verknüpft werden
 
