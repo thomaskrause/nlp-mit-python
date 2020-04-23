@@ -216,7 +216,7 @@ Die Funktion `range(a,b)` liefert einen Iterator zurück, der nacheinander alle 
 > {: .solution}
 {: .challenge}
 
-Iteratoren haben gegüben von Listen den Vorteil, dass sie nicht alle Element speichern müssen.
+Iteratoren haben gegenüber von Listen den Vorteil, dass sie nicht alle Element speichern müssen.
 Wenn wir z.B. alle Zahlen von 1 bis 1.000.000 aufaddieren wollen, würde das viel Speicher belegen, wenn wir eine Liste
 mit einer Million Zahlen anlegen müssten.
 Mit einem Iterator wird immer nur ein kleiner Zustand (die aktuelle Zahl und das Ende des Bereichs) gespeichert.
@@ -413,7 +413,7 @@ if x == 4:
   print("x ist vier!")
 ~~~
 Dieses Programm erzeugt keine Ausgabe, weil die Bedingung nicht wahr ist.
-Wenn die Bedinung wahr ist, wird der Code-Block ausgeführt.
+Wenn die Bedingung wahr ist, wird der Code-Block ausgeführt.
 ~~~python
 if x == 5:
   print("x ist fünf!")
@@ -555,6 +555,10 @@ while x != 10:
 > while 1 == 1:
 >   print("Mathematik in Ordnung")
 > ~~~ 
+>> ## Lösung
+>> Es wird eine sogenannte Endlosschleife erzeugt, die sich nicht mehr beendet.
+>> Sie können nur das gesamte Programm (also den Python-Interpreter) von außen beenden um die Ausführung der Schleife zu unterbrechen.
+> {: .solution}
 {: .discussion}
 
 > ## Programm im Terminal beenden
