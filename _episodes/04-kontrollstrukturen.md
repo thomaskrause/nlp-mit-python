@@ -67,6 +67,22 @@ print(l[0:len(l)-1])
 > - Welchen Typ hat `l`?
 > - Welchen Typ hat `l[0:2]`?
 > - Welchen Typ haben `l[0]`,`l[1]` und `l[2]`?
+>
+>> ## Lösung
+>> Zum beantworten müssen Sie die Funktion `type()` auf den jeweiligen Ausdrücken ausführen.
+>>
+>> ~~~python
+>> type(l)
+>> type(l[0:2])
+>> type(l[0])
+>> type(l[1])
+>> type(l[2])
+>> ~~~
+>> Die ersten beiden Ausdrücke geben die gesamte Liste oder eine Teilliste zurück. 
+>> und liefern als Rückgabe der `type()`-Funktion den Typ `list` für Listen in Python zurück.
+>> Wenn nur auf einzelne Element der Liste zurückgegriffen wird, wie in den letzten drei Aufrufen, wird der eigentliche Wert der an dieser Listenposition steht zurückgegeben.
+>> Damit liefert auch die `type()`-Funktion den Typ des Werts, hier also `int`, `str` und `float`, zurück. 
+> {: .solution}
 {: .discussion}
 
 Es können nicht nur neue Elemente hinzugefügt, sondern auch bestehende Elemente entfernt werden.
