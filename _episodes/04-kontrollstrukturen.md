@@ -605,7 +605,7 @@ True
 
 > ## Übung
 > Schreiben Sie ein kurzes Programm, das eine Liste aller Zahlen zwischen 1 und 999, die ohne Rest durch 13 teilbar sind, erstellt.
-> Nutzen Sie dafür den `<` Operator!
+> **Nutzen Sie dafür den `<` Operator!**
 > Diskutieren Sie die Vor- und Nachteile im Vergleich zur Ihrer Version weiter oben.
 >> ## Lösung
 >> ~~~python
@@ -614,6 +614,19 @@ zahl13 = []
 >> while x < 1000:
 >>     zahl13.append(x)
 >>     x = x + 13
+>> print(zahl13)
+>> ~~~
+>> Im Vergleich zur vorherigen Lösung muss noch mehr darauf geachtet werden, dass die Abbruchbedingung wirklich ausgelöst wird um keine Endlosschleife zu erstellen.
+>> Endlosschleifen sind mit `for` deutlich einfacher zu vermeiden.
+>> Allerdings ist diese Lösung womöglich performanter. In der `for`-Schleife wurde tausend mal überprüft, ob eine Zahl durch 13 teilbar ist. 
+>> Diese Anweisung benötigt Ausführungszeit auf dem Prozessor.
+>> Die Anweisungen in der `while`-Schleife wird nur genau so oft ausgeführt, wie es Zahlen gibt die an die Liste angehängt werden müssen (also deutlich weniger als 1000 mal).
+>> Es ist in diesem Fall möglich, die Vorteile der `for`- mit denen der `while`-Schleife zu verbinden.
+>> Dazu muss bei der `range()` Funktion der [optionale `step` Parameter](https://docs.python.org/3.7/library/stdtypes.html#range) mit angeben werden: 
+>> ~~~python
+>> zahl13 = []
+>> for i in range(13,1000, 13):
+>>     zahl13.append(i)
 >> print(zahl13)
 >> ~~~
 >{: .solution}
