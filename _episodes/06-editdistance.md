@@ -14,7 +14,13 @@ keypoints:
 
 ## Nutzung von NLTK zur Berechnung der Levenshtein-Distanz
 
-NLTK ist eine Python-Bibliothek zur Umsetzung vieler NLP-Standard-Aufgaben und bereits in Anaconda vorinstalliert ist.
+NLTK ist eine Python-Bibliothek zur Umsetzung vieler NLP-Standard-Aufgaben und auch über pip verfügbar.
+Mit aktivierter Conda-Umgebung kann es kann einfach im System-Terminal mit 
+~~~bash
+pip install nltk
+~~~
+installiert werden.
+
 Die Bibliothek ist in Untermodulen organisiert.
 Für Metriken wie die Levenshtein-Distanz, gibt es das Untermodul `nltk.distance` 
 ([Dokumentation](http://www.nltk.org/api/nltk.metrics.html#module-nltk.metrics.distance))
@@ -187,4 +193,17 @@ Im Basisfall, dass einer der beiden String leer ist, wird die Rekursion abgebroc
 > Sie werden bemerken, dass die Funktion viel Zeit für die Berechnung der Distanz für längere Strings braucht.
 > Warum ist das so und wie könnte man das beheben?
 > Vergleichen Sie diese Implementierung mit der von NLTK oder der, die im Rosetta Code Projekt gegeben ist: [https://rosettacode.org/wiki/Levenshtein_distance#Python](https://rosettacode.org/wiki/Levenshtein_distance#Python)
+>> ## Lösung
+>> Die Funktion `levenshtein_distance` ruft sich rekursiv selbst auf.
+>> Dabei kann es vorkommen, dass verschiedene Rekursionsschritte die Funktion mit den gleichen Parametern aufrufen, aber jeweils neu berechnen.
+>> Das ist sehr aufwendig, kann aber vereinfacht werden, in dem man Python anweist, Aufrufe von `levenshtein_distance` mit den gleichen Parametern zu cachen.
+>> Um den Cache für den Funktionsaufruf zu aktivieren, müssen Sie nur `@lru_cache` ([Dokumentation](https://docs.python.org/3.7/library/functools.html#functools.lru_cache)) als sogenannten „decorator“ vor die Funktionsdefinition schreiben.
+>> ~~~python
+>> @lru_cache
+>> def levenshtein_distance(a, b):
+>>    cost = 0
+>>
+>>    # [...] 
+>> ~~~
+>  {: .solution}
 {: .discussion}
