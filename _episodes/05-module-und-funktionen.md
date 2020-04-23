@@ -144,31 +144,6 @@ Der Standardwert für das Argument `with_exclamation_marks` ist hier `False`.
 
 ## Module und der `import` Befehl
 
-### Spyder-Projekte
-
-Bisher haben wir immer nur einzelne Python-Dateien in Spyder geöffnet, gespeichert und ausgeführt.
-Man kann mehrere Dateien in einem Projekt-Ordner in Spyder gemeinsam verwalten. 
-Ein Projekt kann z.B. eine Hausaufgabe für eine Woche mit verschiedenen Python-Dateien für jede einzelne Aufgabe sein.
-
-Rufen Sie dazu im Menü `Projekt -> Neues Projekt` auf.
-![Menü für neues Projekt](../fig/spyder-new-project.png)
-
-Dann wählen Sie einen Namen und einen Ort für das neue Projekt und wählen „Erstellen“.
-![Auswählen des Projektnamens und -orts](../fig/spyder-new-project-name.png)
-
-Ein Spyder-Projekt ist ein normaler Ordner im Datei-System, in dem Sie neue Dateien hinzufügen können.
-Z.B. können Sie im *Projektmanager* auf den Projektordner rechts klicken und dann `Neu -> Modul` auswählen um eine neue Python-Datei anzulegen.
-![Hinzufügen einer Python-Datei zu einem Spyder-Projekt](../fig/spyder-new-module.png)
-
-Geben Sie einen neuen Namen für die Datei an (mit Endung `.py`) und drücken Sie speichern.
-![Namen für neue Datei angeben](../fig/spyder-new-file-name.png)
-
-Danach erscheint die neue Datei auch im *Projektmanager* und kann im Editor geöffnet und editor werden.
-![Spyder-Projektmanager mit neuer Datei](../fig/spyder-project-tree.png)
-
-Wenn Sie Spyder neu starten, können Sie einen bestehenden Projekt-Ordner über den Menüeintrag `Projekt -> Projekt öffnen` wieder öffnen.
-![Projektordner in Spyder öffnen](../fig/spyder-open-project.png)
-
 ### Eigene Module
 
 Jede Python-Datei ist gleichzeitig eine sogenanntes *Modul*.
@@ -296,34 +271,79 @@ Found string = Glück
 
 Auf der [Dokumentation des Moduls `re` ](https://docs.python.org/3.7/library/re.html) gibt es eine Einführung in die Syntax dieser Patterns und wie man nicht nur ja/nein Suchen sondern auch die Position des Treffers bekommen kann. 
 
-## Module aus Anaconda
-
-Anaconda ist eine Python-Distribution, in der bereits viele Pakete für NLP, Machine Learning und Data Science vorinstalliert sind.
-Im Anaconda Navigator kann man über „Environments“ 
-- überprüfen welche Pakete bereits vorhanden sind
-- die installierten Pakete aktualisieren
-- neue Pakete aus Anaconda installieren
-
-![Anaconda Paketmanager](../fig/anaconda-install.png)
-
 ### Installation neuer Pakete mit `pip`
 
-Hilfreiche allgemeine Python-Pakete, die nicht in Anaconda enthalten sind, können über den „Python Package Index“ unter
+Hilfreiche allgemeine Python-Pakete, können über den „Python Package Index“ unter
 [https://pypi.org](https://pypi.org) gefunden werden.
 Die Installation auf dem lokalen System erfolgt dann mit dem Kommandozeilentool
 `pip`.
-Um die System-Kommandozeile auzurufen, muss man unter **Windows** im Startmenü „Anaconda Prompt“ suchen und auswählen.
-Unter **Mac OS** können Sie eine System-Kommandozeile starten, in dem Sie mit [Spotlight](https://support.apple.com/de-de/HT204014) nach Terminal suchen und dieses starten.
-Danach müssen Sie unter Mac OS (aber nicht unter Windows) die Anaconda-Umgebung aktivieren, in dem Sie einmal
-```bash
-conda activate
-```
-im Terminal eingeben (der letzte Schritt ist unter Umständen auch unter Linux notwendig).
-Falls Sie mehr über die Bedienung von System-Kommandozeilen erfahren wollen, können Sie sich z.B. das Tutorial unter <https://tutorial.djangogirls.org/de/intro_to_command_line/> anschauen.
 
-Anaconda bring schon sehr viele Pakete mit, aber nichts um sogenannte [ASCII Art](https://de.wikipedia.org/wiki/ASCII-Art) automatisch zu generieren. 
-Eine Suche im Python Package Index liefert aber z.B. das Paket `art` um ASCII Art zu generieren:
+Um `pip` nutzen zu können, müssen Sie es unter Umständen erst in Conda installieren.
+Führen Sie dazu in Ihrer System-Kommandozeile mit aktiviertem Conda (z.B. im VS Code Terminal), folgenden Befehl aus:
+```bash
+conda install pip
+```
+Wenn Sie die Installation bestätigen, können Sie danach mit `pip list` eine Liste aller bereits installierte Pakete aufrufen.
+~~~bash
+pip list
+~~~
+~~~
+Package                Version   
+---------------------- ----------
+asn1crypto             1.2.0     
+astroid                2.3.3     
+autopep8               1.5.1     
+certifi                2020.4.5.1
+cffi                   1.13.0    
+chardet                3.0.4     
+conda                  4.8.3     
+conda-package-handling 1.6.0     
+cryptography           2.8       
+idna                   2.8       
+isort                  4.3.21    
+lazy-object-proxy      1.4.3     
+mccabe                 0.6.1     
+pathtools              0.1.2     
+pip                    20.0.2    
+pycodestyle            2.5.0     
+pycosat                0.6.3     
+pycparser              2.19      
+pylint                 2.4.4     
+pyOpenSSL              19.0.0    
+PySocks                1.7.1     
+requests               2.22.0    
+ruamel-yaml            0.15.46   
+setuptools             41.4.0    
+six                    1.12.0    
+tqdm                   4.36.1    
+treetaggerwrapper      2.3       
+typed-ast              1.4.1     
+urllib3                1.24.2    
+watchdog               0.10.2    
+wheel                  0.33.6    
+wrapt                  1.11.2  
+~~~
+{: .output}
+
+
+> ## Conda vs. pip
+>
+> Conda ist ähnlich wie pip auch ein Paketmanager, kann also zum Beispiel mit `conda install` Pakete nachinstallieren.
+> Wir haben Conda benutzt um ein Basissystem mit Python 3.7 und pip zu installieren, im Folgenden werden wir aber ausschließlich pip benutzen.
+> Welchen der Paketmanager Sie für Ihre eigenen Projekte nutzen wollen ist Geschmacksfrage. 
+> Conda kann teilweise mit Paketen, die Nicht-Python-Abhängigkeiten (wie zum Beispiel Compiler oder Bibliotheken für maschinelles Lernen) nutzen besser verwalten, es ist mehr vergleichbar mit einem Paketmanager für Betriebsysteme.
+> Im Gegensatz dazu, ist der Fokus von pip auf reinen Python-Abhängigkeiten.
+> Der [Python Package Index (PyPI)](https://pypi.org/) als zentrale Anlaufstelle für pip-Pakete stellt enorm viele Pakete bereit und es ist auch einfach möglich, selbst Python-Pakete auf PyPI zu veröffentlichen.
+> Neuere Versionen von Conda sind in der Lage, beim Paketmanagement mit pip zu kooperieren, `conda list` wird zum Beispiel auch die mit pip installiereten Pakete aufzeigen.
+{: .callout}
+
+Wir wollen nun auf PyPI ein Paket finden, mit dem wir sogenanntes [ASCII Art](https://de.wikipedia.org/wiki/ASCII-Art) generieren wollen.
+Dazu benutzen wir auf <https://pypi.org/> die Suche, z.B. nach „ascii art“.
+Nach etwas stöbern in der Trefferliste, finden wir zum Beispiel das Paket `art`:
 [https://pypi.org/project/art/](https://pypi.org/project/art/)
+
+Sie sollten sich immer genaue die Metadaten zum Paket, wie z.B. die Lizenz und Autorenschaft anschauen.
+![PyPI Metadaten für das Projekt art](../fig/pypi-meta.png)
 
 Mit dem Befehl
 ~~~bash
