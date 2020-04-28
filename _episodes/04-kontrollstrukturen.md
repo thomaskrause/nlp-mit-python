@@ -432,7 +432,7 @@ x = x - 1
 print("x ist", x)
 ~~~
 ~~~
-x ist 5
+x ist 4
 ~~~
 {: .output}
 
