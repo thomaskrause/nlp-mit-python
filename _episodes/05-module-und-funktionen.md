@@ -108,7 +108,7 @@ Die Zuweisung von mehreren Werten beim Aufruf einer Funktion erfolgt ebenfals du
 def get_str_info(text):
     l = len(text)
     c = text[0]
-    return l, n
+    return l, c
 
 a, b = get_str_info("This is an arbitrary string, I swear")
 ~~~
