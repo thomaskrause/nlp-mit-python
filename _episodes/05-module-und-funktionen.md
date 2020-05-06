@@ -17,9 +17,9 @@ keypoints:
 
 Bisher haben wir uns nur mit einfachen Anweisungen
 beschäftigt. Typischerweise wollen wir aber nicht immer wieder
-neu eingreifen, sondern unser Programm soll eine komplexe
-Anweisung auf einmal ausführen. Dafür müssen wir unseren
-Code als Funktion definieren:
+neu die gleichen Algorithmen an verschiedenen Stellen implementieren, 
+sondern unser Programm soll eine komplexe Anweisung auf einmal ausführen. Dafür müssen wir unseren
+Code als eigene Funktion definieren:
 ~~~python
 def add_mult(a, b):
     output = a + b
