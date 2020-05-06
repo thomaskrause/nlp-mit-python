@@ -92,7 +92,7 @@ Am Ende der Übung wird es hoffentlich klarer, wie die einzelnen Teilprobleme zu
 > ## Übung
 > Was bedeutet der Punkt „von jedem Buchstaben aus“ für die eigentliche Berechnung? Was sind die einfachsten Fälle für diesen Teil der Berechnung?
 > Wie viele Zeichen müssen minimal zwischen beiden Strings verglichen werden und wenn ja welche(s)?
-> Schreiben Sie eine Funktion für diesen einfachen Fall diedie Levenshtein-Distanz in diesem Fall zurückgibgt.
+> Schreiben Sie eine Funktion für diesen einfachen Fall der die Levenshtein-Distanz in diesem Fall zurückgibt.
 >> ## Lösung
 >> 
 >> In dieser Funktion wollen wir immer nur ein Zeichen zwischen zwei Strings vergleichen.
