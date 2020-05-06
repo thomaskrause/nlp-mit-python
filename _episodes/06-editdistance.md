@@ -250,11 +250,13 @@ Am Ende der Übung wird es hoffentlich klarer, wie die einzelnen Teilprobleme zu
 > Beim Caching wird die Funktion nur beim ersten Aufruf mit den gleichen Argumentwerten wirklich ausgeführt.
 > Der Python-Interpreter merkt sich dann den Rückgabewert für diese Funktion und Argumente.
 > Wenn wir die Funktion noch einmal mit den gleichen Argumenten aufgerufen, wird dieser Wert direkt zurückgeben.
-> Um den Cache für den Funktionsaufruf zu aktivieren, müssen Sie nur `@lru_cache` ([Dokumentation](https://docs.python.org/3.7/library/functools.html#functools.lru_cache)) als sogenannten „decorator“ vor die Funktionsdefinition schreiben.
+> Um den Cache für den Funktionsaufruf zu aktivieren, müssen Sie nur `@lru_cache(maxsize=128)` ([Dokumentation](https://docs.python.org/3.7/library/functools.html#functools.lru_cache)) als sogenannten „decorator“ vor die Funktionsdefinition schreiben.
 > Damit werden die 128 zuletzt genutzten Rückgabewerte gecached („lru“ steht „last recently used“).
 > 
 > ~~~python
-> @lru_cache
+> from functools import lru_cache
+>
+> @lru_cache(maxsize=128)
 > def levenshtein_distance(a, b):
 >    cost = 0
 >
