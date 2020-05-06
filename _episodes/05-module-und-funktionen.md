@@ -126,8 +126,10 @@ In Python wird unterschieden zwischen positionalen Argumenten, die übergeben we
 Hier ein Beispiel:
 ~~~python
 def print_log(log_text, with_exclamation_marks=False):
-    out = log_text if not with_exclamation_marks else ('!!! '+log_text+' !!!')
-    print(out)
+    if with_exclamation_marks:
+        print('!!! '+log_text+' !!!')
+    else:
+        print(log_text)
     
 print_log('Nothing happend.')
 print_log('Alarm', with_exclamation_marks=True)
