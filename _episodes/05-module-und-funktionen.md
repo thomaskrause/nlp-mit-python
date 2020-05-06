@@ -102,7 +102,7 @@ Der Code nutzt die eingebaute Funktion `isinstance` um zu überprüfen, ob eine 
 
 Außerdem ist es möglich, dass eine Funktion mehr als einen Wert zurückgibt. 
 In diesem Fall muss die `return` Anweisung alle Werte mit Komma getrennt auflisten.
-Die Zuweisung von mehreren Werten beim Aufruf einer Funktion erfolgt ebenfals durch Auflistung mit Komma.
+Die Zuweisung von mehreren Werten beim Aufruf einer Funktion erfolgt ebenfalls durch Auflistung mit Komma.
 
 ~~~python
 def get_str_info(text):
