@@ -237,7 +237,7 @@ from mathmodules.fancy import add as fancy_add
 fancy_add(42)
 ~~~
 
-## Module der Standardbibliothek
+## Standardbibliotheken und Installation von neuen Bibliotheken
 
 Python besitzt neben den eingebauten Funktionen und Typen auch noch eine riesige sogenannte Standardbibliothek.
 Dies sind Module, die in allen Python-Installationen (für eine bestimmte Version von Python) immer vorhanden sind.
