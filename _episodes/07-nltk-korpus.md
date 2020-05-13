@@ -559,6 +559,11 @@ Wenn man eine Übersicht haben möchte, an welchen Stellen ein Wort im Text vork
 text4.dispersion_plot(["citizens", "democracy", "freedom", "duties", "America"])
 ~~~
 
+Um die Methode zu nutzen, muss das Paket "matplotlib" installiert sein.
+~~~bash
+pip install matplotlib
+~~~
+
 ## Einfache statistische Auswertungen
 
 
