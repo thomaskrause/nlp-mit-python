@@ -569,7 +569,7 @@ pip install matplotlib
 
 ### Wortfrequenzen
 
-Um die Frequenz der Wörter für ein Korpus berechnen, kann man mit der Funktion `Freqdist(text)` ein neues Objekt anlegen, dass die Vorkommen zählt und die Möglichkeit gibt, auf verschiedene Aspekte der Frequenzanalyse zuzugreifen.
+Um die Frequenz der Wörter für ein Korpus berechnen, kann man mit der Funktion `FreqDist(text)` ein neues Objekt anlegen, dass die Vorkommen zählt und die Möglichkeit gibt, auf verschiedene Aspekte der Frequenzanalyse zuzugreifen.
 
 ~~~python
 fdist1 = FreqDist(text1)
