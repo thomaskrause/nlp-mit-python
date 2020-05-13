@@ -353,14 +353,4 @@ FileNotFoundError: [Errno 2] No such file or directory: 'nichtda.txt'
 >{: .solution}
 {: .challenge}
 
-
-
-> ## Übung
-> Stellen Sie ihren angefangenen Chatbot fertig, dass er die Mindestanforderung erfüllt.
-> Dann bauen Sie ihn folgendermaßen aus (Schritt für Schritt)
-> - Tokenisieren Sie die Eingabe um die Stichwörter besser erkennen zu können
-> - Finden Sie mit Hilfe des POS-Taggers ein Nomen und referenzieren Sie das Nomen in der Nachfrage (ein englischer Dialog wäre jetzt besser)
-> - Fragen Sie am Anfang nach dem Namen des Gegenübers, schreiben Sie diesen in eine Datei und begrüßen Sie den Nutzer mit den richtigen Namen sobald er das Programm noch einmal ausführt.
-{: .challenge}
-
 {% include links.md %}
