@@ -55,6 +55,12 @@ Nach dem Import sind die verschiedenen Korpora als Variablen mit dem Namen `text
 
 > ## Frage(n)
 > Welchen Typ haben diese Variablen?
+>
+>> ## Lösung
+>> Wir können den Typ einfach mit `type(text1)` überprüfen.
+>> Die Variablen mit den Texten haben *nicht* den Typ String, sondern den NLTK-eigenen Typ `nltk.text.Text`.
+>> Welche Methoden wir auf diesen Typ nutzen können, schauen wir uns im Rest des Tutorials an.
+> {: .solution}
 {: .discussion}
 
 ## Texte als Sequenzen von Wörtern
