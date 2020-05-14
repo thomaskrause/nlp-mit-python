@@ -107,7 +107,7 @@ Geschichte) generieren
 alle großgeschriebenen Wörter außer am Satzanfang
 Nomen sind
 >
-> Die Geschichte nehmen wir von hier: [http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel](http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel)
+> Als Geschichte nehmen wir die Zusammenfassung des Inhalts von hier: [http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel](http://de.wikipedia.org/wiki/Der_Hase_und_der_Igel)
 >> ## Lösung
 >> ~~~python	
 >> # Unsere Funktion nimmt eine Liste als Parameter
