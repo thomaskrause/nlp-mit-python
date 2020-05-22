@@ -90,7 +90,7 @@ new_model.tag(nltk.word_tokenize("Die Römer nennen es Majoran"))
 
 Das Tiger2-Korpus basiert auf Zeitungstexten und wurde ebenfalls mit dem STTS annotiert.
 Laden Sie das Korpus "TIGER Corpus Release 2.2" in dem CONLL09-Format von der Tiger2-Webseite herunter:
-<https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/TIGERCorpus/download/start.html>
+<https://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/tiger/>
 
 Das CONLL-Format enthält Informationen über Dependenz-Strukturen, die wir im Moment nicht benötigen.
 Es kann aber analog zur Textdatei in NLTK mit dem [`nltk.corpus.ConllCorpusReader`](https://www.nltk.org/api/nltk.corpus.reader.html#nltk.corpus.reader.conll.ConllCorpusReader) eingelesen werden, dabei muss mit angegeben werden welche Spalten als `word` oder `pos` genutzt und welche ignoriert werden sollen.
