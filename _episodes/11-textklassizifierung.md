@@ -232,6 +232,13 @@ model.save("classifier.h5")
 dill.dump(vocabulary, open("vocabulary.dat", "wb"))
 ```
 
+Das im Skript definierte Netzwerk hat die folgende Struktur:
+
+
+![Struktur des neuronalen Netzes als Graph](../fig/text_classification_model.svg)
+
+
+
 ## Ausgabe für ein paar Testdaten
 
 

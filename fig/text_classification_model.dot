@@ -1,0 +1,9 @@
+digraph G {
+rankdir=TB;
+node [shape=record];
+140296709364480 [label="dense_2_input: InputLayer\n|{input:|output:}|{{[(?, 1000)]}|{[(?, 1000)]}}"];
+140296708871672 [label="dense_2: Dense\n|{input:|output:}|{{(?, 1000)}|{(?, 10)}}"];
+140296709271792 [label="dense_3: Dense\n|{input:|output:}|{{(?, 10)}|{(?, 1)}}"];
+140296709364480 -> 140296708871672;
+140296708871672 -> 140296709271792;
+}
