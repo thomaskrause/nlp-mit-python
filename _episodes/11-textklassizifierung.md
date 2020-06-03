@@ -19,7 +19,7 @@ Beispiele dafür sind
 - Positives oder negative Haltung bestimmen (zum Beispiel bei einer Produkt-Bewertung),
 - die Sprache eines Textes zu identifizieren.
 
-## Bag of words
+## Bag-Of-Words
 
 Textklassifikation hat den gesamten Text als Eingabe und die Klasse als Ausgabe.
 Neuronale Netzwerke haben aber Vektoren von Zahlen als Ein- und Ausgabe.
@@ -31,7 +31,7 @@ Wenn wir also zum Beispiel die Ausgabe `(0.13, 0.99, 0.4)` haben und Englisch de
 Im Fall, dass man nur zwei Klassen hat (z. B. negativ und positiv) kann man auch nur einen einzelnen Wert aus Ausgabe nehmen, der dann `0` für die erste Klasse und `1` für die zweite Klasse ist.
 
 Für die Eingabe, also den eigentlichen Text, müssen wir aber auch eine geeignete Vektordarstellung finden.
-Dazu nutzen wir in diesem Tutorial sogenannte *Bag of words*.
+Dazu nutzen wir in diesem Tutorial sogenannte *Bag-Of-Words*.
 Diese Darstellung reduziert den Text auf die Anzahl der genutzten Wörter aus einem vorher festgelegten Vokabular.
 Für jedes Wort aus dem Vokabular wir die Häufigkeit des Vorkommens bestimmt.
 Der Kontext oder die Position des Worts im Text geht dabei verloren.
@@ -77,6 +77,8 @@ The best scene in the movie was when Gerardo is trying to find a song that keeps
 ```
 
 Unsere Aufgabe ist es nun, diese beiden Klassen automatisch mit einem neuronalen Netz auf ungesehener Eingabe zu unterscheiden.
+Wir wollen also auf den Goldstandard-Daten der IMDB-Kommentare das Netzwerk trainieren und auf neuen Daten anwenden können.
+Dafür sind mehrere Schritte, von der Aufbereitung der Daten bis zur Definition der Netzwerkstruktur, dem eigentlichen Trainieren und Code zum Ausführen des trainierten Netzwerks notwendig.
 
 ## Tensorflow (mit Keras API)
 
@@ -90,6 +92,11 @@ pip install tensorflow
 
 
 ## Einlesen der CSV Dateien
+
+Der erste Schritt ist das Einlesen der Trainingsdaten.
+Die Datei `imdb_labelled.txt` ist eine CSV- bzw. TSV-Datei: jede Zeile ist ein Datenpunkt und die Informationen in den Zeilen sind durch Tabs separiert (TSV steht für „Tab separated values“, „CSV“ dementsprechend für „Comma separated values“, wird aber oft als Oberbegriff für alle solche Formate unabhängig vom Trennzeichen verwendet).
+Wir definieren dazu die Funktion `read_csv`, die das Einlesen übernimmt und eine Liste von Sätzen/Kommentaren und eine Liste der Kategorien (also die „labels“) zurückgibt.
+Diese Funktion (und alle anderen Hilfsfunktionen) werden im Modul `util` definiert, müssen also in einer Datei mit dem Namen `util.py` gespeichert werden.
 
 ```python
 # Liest eine CSV-Datei mit Sätzen und Labeln (0 negativ, 1 positiv) ein
@@ -110,28 +117,10 @@ def read_csv(file):
     return (sentences, labels)
 ```
 
-## Aufspalten der Daten in Trainings und Testdaten
-
-```python
-import util
-
-sentences, y = util.read_csv("imdb_labelled.txt")
-
-# Aufspalten in Training und Testmengen
-# 75% der Daten zum Training, 25% zum Testen
-split_position = int(len(sentences) * 0.75)
-
-# Trainingsdaten
-sentences_train = sentences[:split_position]
-y_train = y[:split_position]
-
-# Testdaten
-sentences_test = sentences[split_position:]
-y_test = y[split_position:]
-```
-
 ## Erstellen eines Vokabulars
 
+Für die Bag-Of-Words-Repräsentation benötigen wir ein Vokabular.
+Dazu implementieren wir folgene Funkion, die ein Vokabular der 999 häufigsten Wörter aus einer gegebenen Liste von Sätzen berechnet.
 
 ```python
 # Erstellt eine Zuordnung von den 999 häufigsten Wörtern zu einer ID
@@ -158,6 +147,8 @@ def create_vocabulary(sentences):
 
 ## Erstellen eines Bag-Of-Words für jeden Satz
 
+Als nächsten Schritt definieren eine Funktion, die die eigentlichen Bag-Of-Words für alle Sätze gegeben des Vokabular berechnet.
+Da das Vokabular nicht vollständig ist, werden alle unbekannten Wörter mit der speziellen ID 0 kodiert.
 
 ```python
 # Erstellt eine Liste von Bag-Of-Words-Vektoren für eine Liste von Sätzen.
@@ -185,6 +176,12 @@ def create_bag_of_words(sentences, vocabulary):
 
 ## Aufbereitung der Daten
 
+Um beurteilen zu können, wie gut das neuronale Netz gelernt hat, trennen wir die Daten in eine Trainingsdatenmenge und eine Testdatenmenge auf.
+Die Performanz (also Anzahl korrekter Vorhersagen) wird dann auf den ungesehenen Testdaten berechnet.
+
+Aus den Trainingsdaten berechnen wir das Vokabular: die Testdaten dürfen nicht ins Vokabular eingehen, da diese ja ungesehene neue Daten repräsentieren. 
+Für beiden Datenmengen wird mit dem Vokabular für jeden Satz eine Bag-Of-Words Vektorrepräsentation erstellt.
+
 ```python
 import util
 import dill
@@ -211,6 +208,20 @@ x_test = util.create_bag_of_words(sentences_test, vocabulary)
 
 ##  Trainieren eines neuronalen Netzes
 
+Wir kommen jetzt zum eigentlichen Training.
+Dazu definieren wir ein Netzwerk mit der folgenden Struktur:
+
+![Struktur des neuronalen Netzes als Graph](../fig/text_classification_model.svg)
+
+Der Eingabe-Layer hat 1000 Neuronen, da unser Vokabular 999 Wörter plus das ungesehene Wort umfasst.
+Jedes Neuron im Eingabe-Layer bekommt die Anzahl des ihm zugeordneten Worts als Eingabe.
+Danach wird ein einfacher Hidden-Layer mit 10 Neuronen geschaltet.
+Die Ausgabe hat nur ein Neuron, das entweder den Wert `0` für negativ oder `1` für positiv annehmen soll.
+
+Das folgende Skript nutzt nun die Tensorflow-API um dieses Netzwerk zu definieren und die passenden Gewichte für die bereits erstellten Trainingsdaten zu lernen.
+Tensorflow überprüft für die verschiedenen Iterationen der Gewichtsanpassungen mit Hilfe der Testdaten, wie gut das Netz bereits gelernt hat.
+Die trainierten Modelldaten (inklusive Vokabular) werden gespeichert
+
 ```python
 from tensorflow.keras.models import Sequential
 from tensorflow.keras import layers
@@ -232,15 +243,10 @@ model.save("classifier.h5")
 dill.dump(vocabulary, open("vocabulary.dat", "wb"))
 ```
 
-Das im Skript definierte Netzwerk hat die folgende Struktur:
-
-
-![Struktur des neuronalen Netzes als Graph](../fig/text_classification_model.svg)
-
-
 
 ## Ausgabe für ein paar Testdaten
 
+Mit den gespeicherten Modelldaten können wir nun in einem neuen Skript eigene Eingaben ausprobieren.
 
 ```python
 import util
