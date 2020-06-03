@@ -84,7 +84,7 @@ Dafür sind mehrere Schritte, von der Aufbereitung der Daten bis zur Definition 
 
 
 Für dieses Beispiel nutzen wir Tensorflow mit der Keras API.
-Tensorflow ist noch nicht in Anaconda vorhanden, kann aber nachinstalliert werden.
+Tensorflow kann über pip installiert werden.
 
 ```bash
 pip install tensorflow
