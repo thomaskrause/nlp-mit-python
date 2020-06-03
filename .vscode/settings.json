@@ -1,5 +1,6 @@
 {
     "python.pythonPath": "/usr/bin/python3",
     "python.linting.pylintEnabled": false,
-    "cSpell.language": "de"
+    "cSpell.language": "de",
+    "ltex.language": "de-DE"
 }
