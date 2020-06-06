@@ -8,6 +8,8 @@ objectives:
 - Tensorflow-API mit Python ansprechen
 - Daten für Tensorflow aus CSV Dateien einlesen und aufbereiten
 keypoints:
+- Die Keras-API von Tensorflow erlaubt es relativ einfach neuronale Netze zu definieren, trainieren und anzuwenden
+- Datenaufbereitung und Umwandlung von Texten in Vektoren fester Länge macht einen großen Teil der Arbeit aus
 ---
 
 ## Einführung
