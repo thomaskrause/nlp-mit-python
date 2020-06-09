@@ -95,3 +95,113 @@ git init
 Leeres Git-Repository in /home/thomas/Dokumente/studium/nlp/.git/ initialisiert
 ~~~
 {:.output}
+
+Diesen Ordner können Sie nun wie einen normalen Ordner im Dateisystem benutzen.
+Sie können Ihn auch in Visual Studio Code öffnen, um Dateien anzulegen oder zu editieren.
+GitHub Desktop bietet einem sogar einen Link an, um das Repository direkt zu in Visual Studio Code zu öffnen
+
+![Öffnen in VS Code](../fig/github-desktop-open-vscode.png)
+
+## Dateien hinzufügen und ändern
+
+Legen Sie jetzt eine neue Python-Datei mit dem Namen `main.py` im Repository, zum Beispiel über Visual Studio Code an.
+~~~python
+name = input("Wie heißen Sie: ")
+print("Hallo " + name)
+~~~
+
+Im Gegensatz zu Programmen wie Dropbox oder der HU Box müssen Änderungen an den Dateien explizit markiert und in einem Commit zusammengefasst werden.
+In GitHub Desktop markiert man dazu die geänderten Dateien, füllt eine Commit-Nachricht aus und comitted die Änderungen.
+Dieser Commit ist dann Teil der *History* des Repositories.
+Wenn alle lokal geänderten bzw. hinzugefügten Dateien Teil des Commits waren, wird GitHub Desktop "No local changes" anzeigen.
+
+![Datei hinzufügen](../fig/github-desktop-add.gif)
+
+Auf der Kommandozeile werden Änderungen mit `git add <datei>` vorgemerkt und dann mit `git commit -m Nachricht` comitted.
+~~~bash
+git add main.py
+git commit -m "Initial Script"
+~~~
+
+Git verwaltet Änderungen zeilenweise.
+Sobald eine Datei geändert wird, zeigt GitHub Desktop die geänderten Zeilen an.
+Ändern Sie `main.py` so, dass am Ende der Ausgabe ein Ausrufezeichen steht, speichern Sie die Datei ab und GitHub Desktop wird die lokalen Änderungen anzeigen.
+
+![Lokale Änderungen](../fig/github-desktop-diff.png)
+
+Äquivalent dazu ist der Aufruf von `git diff` auf der Kommandozeile.
+~~~bash
+git diff
+~~~
+
+~~~
+diff --git a/main.py b/main.py
+index f0b5686..936e410 100644
+--- a/main.py
++++ b/main.py
+@@ -1,2 +1,2 @@
+ name = input("Wie heißen Sie: ")
+-print("Hallo " + name)
++print("Hallo " + name + "!")
+~~~
+{: .output}
+
+
+Markieren Sie auch die neuen Änderungen und committen Sie diese mit einer Aussagekräftigen Commit-Nachricht, zum Beispiel "Added more excitement when welcoming the user.".
+In dem Tab "History" listet GitHub Desktop alle Commits mit ihren Nachrichten, dem Autor und den geänderten Zeilen auf.
+
+![History und Diff](../fig/github-desktop-log.png)
+
+Jeder Commit hat dabei eine eindeutige ID, in dem Screenshot ist es zum Beispiel `d34119c` für den Commit, in dem das Ausrufezeichen hinzugefügt wurde (unter dem Titel oben rechts im Bild).
+Diese ID wird bei Ihnen anders sein, da der Nutzername, die E-Mail, Zeitstempel und alle bisherigen Commits in die Berechnung dieser ID eingehen.
+Wenn zwei Commit die gleiche ID haben können Sie sich sicher sein, dass Sie die gleiche Version des Repositories mit dem gleichen Dateiinhalt haben.
+
+Auf der Kommandozeile listet `git log` alle Commits und ihre ID auf.
+~~~bash
+git log
+~~~
+
+~~~
+commit d34119cd81d054d02b87dedd6dbff14ef65e93b8 (HEAD -> master)
+Author: Thomas Krause <krauseto@hu-berlin.de>
+Date:   Tue Jun 9 16:54:04 2020 +0200
+
+    Added more excitement when welcoming the user.
+
+commit f22fe3b7787a10c18039e907474d0cef03785705
+Author: Thomas Krause <krauseto@hu-berlin.de>
+Date:   Tue Jun 9 16:49:00 2020 +0200
+
+    Initial script
+    
+    The script just asks the user for its name and prints a welcome message.
+
+commit 561e8c6b06e757868fd31bafa619e7c0b43c01e8
+Author: Thomas Krause <krauseto@hu-berlin.de>
+Date:   Tue Jun 9 14:36:46 2020 +0200
+
+    Initial commit
+~~~
+{: .output}
+
+Im Gegensatz zu GitHub Desktop listet `git log` die komplette ID und nicht nur die ersten Zeichen auf.
+Zur eindeutigen Identifikation des Commits reichen aber meist die ersten 7 Zeichen.
+
+Sie können lokale Änderungen auch rückgängig machen anstatt Sie zu committed.
+Wenn Sie zum Beispiel das Ausrufezeichen in ein Fragezeichen ändern und `main.py` speichern, wird die Änderungen in GitHub Desktop angezeigt.
+Sie können dann mit der rechten Maustaste auf die geänderte Datei unter "Changes" klicken und "Discard changes..." auswählen.
+
+![Discard Changes](../fig/github-desktop-discard.gif)
+
+Dieser Befehl ändert die Datei auf der Festplatte, weswegen ein extra Bestätigungsdialog erscheint.
+Die Kommanzeilenvariante basiert auf dem Befehl `git checkout <version> <file>`, der Dateien in bestimmten Versionen aus dem Repository wiederherstellt.
+Wir verwenden die spezielle Meta-Version "HEAD", die für den letzten lokalen Commit steht.
+
+~~~bash
+git checkout HEAD main.py
+~~~
+
+~~~
+1 Pfad von 80b993b aktualisiert
+~~~
+{: .output}
