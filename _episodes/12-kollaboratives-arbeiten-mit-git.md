@@ -205,3 +205,72 @@ git checkout HEAD main.py
 1 Pfad von 80b993b aktualisiert
 ~~~
 {: .output}
+
+## Synchronisieren von Repositories
+
+### Anlegen eines neuen Projekts in GitLab
+
+Um Quelltexte zu teilen, muss man ein Repository auf einem Server anlegen.
+Für das GitLab der HU loggen Sie sich zuerst unter <https://scm.cms.hu-berlin.de/> ein und drücken Sie dann die grüne "New Project" Schaltfläche.
+
+![New Project in GitLab](../fig/gitlab-new-project.png)
+
+Füllen Sie danach das Eingabeformular für neue Projekte mit dem Namen und einer optionalen Beschreibung aus. 
+Sie können einstellen, wer das Projekt sehen kann. 
+Stellen Sie sicher, dass "Initialize repository with a README" nicht ausgewählt ist.
+
+![New Project Formular](../fig/gitlab-new-project-desc.png)
+
+### Pushen der Änderungen
+
+Das erstelle Repository ist komplett leer, beinhaltet also keine Commits.
+Um die lokalen Commits zum entfernten Repository hinzuzufügen, muss es als sogenanntes Remote-Repository registriert werden.
+Dazu klicken Sie zuerst auf die blaue "Clone" Schaltfläche und kopieren Sie die URL unter "Clone with HTTPS".
+
+![Clone URL](../fig/gitlab-clone-url.png)
+
+Das Registrieren des Remote-Repositories geht leider nicht im GitHub Desktop Client[^remotegithub], deswegen müssen wir auf die Kommandozeile ausweichen und im Repository-Ordner als aktuellem Verzeichnis folgenden Befehl ausführen:
+~~~bash
+git remote add origin https://scm.cms.hu-berlin.de/<Rest der kopierten Clone URL>
+~~~
+Dieser Befehl fügt ein neues Remote-Repository mit dem Namen "origin" und gegebenen URL hinzu.
+
+
+[^remotegithub]: GitHub möchte mit seinem Produkt natürlich die eigene Plattform unterstützen, deswegen ist es kein Problem unter "Publish Repository" ein GitHub.com Repository auszuwählen, aber leider nicht von anderen Plattformen wie dem HU GitLab.
+
+Sie müssen das Remote-Repository nur einmal hinzufügen.
+Danach können Sie auch weiter in GitHub Desktop arbeiten.
+Der erste Schritt ist, alle lokalen Commits in das entfernte Repository mit "Publish changes" zu übertragen.
+
+![Push in GitHub Desktop](../fig/github-desktop-publish.gif)
+
+Ein Neuladen der Projekt-Seite in GitLab sollte nun die Dateien des Repositories anzeigen.
+
+![Projektübersicht GitLab](../fig/gitlab-projekt-ansicht.png)
+
+Auf der Kommandozeilen kann man alle lokalen Commits mit 
+~~~bash
+git push origin master
+~~~
+"origin" ist der vorher vergebene Kurzname für das Remote-Repository und "master" der sogenannte Branch, der übertragen werden soll.
+Wir werden später Branches kennenlernen, im Moment müssen Sie aber nur wissen, dass der Standard-Branch "master" heißt.
+
+### Hinzufügen andere Entwickler
+
+Auf ein Remote-Repository können mehrere Nutzer zugreifen.
+Fügen Sie Ihre Projektmitglieder unter "Settings -> Members" hinzu.
+Um mit am Quelltext arbeiten zu können, muss mindestens die Rolle "Developer" zugewiesen werden.
+
+![Projektmitglieder hinzufügen](../fig/gitlab-add-collaborator.png)
+
+### Änderungen vom Remote-Repository übernehmen
+
+Wenn andere Entwickler Änderungen comitten und per "push" übertragen, können wir zwar die Änderungen in der GitLab Projektansicht sehen, aber haben den neuesten Stand der Dateien nicht lokal in unserem eigenen Repository.
+Das Holen der Änderungen vom entfernten Repository ist in Git eine explizite Aktion.
+Um zu emulieren, dass ein anderes Mitglied committed und dann gepushed hat, klicken wir in der Projektansicht von GitLab auf die Datei "main.py" und editieren sie direkt in GitLab.
+
+![Änderung der Datei in GitLab](../fig/gitlab-change-file.gif)
+
+Diese entfernten Änderungen können Sie dann in GitHub Desktop erst "fetchen" und dann "pullen".
+Ersteres überträgt die Commits und zweiteres aktualisiert die Dateien im Arbeitsordner auf den aktuelleren Commit des entfernten Repositories anstatt des älteren lokalen Commits.
+![GitHub Desktop fetch/pull](../fig/github-desktop-pull.gif)
