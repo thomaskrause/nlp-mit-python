@@ -96,7 +96,7 @@ Leeres Git-Repository in /home/thomas/Dokumente/studium/nlp/.git/ initialisiert
 ~~~
 {:.output}
 
-Diesen Ordner können Sie nun wie einen normalen Ordner im Dateisystem benutzen.
+Diesen Ordner, oder Arbeitskopie oder "working tree" genannt, können Sie nun wie einen normalen Ordner im Dateisystem benutzen.
 Sie können Ihn auch in Visual Studio Code öffnen, um Dateien anzulegen oder zu editieren.
 GitHub Desktop bietet einem sogar einen Link an, um das Repository direkt zu in Visual Studio Code zu öffnen
 
@@ -231,9 +231,9 @@ Dazu klicken Sie zuerst auf die blaue "Clone" Schaltfläche und kopieren Sie die
 
 Das Registrieren des Remote-Repositories geht leider nicht im GitHub Desktop Client[^remotegithub], deswegen müssen wir auf die Kommandozeile ausweichen und im Repository-Ordner als aktuellem Verzeichnis folgenden Befehl ausführen:
 ~~~bash
-git remote add origin https://scm.cms.hu-berlin.de/<Rest der kopierten Clone URL>
+git remote add origin https://scm.cms.hu-berlin.de/krauseto/python-kurs-test.git
 ~~~
-Dieser Befehl fügt ein neues Remote-Repository mit dem Namen "origin" und gegebenen URL hinzu.
+Dieser Befehl fügt ein neues Remote-Repository mit dem Namen "origin" und gegebenen URL hinzu (diese muss natürlich ihre eigene URL, nicht die aus dem Beispiel sein).
 
 
 [^remotegithub]: GitHub möchte mit seinem Produkt natürlich die eigene Plattform unterstützen, deswegen ist es kein Problem unter "Publish Repository" ein GitHub.com Repository auszuwählen, aber leider nicht von anderen Plattformen wie dem HU GitLab.
@@ -255,6 +255,7 @@ git push origin master
 "origin" ist der vorher vergebene Kurzname für das Remote-Repository und "master" der sogenannte Branch, der übertragen werden soll.
 Wir werden später Branches kennenlernen, im Moment müssen Sie aber nur wissen, dass der Standard-Branch "master" heißt.
 
+
 ### Hinzufügen andere Entwickler
 
 Auf ein Remote-Repository können mehrere Nutzer zugreifen.
@@ -262,6 +263,24 @@ Fügen Sie Ihre Projektmitglieder unter "Settings -> Members" hinzu.
 Um mit am Quelltext arbeiten zu können, muss mindestens die Rolle "Developer" zugewiesen werden.
 
 ![Projektmitglieder hinzufügen](../fig/gitlab-add-collaborator.png)
+
+### Klonen eines neuen Repositories
+
+Im Projekt werden Sie vermutlich nur ein Repository nutzen.
+Einer der Team-Mitglieder erstellt dieses Repository und die anderen müssen es dann auf Ihren Rechner übertragen.
+Auf der Kommandozeile würde man dazu ein neues Verzeichnis erstellen und mit `git clone` und der URL, die man über die Schaltfläche "Clone" erhalten hat ein neues lokales Repository als Kopie erstellen.
+Als weiteres optionales Argument kann man den Namen der neuen Arbeitskopie (also des Ordners) angeben.
+
+~~~bash
+cd ~/Dokumente/studium/
+git clone https://scm.cms.hu-berlin.de/krauseto/python-kurs-test.git nlp-clone
+cd nlp-clone
+~~~ 
+
+Über das Menü "File -> Clone repository" kann man im GitHub Desktop ebenfalls ein bestehendes Projekt klonen.
+In der Projektübersicht links oben kann man dann zwischen den verschiedenen Arbeitskopien die in GitHub Desktop registriert sind wechseln.
+
+![Klonen in GitHub Desktop](../fig/github-desktop-clone.gif)
 
 ### Änderungen vom Remote-Repository übernehmen
 
@@ -311,3 +330,103 @@ Dieser Zyklus aus Pullen und Pushen wiederholen Sie für jede Änderung.
 > Bevor Sie zum Beispiel anfangen lokal die Quelltexte zu bearbeiten, sollten Sie vorher einmal "Pull" ausgeführt haben.
 > Committen Sie auch kleine Änderungen und pushen Sie sie gleich nach dem Commit.
 {: .callout}
+
+## Branches
+
+Bisher haben wir nur Änderungen (also Commits) nur linear aufeinander aufgebaut.
+Auf Commit A folgt Commit B etc.
+Zum Beispiel würden die Commit-Befehle
+~~~bash
+git add file1.txt
+git commit -m "commit A"
+git add file2.txt
+git commit -m "commit B"
+git add file1.txt
+git commit -m "commit C"
+~~~
+zu einer linearen Commit-Historie führen:
+~~~
+master branch
+      |
+      + commit A
+      |
+      + commit B
+      | 
+      + commit C
+      |
+     ...
+~~~
+
+
+Ein Branch ist dabei die Sammlung einer linearen Abfolge von Commits.
+Git erlaubt das Abzweigen eines neuen Branches von einer bestehenden Commit-Abfolge.
+Nach dem Abzeigen mit `git branch <Name neuer Branch>` muss man die lokale Arbeitskopie auf diesen Branch umstellen `git checkout <Name neuer Branch>` und kann dann unabhängig vom Original-Branch commiten, bis man die beiden Branches wieder zusammenführt, in dem man zuerst die Arbeitskopie wieder auf den master-Branch mit `git checkout master` umschalten und dann den neuen Branch merged `git merge <Name neuer Branch>`. zusammenführt.
+~~~
+       master branch
+            |
+            |\
+            | \
+            |   bugfix-123 branch
+   commit A +   |
+            |   |
+            |   + commit B
+            |   + commit C
+            | /
+            |/ 
+            + merging branch
+~~~
+"master" enthält nach dem Mergen alle Commits aus beiden Branches.
+
+GitHub Desktop erlaubt ebenfalls das abzweigen und zusammenführen neuer Branches sowie das Umschalten der Arbeitskopie auf den Stand eines jeweiligen Branches.
+
+![Add Branch GitHub Desktop](../fig/github-desktop-add-branch.gif)
+
+Auf welchem Branch die Arbeitskopie aktuelle eingestellt ist, wird oben unter "Current Branch" angzeigt.
+In dem Branch können Sie nun neue Commits hinzufügen.
+Um Sie zu mergen, wechseln Sie erst zurück auf den "master" branch, klicken Sie dann auf die Branch-Auswahl Schaltfläche und wählen Sie "Choose a branch to merge into master".
+Wählen Sie den Branch aus und bestätigen Sie das mergen.
+Die neuen Commits sollten Sie danach direkt auch wieder pushen.
+
+![Merge Branch in GitHub Desktop](../fig/github-desktop-merge.gif)
+
+Sie können auch Branches auf dem entfernten Repository mit "Publish" und "Push" hochladen.
+
+## Weiterführende Themen
+
+### GitHub Desktop Hilfe
+
+Git hat sehr viele Funkionen und gerade der Umgang mit Branches kann am Anfang schwierig sein.
+Die Online-Hilfe von GitHub Desktop beschreibt viele typische Git-Arbeitsschritte, darunter auch die hier vorgestellten: <https://help.github.com/en/desktop/contributing-to-projects>.
+
+### Konflikte
+
+Besonders wichtig ist der Umgang mit Konflikten.
+Wenn zwei Entwickler an verschiedenen Dateien oder verschieden Zeilen der gleichen Datei arbeiten, wird Git beim mergen die Versionen einfach zusammenführen.
+Bei Änderungen an der gleichen Datei in der gleichen Zeile wird es aber zu so einem sogenannten Konflikt kommen.
+Diesen müssen Sie manuell auflösen (also bestimmen welche Zeile übernommen wird und welche nicht).
+Neuere Versionen von GitHub Desktop unterstützen Sie bei der Auflösung des Commits.
+Wenn ein Konflikt ensteht, können Sie entweder auswählen welcher der beiden Versionen (aus Ihrem Branch oder dem entfernten) genommen werden soll oder Sie können die Datei in Visual Studio Code öffnen lassen.
+
+![Konflikt in GitHub Code öffnen](../fig/github-desktop-open-conflict.gif)
+
+Die Datei mit dem Konflikt enthält beide Zeilen und die Markierungen `<<<<<<<` am Konflikt-Anfang `=======` für die Grenze zwischen der einen und der anderen Variante und ">>>>>>>" für das Ende des Bereichs mit dem Konflikt.
+~~~
+<<<<<<< HEAD
+pip install nltk gensim art
+=======
+pip install nltk gensim tensorflow
+>>>>>>> Added tensorflow to dependencies
+~~~
+
+Passen Sie die Datei manuell mit den gewünschten Änderungen an und stellen Sie sicher, die Zeilen mit den Konflikt-Markern dabei entfernt zu haben.
+Also zum Beispiel durch die zusammengeführte Zeile, die beide neuen Abhängigkeiten enthält.
+~~~
+pip install nltk gensim art tensorflow
+~~~
+Sobald Sie die Konfliktmarker entfernt haben, wird GitHub Desktop erlauben das Mergen fortzusetzen.
+
+![Fortsetzen Merge GitHub Desktop](../fig/github-desktop-continue-rebase.gif)
+
+### Mehr über Git Kommandozeile
+
+Um sehr tief in die Bedienung von Git auf der Kommandozeile einzusteigen, können Sie die Lektionen zu Git vom Software Carpentry Projekt durcharbeiten: <http://swcarpentry.github.io/git-novice/>.
