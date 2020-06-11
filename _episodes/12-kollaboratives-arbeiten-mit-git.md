@@ -54,7 +54,7 @@ Wir werden die grafische Oberfläche [GitHub Desktop](https://desktop.github.com
 Für Linux werden inoffizielle Installationspakete unter <https://github.com/shiftkey/desktop/releases/> bereitgestellt.
 Gleichzeitig werden wir auch immer für jede Aktion in GitHub Desktop den entsprechenden Git-Kommandozeilen-Aufruf zeigen.
 GitHub Desktop bringt seine eigene Git-Installation mit.
-Wenn Sie die Kommandozeilenbefehle nachvollziehen möchten, müssen Sie deswegen, deswegen müssen Sie Git für die Kommandozeile von <https://git-scm.com/downloads> installieren. Unter Linux ist `git` typischerweise schon in den Paketquellen vorhanden und kann zum Beispiel mit `sudo apt install git` unter Ubuntu installiert werden.
+Um die Kommandozeilenbefehle nachzuvollziehen, müssen Sie Git für die Kommandozeile von <https://git-scm.com/downloads> installieren. Unter Linux ist `git` typischerweise schon in den Paketquellen vorhanden und kann zum Beispiel mit `sudo apt install git` unter Ubuntu installiert werden.
 
 Eine populäre Platform für Git-basierte Projekte ist [GitHub.com](https://github.com/), die zum Konzern Microsoft gehört.
 Diese erlaubt inzwischen auch das Erstellen von nicht-öffentlichen Projekten und kann daher auch für eigene Studien-Projekte geeignet sein.
@@ -272,5 +272,42 @@ Um zu emulieren, dass ein anderes Mitglied committed und dann gepushed hat, klic
 ![Änderung der Datei in GitLab](../fig/gitlab-change-file.gif)
 
 Diese entfernten Änderungen können Sie dann in GitHub Desktop erst "fetchen" und dann "pullen".
-Ersteres überträgt die Commits und zweiteres aktualisiert die Dateien im Arbeitsordner auf den aktuelleren Commit des entfernten Repositories anstatt des älteren lokalen Commits.
+Der Schritt "Fetch origin" überträgt die Commits. 
+Der Pfeil mit der "1" zeigt an, dass ein entfernten Commit bereitsteht und angewendet werden kann. 
+Die zweite Aktion "Pull origin with rebase" aktualisiert dann die Dateien im Arbeitsordner auf den aktuelleren Commit des entfernten Repositories anstatt des älteren lokalen Commits.
 ![GitHub Desktop fetch/pull](../fig/github-desktop-pull.gif)
+Die entsprechenden Kommandozeilenbefehle sind entsprechend:
+~~~bash
+git fetch origin
+git pull origin master
+~~~
+
+Solange das Remote-Repository keine neueren Commits hat, kann man nun neue lokale Commits wieder mit "push" zum Remote-Repository hochladen.
+Falls es neuere Commits gibt, kann man diese zuerst "fetchen" und dann "pullen".
+Legen Sie zum Beispiel eine neue Datei `README.md` mit dem einer Projektbeschreibung in [Markdown](https://www.markdownguide.org/getting-started) an.
+
+~~~markdown
+# Beispiel-Seminarprojekt
+
+TODO: Beschreibung des Vorhabens
+
+## Setup
+
+Installieren Sie alle benötigten Pakete mit:
+
+```
+pip install nltk
+```
+
+~~~
+
+Mit dem "Add", "Commit, und "Push" können Sie diese Änderungen wieder hochladen.
+Dieser Zyklus aus Pullen und Pushen wiederholen Sie für jede Änderung.
+
+![Add/commit/push cycle](../fig/github-desktop-add-push-readmer.gif)
+
+> ## Wann sollte man pullen und pushen?
+> Pullen und pushen Sie möglichst häufig, damit Ihr lokaler Stand nicht zu sehr von dem der anderen Projektmitglieder abweicht.
+> Bevor Sie zum Beispiel anfangen lokal die Quelltexte zu bearbeiten, sollten Sie vorher einmal "Pull" ausgeführt haben.
+> Committen Sie auch kleine Änderungen und pushen Sie sie gleich nach dem Commit.
+{: .callout}
